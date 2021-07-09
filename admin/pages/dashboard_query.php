@@ -64,6 +64,21 @@
         echo 'success';
     }
   }
+
+  if (isset($_POST['update_status'])) {
+    $sched_id = $_POST['sched_id'];
+    $sched_status = $_POST['sched_status'];
+    if ($sched_status == 0) {
+      $status = 1;
+    } else {
+      $status = 0;
+    }
+
+    $results = mysqli_query($conn, "UPDATE tbl_schedule SET sched_status = $status WHERE sched_id = $sched_id");
+    if ($results) {
+        echo 'success';
+    }
+  }
   
   mysqli_close($conn);
  ?>

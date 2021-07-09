@@ -87,10 +87,11 @@
                         <th class="text-center">Schedule Description</th>
                         <th class="text-center"># of Students</th>
                         <th class="text-center">Date Created</th>
+                        <th class="text-center">Status</th>
                         <th class="text-center">Action</th>
                     </tr>
                     </thead>
-                    <tbody>';
+                    <tbody>
                       <?php 
                         $count = 1;
                         $query = mysqli_query($conn, "SELECT * FROM tbl_schedule ORDER BY sched_id DESC");
@@ -102,6 +103,16 @@
                           <td class="text-center"><?=$data['sched_description']?></td>
                           <td class="text-center">1</td>
                           <td class="text-center"><?=date("F d, Y",strtotime($data['sched_date_created']))?></td>
+                          <td class="text-center" id="<?=$data['sched_id']?>,<?=$data['sched_status']?>" onclick="update_status(this.id)">
+                            <?php 
+                            $status = $data['sched_status'];
+                            if ($status == 0) {
+                              echo '<span class="badge label-table badge-warning">Inactive</span>';
+                            } else {
+                              echo '<span class="badge label-table badge-success">Active</span>';
+                            }
+                            ?>
+                          </td>
                           <td class="text-center">
                           <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#update-schedule-modal" id="<?=$data['sched_id']?>" onclick="show_update_schedule(this.id)"> <i class="far fa-edit"></i> </button>
                           <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" id="<?=$data['sched_id']?>" onclick="delete_schedule(this.id)"> <i class="fas fa-times"></i> </button>
@@ -206,6 +217,30 @@
                           }
                         }
                     });
+            }
+          }
+
+          function update_status(id) {
+            array = id.split(",")
+            sched_id = array[0];
+            sched_status = array[1];
+            if (confirm('Are you sure?')) {
+              $.ajax({
+                  url: 'dashboard_query.php',
+                  type: 'POST',
+                  async: false,
+                  data:{
+                      sched_id:sched_id,
+                      sched_status:sched_status,
+                      update_status: 1,
+                  },
+                      success: function(response){
+                        if (response == 'success') {
+                          alert('Schedule Status Successfully Updated!!');
+                          location.reload();
+                        }
+                      }
+                  });
             }
           }
           

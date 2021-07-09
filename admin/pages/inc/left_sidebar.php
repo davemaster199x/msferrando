@@ -17,14 +17,14 @@
                 </li>
 
                 <li>
-                    <a href="./accutest.php" class="">
+                    <a href="./students.php" class="">
                         <i class="fe-users"></i>
                         <span> Students </span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="./technologist.php" class="">
+                    <a href="./instructors.php" class="">
                         <i class="fas fa-user-tie"></i>
                         <span> Intructors </span>
                     </a>
