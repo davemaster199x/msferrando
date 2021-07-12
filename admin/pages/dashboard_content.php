@@ -85,6 +85,7 @@
                         <th>No.</th>
                         <th>Course</th>
                         <th class="text-center">Schedule Description</th>
+                        <th class="text-center">Schedule Price</th>
                         <th class="text-center"># of Students</th>
                         <th class="text-center">Date Created</th>
                         <th class="text-center">Status</th>
@@ -101,6 +102,7 @@
                           <td><?=$count++?></td>
                           <td><?=$data['sched_course']?></td>
                           <td class="text-center"><?=$data['sched_description']?></td>
+                          <td class="text-center">₱ <?=number_format($data['sched_price'])?></td>
                           <td class="text-center">1</td>
                           <td class="text-center"><?=date("F d, Y",strtotime($data['sched_date_created']))?></td>
                           <td class="text-center" id="<?=$data['sched_id']?>,<?=$data['sched_status']?>" onclick="update_status(this.id)">
@@ -135,8 +137,9 @@
           function save_schedule() {
             sched_description = document.getElementById("sched_description").value;
             sched_course = document.getElementById("sched_course").value;
+            sched_price = document.getElementById("sched_price").value;
 
-            if (sched_description == '' || sched_course == '') {
+            if (sched_description == '' || sched_course == '' || sched_price == '') {
               alert('Please fill up all Schedule Information!!');
             } else {
               $.ajax({
@@ -146,6 +149,7 @@
                   data:{
                       sched_description:sched_description,
                       sched_course:sched_course,
+                      sched_price:sched_price,
                       save_schedule: 1,
                   },
                       success: function(response){
@@ -198,6 +202,7 @@
             sched_id = document.getElementById("sched_id_update").value;
             sched_description = document.getElementById("sched_description_update").value;
             sched_course = document.getElementById("sched_course_update").value;
+            sched_price = document.getElementById("sched_price_update").value;
 
             if (confirm('Are you sure?')) {
                   $.ajax({
@@ -208,6 +213,7 @@
                         sched_id:sched_id,
                         sched_description:sched_description,
                         sched_course:sched_course,
+                        sched_price:sched_price,
                         update_schedule: 1,
                     },
                         success: function(response){

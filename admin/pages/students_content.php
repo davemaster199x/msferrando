@@ -49,9 +49,11 @@
                             <?php 
                             $stud_payment = $data['stud_payment'];
                             if ($stud_payment == 0) {
-                              echo '<span class="badge label-table badge-warning">Not Yet</span>';
+                              echo '<span class="badge label-table badge-danger">Receivable</span>';
+                            } elseif ($stud_payment == 1) {
+                              echo '<span class="badge label-table badge-warning">Partially Paid</span>';
                             } else {
-                              echo '<span class="badge label-table badge-success">Done</span>';
+                              echo '<span class="badge label-table badge-success">Fully Paid</span>';
                             }
                             ?>
                           </td>

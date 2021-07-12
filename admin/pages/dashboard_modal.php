@@ -18,6 +18,14 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
+                            <label for="field-1" class="control-label">Schedule Price:</label>
+                            <input type="number" class="form-control" id="sched_price"></input>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
                             <label for="field-1" class="control-label">Select Course:</label>
                             <select id="sched_course" class="form-control"> 
                                 <option value="TDC">TDC</option>

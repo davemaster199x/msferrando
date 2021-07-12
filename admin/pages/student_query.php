@@ -70,8 +70,9 @@
             <div class="form-group">
                 <label for="field-1" class="control-label">Student Payment:</label>
                 <select id="stud_payment_update" class="form-control">
-                    <option value="1"'; if($stud_payment == 1) { echo 'selected'; } echo '>Done!!</option>
-                    <option value="0"'; if($stud_payment == 0) { echo 'selected'; } echo '>Not Yet!!</option>
+                    <option value="0"'; if($stud_payment == 0) { echo 'selected'; } echo '>Receivable</option>
+                    <option value="1"'; if($stud_payment == 1) { echo 'selected'; } echo '>Partial Paid</option>
+                    <option value="2"'; if($stud_payment == 2) { echo 'selected'; } echo '>Fully Paid</option>
                 </select>
             </div>
         </div>
