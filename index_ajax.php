@@ -5,15 +5,21 @@
     if (isset($_POST['select_course'])) {
         $course = $_POST['course'];
     
-        $query = mysqli_query($conn, "SELECT * FROM tbl_schedule WHERE sched_course = '$course' AND sched_status = 1");
+        $query = mysqli_query($conn, "SELECT * FROM tbl_schedule WHERE sched_course = '$course' AND sched_status_website = 1");
+        $rows = mysqli_num_rows($query);
         echo '
             <div class="u-form-group u-form-select u-form-group-6">
                 <label for="select-2419" class="u-label">Select Available Schedule:</label>
                 <div class="u-form-select-wrapper">
                 <select id="sched_id" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">';
                 while($data = mysqli_fetch_array($query)) {
-                    echo '<option value="'.$data['sched_id'].'">'.$data['sched_description'].'</option>';
+                    echo '<option value="'.$data['sched_id'].'">'.$data['sched_description'].' (₱'.$data['sched_price'].')</option>';
                 }
+                    if ($rows == 0) {
+                        echo '
+                        <option value="" disabled selected>No Schedule Available!!</option
+                        ';
+                    }
                 echo '
                 </select>
                 </div>

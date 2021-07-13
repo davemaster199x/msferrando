@@ -32,7 +32,7 @@
                       <tr style="cursor: pointer;">
                           <td><?=$count++?></td>
                           <td><?=$data['stud_name']?></td>
-                          <td class="text-center"><?=$data['sched_description']?></td>
+                          <td class="text-center"><?=$data['sched_description'].' (₱'.$data['sched_price'].')'?></td>
                           <td class="text-center"><?=$data['stud_email_address']?></td>
                           <td class="text-center"><?=$data['stud_contact']?></td>
                           <td class="text-center">
@@ -87,7 +87,7 @@
                                         <?php
                                         $query_schedule = mysqli_query($conn, "SELECT * FROM tbl_schedule WHERE sched_status = 1 ORDER BY sched_id DESC");
                                         while($data_schedule = mysqli_fetch_array($query_schedule)) {
-                                            echo '<option value="'.$data_schedule['sched_id'].'">'.$data_schedule['sched_description'].'</option>';
+                                            echo '<option value="'.$data_schedule['sched_id'].'">'.$data_schedule['sched_description'].' (₱'.$data_schedule['sched_price'].')</option>';
                                         }
                                         ?>
                                     </select>
@@ -229,7 +229,13 @@
 
           function update_student() {
             stud_id = document.getElementById("stud_id_update").value;
-            sched_id = document.getElementById("sched_id_update").value;
+            sched_id_update = document.getElementById("sched_id_update").value;
+            sched_id_temp = document.getElementById("sched_id_temp").value;
+            if (sched_id_update == '') {
+              sched_id = sched_id_temp;
+            } else {
+              sched_id = sched_id_update;
+            }
             stud_status = document.getElementById("stud_status_update").value;
             stud_payment = document.getElementById("stud_payment_update").value;
             stud_name = document.getElementById("stud_name_update").value;

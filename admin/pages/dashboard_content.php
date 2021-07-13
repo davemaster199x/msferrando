@@ -89,6 +89,7 @@
                         <th class="text-center"># of Students</th>
                         <th class="text-center">Date Created</th>
                         <th class="text-center">Status</th>
+                        <th class="text-center">Show in Website</th>
                         <th class="text-center">Action</th>
                     </tr>
                     </thead>
@@ -103,7 +104,14 @@
                           <td><?=$data['sched_course']?></td>
                           <td class="text-center"><?=$data['sched_description']?></td>
                           <td class="text-center">₱ <?=number_format($data['sched_price'])?></td>
-                          <td class="text-center">1</td>
+                          <td class="text-center" data-toggle="modal" data-target=".bs-example-modal-lg" id="<?=$data['sched_id']?>" onclick="show_schedule_students(this.id)">
+                          <?php
+                          $sched_id = $data['sched_id'];
+                          $count_student = mysqli_query($conn, "SELECT * FROM tbl_student WHERE sched_id = $sched_id");
+                          $total_students = mysqli_num_rows($count_student);
+                          echo $total_students;
+                          ?>
+                          </td>
                           <td class="text-center"><?=date("F d, Y",strtotime($data['sched_date_created']))?></td>
                           <td class="text-center" id="<?=$data['sched_id']?>,<?=$data['sched_status']?>" onclick="update_status(this.id)">
                             <?php 
@@ -112,6 +120,16 @@
                               echo '<span class="badge label-table badge-warning">Inactive</span>';
                             } else {
                               echo '<span class="badge label-table badge-success">Active</span>';
+                            }
+                            ?>
+                          </td>
+                          <td class="text-center" id="<?=$data['sched_id']?>,<?=$data['sched_status_website']?>" onclick="update_status_website(this.id)">
+                            <?php 
+                            $status_website = $data['sched_status_website'];
+                            if ($status_website == 0) {
+                              echo '<span class="badge label-table badge-warning">Hide</span>';
+                            } else {
+                              echo '<span class="badge label-table badge-success">Show</span>';
                             }
                             ?>
                           </td>
@@ -247,6 +265,51 @@
                         }
                       }
                   });
+            }
+          }
+
+          function update_status_website(id) {
+            array = id.split(",")
+            sched_id = array[0];
+            sched_status_website = array[1];
+            if (confirm('Are you sure?')) {
+              $.ajax({
+                  url: 'dashboard_query.php',
+                  type: 'POST',
+                  async: false,
+                  data:{
+                      sched_id:sched_id,
+                      sched_status_website:sched_status_website,
+                      update_status_website: 1,
+                  },
+                      success: function(response){
+                        if (response == 'success') {
+                          alert('Hide/Show Status Successfully Updated!!');
+                          location.reload();
+                        }
+                      }
+                  });
+            }
+          }
+
+          function show_schedule_students(id) {
+            $.ajax({
+                url: 'dashboard_query.php',
+                type: 'POST',
+                async: false,
+                data:{
+                    sched_id:id,
+                    show_schedule_students: 1,
+                },
+                    success: function(response){
+                        $('#show_schedule_students').html(response);
+                    }
+                });
+          }
+
+          function delete_schedule_student(id) {
+            if (confirm('Are you sure?')) {
+
             }
           }
           

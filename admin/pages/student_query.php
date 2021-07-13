@@ -46,10 +46,12 @@
             <div class="form-group">
                 <label for="field-1" class="control-label">Select Schedule:</label>
                 <input type="hidden" class="form-control" id="stud_id_update" value="'.$stud_id.'">
+                <input type="hidden" class="form-control" id="sched_id_temp" value="'.$sched_id.'">
                 <select id="sched_id_update" class="form-control">';
+                    echo '<option></option>';
                 $query_schedule = mysqli_query($conn, "SELECT * FROM tbl_schedule WHERE sched_status = 1 ORDER BY sched_id DESC");
                 while($data_schedule = mysqli_fetch_array($query_schedule)) {
-                    echo '<option value="'.$data_schedule['sched_id'].'" '; if($data_schedule['sched_id'] === $sched_id) { echo 'selected'; } echo'>'.$data_schedule['sched_description'].'</option>';
+                    echo '<option value="'.$data_schedule['sched_id'].'" '; if($data_schedule['sched_id'] === $sched_id) { echo 'selected'; } echo'>'.$data_schedule['sched_description'].' (₱'.$data_schedule['sched_price'].')</option>';
                 }
                 echo '
                 </select>
@@ -71,7 +73,7 @@
                 <label for="field-1" class="control-label">Student Payment:</label>
                 <select id="stud_payment_update" class="form-control">
                     <option value="0"'; if($stud_payment == 0) { echo 'selected'; } echo '>Receivable</option>
-                    <option value="1"'; if($stud_payment == 1) { echo 'selected'; } echo '>Partial Paid</option>
+                    <option value="1"'; if($stud_payment == 1) { echo 'selected'; } echo '>Partially Paid</option>
                     <option value="2"'; if($stud_payment == 2) { echo 'selected'; } echo '>Fully Paid</option>
                 </select>
             </div>

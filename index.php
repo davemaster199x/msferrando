@@ -471,7 +471,7 @@ notice)
               <div class="u-form-select-wrapper">
                 <select id="course" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" onchange="select_course()">
                   <option diabled selected></option>
-                  <option value="TDC">15 Hours Theoretical Course (TDC)</option>
+                  <option value="TDC">15 Hours Theoretical Course (TDC) (10 Students Only)</option>
                   <option value="PDC">8 Hours Practical Driving Course (PDC)</option>
                   <option value="Additional Driving">Additional Driving</option>
                 </select>
@@ -575,8 +575,10 @@ notice)
       stud_birthdate = document.getElementById("stud_birthdate").value;
       sched_id = document.getElementById("sched_id").value;
       if (confirm('Are you sure?')) {
-        if (stud_name == '' || stud_email_address == '' || stud_contact == '' || stud_address == '' || stud_birthdate == '' || sched_id == '') {
+        if (stud_name == '' || stud_email_address == '' || stud_contact == '' || stud_address == '' || stud_birthdate == '') {
           alert('Please fill up all form!! Thank you.');
+        } else if (sched_id == '') {
+          alert('No Schedule Available!!');
         } else {
           $.ajax({
             url: 'index_ajax.php',
@@ -602,7 +604,7 @@ notice)
                 }
             });
           }
-      }
+        }
     }
   </script>
 </html>
