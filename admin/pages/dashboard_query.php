@@ -109,8 +109,16 @@
   if (isset($_POST['show_schedule_students'])) {
     $sched_id = $_POST['sched_id'];
 
+    $query1 = mysqli_query($conn, "SELECT * FROM tbl_schedule WHERE sched_id = $sched_id");
+    $data = mysqli_fetch_assoc($query1);
+    $sched_description = $data['sched_description'];
+    $sched_price = $data['sched_price'];
+    $sched_course = $data['sched_course'];
+
     $query = mysqli_query($conn, "SELECT * FROM tbl_student WHERE sched_id = $sched_id ORDER BY stud_name");
     echo '
+    <h3 align="center">'.$sched_description.'</h3>
+    <h4 align="center">'.$sched_course.' | ₱ '.number_format($sched_price).'</h4>
     <table class="table table-bordered dt-responsive nowrap table-hover" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
       <thead>
       <tr>
@@ -143,7 +151,7 @@
             </select>
           </td>
           <td class="text-center">
-            <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" id="" onclick="show_update_student(this.id)"> <i class="fas fa-save"></i> </button>
+            <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" id="'.$data['stud_id'].'" onclick="update_stud_schedule(this.id)"> <i class="fas fa-save"></i> </button>
           </td>
         </tr>
       ';
@@ -152,6 +160,17 @@
       </tbody>
     </table>
     ';
+  }
+
+  if (isset($_POST['update_stud_schedule'])) {
+    $stud_id = $_POST['stud_id'];
+    $stud_status = $_POST['stud_status'];
+    $stud_payment = $_POST['stud_payment'];
+
+    $result = mysqli_query($conn, "UPDATE tbl_student SET stud_payment = '$stud_payment', stud_status = '$stud_status' WHERE stud_id = $stud_id");
+    if ($result) {
+        echo 'success';
+    }
   }
   
   mysqli_close($conn);

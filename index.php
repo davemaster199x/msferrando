@@ -598,8 +598,8 @@ notice)
                     alert('You have successfully register!!');
                     document.getElementById("student_form").style.display = 'none';
                     document.getElementById("student_payment").style.display = '';
-                  } else {
-                    alert('Wala!!');
+                  } else if (response == 'sobranasa10') {
+                    alert('Sorry the maximum students for this schedule already Completed!! Please try another schedule. Thank you...');
                   }
                 }
             });

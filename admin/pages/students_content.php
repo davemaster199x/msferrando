@@ -87,7 +87,15 @@
                                         <?php
                                         $query_schedule = mysqli_query($conn, "SELECT * FROM tbl_schedule WHERE sched_status = 1 ORDER BY sched_id DESC");
                                         while($data_schedule = mysqli_fetch_array($query_schedule)) {
-                                            echo '<option value="'.$data_schedule['sched_id'].'">'.$data_schedule['sched_description'].' (₱'.$data_schedule['sched_price'].')</option>';
+                                          $sched_id = $data_schedule['sched_id'];
+                                          $count_student = mysqli_query($conn, "SELECT * FROM tbl_student WHERE sched_id = $sched_id");
+                                          $total_students = mysqli_num_rows($count_student);
+                                          if ($total_students === 10) {
+                                              $disabled = 'disabled';
+                                          } else {
+                                              $disabled = '';
+                                          }
+                                            echo '<option '.$disabled.' value="'.$data_schedule['sched_id'].'">'.$data_schedule['sched_description'].' (₱'.$data_schedule['sched_price'].') ('.$total_students.' Students Enrolled)</option>';
                                         }
                                         ?>
                                     </select>
@@ -185,6 +193,8 @@
                         if (response == 'success') {
                           alert('Student Successfully Added!!');
                           location.reload();
+                        } else if (response == 'sobranasa10') {
+                          alert('Sorry the maximum students for this schedule already Completed!! Please try another schedule. Thank you...');
                         }
                       }
                 });

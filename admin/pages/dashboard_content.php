@@ -117,9 +117,9 @@
                             <?php 
                             $status = $data['sched_status'];
                             if ($status == 0) {
-                              echo '<span class="badge label-table badge-warning">Inactive</span>';
+                              echo '<span class="badge label-table badge-success">Done</span>';
                             } else {
-                              echo '<span class="badge label-table badge-success">Active</span>';
+                              echo '<span class="badge label-table badge-info">Active</span>';
                             }
                             ?>
                           </td>
@@ -307,9 +307,26 @@
                 });
           }
 
-          function delete_schedule_student(id) {
+          function update_stud_schedule(id) {
             if (confirm('Are you sure?')) {
-
+              stud_schedule_status = document.getElementById("stud_schedule_status").value;
+              stud_schedule_payment = document.getElementById("stud_schedule_payment").value;
+              $.ajax({
+                url: 'dashboard_query.php',
+                type: 'POST',
+                async: false,
+                data:{
+                    stud_id:id,
+                    stud_status:stud_schedule_status,
+                    stud_payment:stud_schedule_payment,
+                    update_stud_schedule: 1,
+                },
+                    success: function(response){
+                        if (response == 'success') {
+                          alert('Successfully Updated!!');
+                        }
+                    }
+                });
             }
           }
           

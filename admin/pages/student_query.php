@@ -11,10 +11,16 @@
     $stud_birthdate = $_POST['stud_birthdate'];
     $stud_address = $_POST['stud_address'];
 
-    $result = mysqli_query($conn, "INSERT INTO tbl_student (sched_id, stud_date_created, stud_name, stud_email_address, stud_contact, stud_address, stud_birthdate) VALUES ('$sched_id', NOW(), '$stud_name', '$stud_email_address', '$stud_contact', '$stud_address', '$stud_birthdate')");
-    if ($result) {
-        echo 'success';
-    }
+    $count_student = mysqli_query($conn, "SELECT * FROM tbl_student WHERE sched_id = $sched_id");
+    $total_students = mysqli_num_rows($count_student);
+    if ($total_students === 10) {
+        echo 'sobranasa10';
+    } else {
+        $result = mysqli_query($conn, "INSERT INTO tbl_student (sched_id, stud_date_created, stud_name, stud_email_address, stud_contact, stud_address, stud_birthdate) VALUES ('$sched_id', NOW(), '$stud_name', '$stud_email_address', '$stud_contact', '$stud_address', '$stud_birthdate')");
+        if ($result) {
+            echo 'success';
+        }
+    }  
   }
 
   if (isset($_POST['delete_student'])) {
@@ -51,7 +57,15 @@
                     echo '<option></option>';
                 $query_schedule = mysqli_query($conn, "SELECT * FROM tbl_schedule WHERE sched_status = 1 ORDER BY sched_id DESC");
                 while($data_schedule = mysqli_fetch_array($query_schedule)) {
-                    echo '<option value="'.$data_schedule['sched_id'].'" '; if($data_schedule['sched_id'] === $sched_id) { echo 'selected'; } echo'>'.$data_schedule['sched_description'].' (₱'.$data_schedule['sched_price'].')</option>';
+                    $sched_id1 = $data_schedule['sched_id'];
+                    $count_student = mysqli_query($conn, "SELECT * FROM tbl_student WHERE sched_id = $sched_id1");
+                    $total_students = mysqli_num_rows($count_student);
+                    if ($total_students === 10) {
+                        $disabled = 'disabled';
+                    } else {
+                        $disabled = '';
+                    }
+                    echo '<option '.$disabled.' value="'.$data_schedule['sched_id'].'" '; if($data_schedule['sched_id'] === $sched_id) { echo 'selected'; } echo'>'.$data_schedule['sched_description'].' (₱'.$data_schedule['sched_price'].') ('.$total_students.' Students Enrolled)</option>';
                 }
                 echo '
                 </select>
