@@ -6,13 +6,13 @@
     <meta name="keywords" content="Ready to step on the gas?, Enroll now!​">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <link rel="shortcut icon" href="images/MSFDILOGO5INCH.png">
+    <link rel="icon" href="./images/MSFDILOGO5INCH.png">
     <title>MS Ferrando Driving Institute</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Home.css" media="screen">
+    <link rel="stylesheet" href="Home.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
-    <!-- <meta name="generator" content="Nicepage 3.16.1, nicepage.com"> -->
+    <meta name="generator" content="msferrando.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
@@ -30,7 +30,7 @@
     <link rel="canonical" href="index.html">
     <meta property="og:url" content="index.html">
   </head>
-  <body data-home-page="Home.html" data-home-page-title="Home" class="u-body u-overlap u-overlap-contrast u-overlap-transparent"><header class="u-clearfix u-header u-palette-1-dark-2 u-sticky u-header" id="sec-de9b" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-clearfix u-sheet u-sheet-1">
+  <body data-home-page="Home.html" data-home-page-title="Home" class="u-body u-overlap u-overlap-contrast u-overlap-transparent"><header class="u-clearfix u-custom-color-4 u-header u-sticky u-header" id="sec-de9b" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-clearfix u-sheet u-sheet-1">
         <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="1080" data-image-height="1080">
           <img src="images/msfdilogowhite.png" class="u-logo-image u-logo-image-1" data-image-width="75">
         </a>
@@ -44,12 +44,12 @@
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-spacing-30 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" href="Home.html#sec-3070" data-page-id="631429632" style="padding: 10px 0px;">Home</a>
-</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" href="Home.html#sec-dbb0" data-page-id="631429632" style="padding: 10px 0px;">MSFDI</a>
-</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" href="Home.html#sec-c539" data-page-id="631429632" style="padding: 10px 0px;">About Us</a>
-</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" href="Home.html#sec-8589" data-page-id="631429632" style="padding: 10px 0px;">Services</a>
-</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" href="Home.html#sec-e962" data-page-id="631429632" style="padding: 10px 0px;">Enroll Now!!</a>
-</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-base u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" href="https://www.facebook.com/MSFerrandoDriving" target="_blank" style="padding: 10px 0px;">Contact Us | 0946 660 9226</a>
+            <ul class="u-nav u-spacing-30 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-2 u-border-active-custom-color-8 u-border-hover-custom-color-8 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" href="Home.html#sec-3070" data-page-id="631429632" style="padding: 10px 0px;">Home</a>
+</li><li class="u-nav-item"><a class="u-border-2 u-border-active-custom-color-8 u-border-hover-custom-color-8 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" href="Home.html#sec-dbb0" data-page-id="631429632" style="padding: 10px 0px;">MSFDI</a>
+</li><li class="u-nav-item"><a class="u-border-2 u-border-active-custom-color-8 u-border-hover-custom-color-8 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" href="Home.html#sec-c539" data-page-id="631429632" style="padding: 10px 0px;">About Us</a>
+</li><li class="u-nav-item"><a class="u-border-2 u-border-active-custom-color-8 u-border-hover-custom-color-8 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" href="Home.html#sec-8589" data-page-id="631429632" style="padding: 10px 0px;">Services</a>
+</li><li class="u-nav-item"><a class="u-border-2 u-border-active-custom-color-8 u-border-hover-custom-color-8 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" href="Home.html#sec-e962" data-page-id="631429632" style="padding: 10px 0px;">Enroll Now!!</a>
+</li><li class="u-nav-item"><a class="u-border-2 u-border-active-custom-color-8 u-border-hover-custom-color-8 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-palette-1-base u-text-body-alt-color u-text-hover-palette-1-base" href="https://www.facebook.com/MSFerrandoDriving" target="_blank" style="padding: 10px 0px;">Contact Us | 0946 660 9226</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
@@ -75,12 +75,12 @@
         <p class="u-large-text u-text u-text-variant u-text-2" data-animation-name="flipIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="X">Fasten your seatbelts Davaoeños!<br>MS Ferrando Driving Institute is opening soonest.<br>MS Ferrando Driving Institute is here to
 help you become a responsible driver you expect you to be!&nbsp;&nbsp;<br>
         </p>
-        <div class="u-container-style u-group u-opacity u-opacity-15 u-palette-1-base u-radius-10 u-shape-round u-group-1">
+        <div class="u-container-style u-custom-color-4 u-group u-opacity u-opacity-15 u-radius-32 u-shape-round u-group-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">
           <div class="u-container-layout u-container-layout-1">
             <h1 class="u-text u-text-3" data-animation-name="lightSpeedIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Enroll now!<span style="font-weight: 700;"></span>
             </h1>
             <h6 class="u-custom-font u-text u-text-font u-text-4" data-animation-name="lightSpeedIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">15hr - Theoretical Driving Course</h6>
-            <a href="Home.html#sec-e962" data-page-id="631429632" class="u-btn u-btn-round u-button-style u-custom-color-1 u-custom-font u-heading-font u-hover-palette-1-light-1 u-radius-50 u-btn-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">click me!</a>
+            <a href="Home.html#sec-e962" data-page-id="631429632" class="u-btn u-btn-round u-button-style u-custom-color-4 u-custom-font u-heading-font u-hover-custom-color-8 u-radius-50 u-btn-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">click me!</a>
           </div>
         </div>
       </div>
@@ -109,7 +109,7 @@ regarding road safety measures.
 </div><div class="u-effect-fade u-effect-hover-zoom u-gallery-item u-gallery-item-2"><div class="u-back-slide" data-image-width="1200" data-image-height="1200"><img class="u-back-image u-back-image-2" src="images/Land_Transportation_Office.svg1.png">
 </div><div class="u-over-slide u-shading u-over-slide-2"><h3 class="u-gallery-heading"></h3><p class="u-gallery-text"></p>
 </div>
-</div><div class="u-effect-fade u-effect-hover-zoom u-gallery-item u-gallery-item-3"><div class="u-back-slide" data-image-width="1080" data-image-height="720"><img class="u-back-image u-back-image-3" src="images/156415719_235731291526875_2137812106166997690_n.jpg?rand=503d">
+</div><div class="u-effect-fade u-effect-hover-zoom u-gallery-item u-gallery-item-3"><div class="u-back-slide" data-image-width="1080" data-image-height="720"><img class="u-back-image u-back-image-3" src="images/156415719_235731291526875_2137812106166997690_n.jpg">
 </div><div class="u-over-slide u-shading u-over-slide-3"><h3 class="u-gallery-heading"></h3><p class="u-gallery-text"></p>
 </div>
 </div><div class="u-effect-fade u-effect-hover-zoom u-gallery-item u-gallery-item-4" data-image-width="1080" data-image-height="1080"><div class="u-back-slide"><img class="u-back-image u-back-image-4" src="images/msfdilogowhite1.png">
@@ -149,41 +149,41 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
           <div class="u-layout-row">
             <div class="u-container-style u-layout-cell u-left-cell u-size-29 u-layout-cell-1">
               <div class="u-container-layout u-container-layout-1">
-                <h2 class="u-align-left u-text u-text-1" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Who are we?</h2>
-                <h1 class="u-align-left u-text u-text-custom-color-2 u-text-2" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Why choose us?</h1>
+                <h2 class="u-align-left u-text u-text-custom-color-8 u-text-1" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Who are we?</h2>
+                <h1 class="u-align-left u-text u-text-custom-color-8 u-text-2" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Why choose us?</h1>
                 <p class="u-align-justify u-text u-text-3" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">MS Ferrando is not only owned by an accredited and well-trained Instructor himself.  He is an experienced public utility vehicle driver for over a decade.  Marvin S. Ferrando has gained so much skills and driving knowledge he wishes to share with you.  The do’s and don’t ‘s on the road and what it takes to be a responsible driver not to mention the right attitude to bear when on the road.  With our TESDA-Certified trainers, MSFDI is confident to make you a law-abiding citizen advocating safety on the road. Be with us and learn by heart:</p>
                 <ul class="u-align-left u-custom-list u-text u-text-4" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">
                   <li>
-                    <div class="u-list-icon u-list-icon-1">
+                    <div class="u-list-icon u-text-custom-color-8 u-list-icon-1">
                       <svg class="u-svg-content" viewBox="0 0 512 512" id="svg-aa63"><path d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0" fill="#2196f3"></path><path d="m385.75 201.75-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0 8.339844 8.339843 8.339844 21.820312 0 30.164062zm0 0" fill="#fafafa"></path></svg>
                     </div><!--[if !supportLists]-->Safe Driving and Emergency
 Dealings&nbsp;<br>
                   </li>
                   <li>
-                    <div class="u-list-icon u-list-icon-1">
+                    <div class="u-list-icon u-text-custom-color-8 u-list-icon-1">
                       <svg class="u-svg-content" viewBox="0 0 512 512" id="svg-aa63"><path d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0" fill="#2196f3"></path><path d="m385.75 201.75-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0 8.339844 8.339843 8.339844 21.820312 0 30.164062zm0 0" fill="#fafafa"></path></svg>
                     </div>
-                    <div class="u-list-icon u-list-icon-3">
+                    <div class="u-list-icon u-text-custom-color-8 u-list-icon-3">
                       <svg class="u-svg-content" viewBox="0 0 512 512" id="svg-aa63"><path d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0" fill="#2196f3"></path><path d="m385.75 201.75-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0 8.339844 8.339843 8.339844 21.820312 0 30.164062zm0 0" fill="#fafafa"></path></svg>
                     </div><!--[if !supportLists]-->The Philippine and
 International Traffic Rules and Regulations&nbsp;&nbsp;<br>
                   </li>
                   <li>
-                    <div class="u-list-icon u-list-icon-1">
+                    <div class="u-list-icon u-text-custom-color-8 u-list-icon-1">
                       <svg class="u-svg-content" viewBox="0 0 512 512" id="svg-aa63"><path d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0" fill="#2196f3"></path><path d="m385.75 201.75-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0 8.339844 8.339843 8.339844 21.820312 0 30.164062zm0 0" fill="#fafafa"></path></svg>
                     </div>
-                    <div class="u-list-icon u-list-icon-5">
+                    <div class="u-list-icon u-text-custom-color-8 u-list-icon-5">
                       <svg class="u-svg-content" viewBox="0 0 512 512" id="svg-aa63"><path d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0" fill="#2196f3"></path><path d="m385.75 201.75-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0 8.339844 8.339843 8.339844 21.820312 0 30.164062zm0 0" fill="#fafafa"></path></svg>
                     </div><!--[if !supportLists]-->Standards in Maneuvering
 Different types of Vehicles&nbsp;<br>
                   </li>
                   <li>
-                    <div class="u-list-icon u-list-icon-1">
+                    <div class="u-list-icon u-text-custom-color-8 u-list-icon-1">
                       <svg class="u-svg-content" viewBox="0 0 512 512" id="svg-aa63"><path d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0" fill="#2196f3"></path><path d="m385.75 201.75-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0 8.339844 8.339843 8.339844 21.820312 0 30.164062zm0 0" fill="#fafafa"></path></svg>
                     </div><!--[if !supportLists]-->Refresher courses&nbsp;&nbsp;<br>
                   </li>
                   <li>
-                    <div class="u-list-icon u-list-icon-1">
+                    <div class="u-list-icon u-text-custom-color-8 u-list-icon-1">
                       <svg class="u-svg-content" viewBox="0 0 512 512" id="svg-aa63"><path d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0" fill="#2196f3"></path><path d="m385.75 201.75-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0 8.339844 8.339843 8.339844 21.820312 0 30.164062zm0 0" fill="#fafafa"></path></svg>
                     </div><!--[if !supportLists]-->Experienced and Professional Instructors&nbsp;<br>
                   </li>
@@ -207,7 +207,7 @@ Different types of Vehicles&nbsp;<br>
               </div>
               <div class="u-align-justify-lg u-align-justify-xl u-container-style u-layout-cell u-size-25-lg u-size-25-xl u-size-29-md u-size-29-sm u-size-29-xs u-white u-layout-cell-2">
                 <div class="u-container-layout u-valign-bottom-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-2">
-                  <h1 class="u-align-center-md u-align-center-sm u-align-center-xs u-text u-text-custom-color-1 u-title u-text-1" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Drive towards to your dreams</h1>
+                  <h1 class="u-align-center-md u-align-center-sm u-align-center-xs u-text u-text-custom-color-8 u-title u-text-1" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Drive towards to your dreams</h1>
                   <p class="u-align-justify-md u-align-justify-sm u-align-justify-xs u-text u-text-2" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">MSFDI Stands for Marvin Sardido Ferrando
 Driving Institute.&nbsp; A lad who spent his
 life on the road driving jeepneys and taxis to suffice his needs in schooling
@@ -234,7 +234,7 @@ LIFETIME PRIDE <a href="https://www.tesda.gov.ph/" class="u-active-none u-border
         </div>
       </div>
     </section>
-    <section class="u-clearfix u-palette-1-base u-section-6" id="sec-8589">
+    <section class="u-clearfix u-custom-color-4 u-section-6" id="sec-8589">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <h2 class="u-align-center u-text u-text-1" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Serv<span style="font-weight: 700;"></span>ices<span style="font-weight: 700;"></span>
         </h2>
@@ -245,7 +245,7 @@ LIFETIME PRIDE <a href="https://www.tesda.gov.ph/" class="u-active-none u-border
                 <h3 class="u-align-center u-text u-text-2" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">TDC</h3>
                 <h6 class="u-align-center u-text u-text-3" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Practical Driving Course</h6>
                 <p class="u-align-center u-text u-text-4" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">No SP yet?&nbsp; This is one of what you need.</p>
-                <a href="Home.html#sec-fea1" data-page-id="631429632" class="u-btn u-btn-round u-button-style u-custom-color-2 u-hover-palette-1-light-1 u-radius-50 u-btn-1">Learn More about TDC<br>
+                <a href="Home.html#sec-fea1" data-page-id="631429632" class="u-btn u-btn-round u-button-style u-custom-color-8 u-hover-palette-1-light-1 u-radius-50 u-btn-1">Learn More about TDC<br>
                 </a>
               </div>
             </div>
@@ -255,7 +255,7 @@ LIFETIME PRIDE <a href="https://www.tesda.gov.ph/" class="u-active-none u-border
                 <h6 class="u-align-center u-text u-text-6" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Practical Driving Course</h6>
                 <p class="u-align-center u-text u-text-7" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Now an SP holder
 for a month or so?&nbsp; Here’s the next step!</p>
-                <a href="Home.html#carousel_497d" data-page-id="631429632" class="u-btn u-btn-round u-button-style u-custom-color-2 u-hover-palette-1-light-1 u-radius-50 u-btn-2">Learn More about PDC</a>
+                <a href="Home.html#carousel_497d" data-page-id="631429632" class="u-btn u-btn-round u-button-style u-custom-color-8 u-hover-palette-1-light-1 u-radius-50 u-btn-2">Learn More about PDC</a>
               </div>
             </div>
             <div class="u-align-center u-container-style u-list-item u-repeater-item">
@@ -263,7 +263,7 @@ for a month or so?&nbsp; Here’s the next step!</p>
                 <h3 class="u-align-center u-text u-text-8" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Additional Driving</h3>
                 <h6 class="u-align-center u-text u-text-9" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">&nbsp;</h6>
                 <p class="u-align-center u-text u-text-10" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Refresher Course</p>
-                <a href="Home.html#carousel_af55" data-page-id="631429632" class="u-btn u-btn-round u-button-style u-custom-color-2 u-hover-palette-1-light-1 u-radius-50 u-btn-3">Additional Driving</a>
+                <a href="Home.html#carousel_af55" data-page-id="631429632" class="u-btn u-btn-round u-button-style u-custom-color-8 u-hover-palette-1-light-1 u-radius-50 u-btn-3">Additional Driving</a>
               </div>
             </div>
           </div>
@@ -440,74 +440,63 @@ notice)
         </div>
       </div>
     </section>
-
-    <section class="u-clearfix u-palette-1-base u-section-10" id="sec-e962">
+    <section class="u-clearfix u-custom-color-4 u-section-10" id="sec-e962">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <h2 class="u-subtitle u-text u-text-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Fill in the Form to Enroll</h2>
-        <div class="u-form u-form-1" id="student_form">
+        <div class="u-form u-form-1">
+          <form action="scripts/form-e962.php" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" source="customphp" name="form">
             <div class="u-form-group u-form-name">
               <label for="name-719c" class="u-label">Full Name:</label>
-              <input type="text" placeholder="Enter your Name" id="stud_name" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
+              <input type="text" placeholder="Enter your Name" id="name-719c" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" required="">
             </div>
             <div class="u-form-group u-form-group-2">
               <label for="text-56f6" class="u-label">Email Address:</label>
-              <input type="email" placeholder="Enter your Email Address" id="stud_email_address" name="email-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
+              <input type="text" placeholder="Enter your Email Address" id="text-56f6" name="email-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
             </div>
             <div class="u-form-email u-form-group">
               <label for="email-719c" class="u-label">Contact Number:</label>
-              <input type="number" placeholder="Enter your phone number" id="stud_contact" name="phone" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
+              <input type="email" placeholder="Enter your phone number" id="email-719c" name="phone" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" required="">
             </div>
             <div class="u-form-group u-form-group-4">
               <label for="text-584d" class="u-label">Address:</label>
-              <textarea placeholder="Enter your Address" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" id="stud_address" cols="30" rows="3"></textarea>
-              <!-- <input type="text" placeholder="Enter your address" id="stud_address" name="address" > -->
+              <input type="text" placeholder="Enter your address" id="text-584d" name="address" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
             </div>
             <div class="u-form-date u-form-group u-form-group-5">
               <label for="date-829a" class="u-label">Birthdate:</label>
-              <input type="date" placeholder="MM/DD/YYYY" id="stud_birthdate" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
+              <input type="date" placeholder="MM/DD/YYYY" id="date-829a" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" required="">
             </div>
             <div class="u-form-group u-form-select u-form-group-6">
               <label for="select-2419" class="u-label">Select Course:</label>
               <div class="u-form-select-wrapper">
-                <select id="course" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" onchange="select_course()">
-                  <option diabled selected></option>
-                  <option value="TDC">15 Hours Theoretical Course (TDC) (10 Students Only)</option>
-                  <option value="PDC">8 Hours Practical Driving Course (PDC)</option>
+                <select id="select-2419" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
+                  <option value="15 Hours Theoretical Course (TDC)">15 Hours Theoretical Course (TDC)</option>
+                  <option value="18 Hours Practical Driving Course (TDC)">18 Hours Practical Driving Course (TDC)</option>
                   <option value="Additional Driving">Additional Driving</option>
                 </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
               </div>
             </div>
-
-            <div id="show_available_schedule"></div>
-            
-            <!-- <div class="u-form-agree u-form-group u-form-group-7">
+            <div class="u-form-agree u-form-group u-form-group-7">
               <input type="checkbox" id="agree-d7a2" name="agree" class="u-agree-checkbox" required="">
               <label for="agree-d7a2" class="u-label">I accept the <a href="#">Terms of Service</a>
               </label>
-            </div> -->
+            </div>
             <div class="u-align-center u-form-group u-form-submit">
-              <a href="#" class="u-btn u-btn-round u-btn-submit u-button-style u-custom-color-2 u-hover-custom-color-3 u-radius-13 u-btn-1" onclick="submit_info()">Submit</a>
+              <a href="#" class="u-btn u-btn-round u-btn-submit u-button-style u-custom-color-8 u-hover-custom-color-3 u-radius-13 u-btn-1">Submit</a>
               <input type="submit" value="submit" class="u-form-control-hidden">
             </div>
-            <!-- <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+            <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
             <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
-            <input type="hidden" value="" name="recaptchaResponse"> -->
-        </div>
-        <div class="u-form u-form-1" id="student_payment" style="display: none;">
-          <h2 align="center">For the payment</h2>
-
-          <p>G-cash: 1233455</p>
-
-          <p>Bank: 1233455</p>
+            <input type="hidden" value="" name="recaptchaResponse">
+          </form>
         </div>
       </div>
     </section>
-
     <style class="u-overlap-style">.u-overlap:not(.u-sticky-scroll) .u-header {
 }</style>
     
     
-    <footer class="u-align-center-md u-align-center-sm u-align-center-xs u-clearfix u-custom-color-1 u-footer" id="sec-b3c6"><div class="u-clearfix u-sheet u-sheet-1">
+    <footer class="u-align-center-md u-align-center-sm u-align-center-xs u-clearfix u-custom-color-8 u-footer" id="sec-b3c6"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="1080" data-image-height="1080">
           <img src="images/msfdilogowhite1.png?rand=1a9f" class="u-logo-image u-logo-image-1" data-image-width="37">
         </a>
@@ -537,7 +526,6 @@ notice)
         </p>
       </div></footer>
     <section class="u-backlink u-clearfix u-grey-80">
-      <!-- <section class="u-backlink u-clearfix u-grey-80"> -->
       <!-- <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
         <span>Website Templates</span>
       </a>
@@ -549,62 +537,4 @@ notice)
       </a>.  -->
     </section>
   </body>
-  <script src="./jquery.min.js"></script>
-  <script>
-    function select_course() {
-      var course = document.getElementById("course").value;
-      $.ajax({
-        url: 'index_ajax.php',
-        type: 'POST',
-        async: false,
-        data:{
-            course:course,
-            select_course: 1,
-        },
-            success: function(response){
-                $('#show_available_schedule').html(response);
-            }
-        });
-    }
-
-    function submit_info() {
-      stud_name = document.getElementById("stud_name").value;
-      stud_email_address = document.getElementById("stud_email_address").value;
-      stud_contact = document.getElementById("stud_contact").value;
-      stud_address = document.getElementById("stud_address").value;
-      stud_birthdate = document.getElementById("stud_birthdate").value;
-      sched_id = document.getElementById("sched_id").value;
-      if (confirm('Are you sure?')) {
-        if (stud_name == '' || stud_email_address == '' || stud_contact == '' || stud_address == '' || stud_birthdate == '') {
-          alert('Please fill up all form!! Thank you.');
-        } else if (sched_id == '') {
-          alert('No Schedule Available!!');
-        } else {
-          $.ajax({
-            url: 'index_ajax.php',
-            type: 'POST',
-            async: false,
-            data:{
-                stud_name:stud_name,
-                stud_email_address:stud_email_address,
-                stud_contact:stud_contact,
-                stud_address:stud_address,
-                stud_birthdate:stud_birthdate,
-                sched_id:sched_id,
-                submit_info: 1,
-            },
-                success: function(response){
-                  if (response == 'success') {
-                    alert('You have successfully register!!');
-                    document.getElementById("student_form").style.display = 'none';
-                    document.getElementById("student_payment").style.display = '';
-                  } else if (response == 'sobranasa10') {
-                    alert('Sorry the maximum students for this schedule already Completed!! Please try another schedule. Thank you...');
-                  }
-                }
-            });
-          }
-        }
-    }
-  </script>
 </html>
