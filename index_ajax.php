@@ -56,4 +56,44 @@
         }
     }
 
+    if (isset($_POST['show_tdc'])) {
+        $stud_name = $_POST['stud_name'];
+        $stud_email_address = $_POST['stud_email_address'];
+        $stud_contact = $_POST['stud_contact'];
+        $stud_birthdate = $_POST['stud_birthdate'];
+        $stud_address = $_POST['stud_address'];
+
+        echo '
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-box">
+                    <h4 class="header-title mb-3">Student Information</h4>
+                    <label>Student Name: '.$stud_name.'</label><br>
+                    <label>Email Address: '.$stud_email_address.'</label><br>
+                    <label>Contact Number: '.$stud_contact.'</label><br>
+                    <label>Birthdate: '.$stud_birthdate.'</label><br>
+                    <label>Address: '.$stud_address.'</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-box">
+                    <h4 class="header-title mb-3">Select Schedule</h4>
+                    <form >
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">First Day:</label>
+                            <input type="date" class="form-control" id="tdc_first_day">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Second Day:</label>
+                            <input type="date" class="form-control" id="tdc_second_day">
+                        </div>
+                        <input type="button" class="btn btn-success float-right" value="Submit Form">
+                    </form>
+                </div>
+            </div>
+        </div>
+        ';
+    }
+    
+
 ?>

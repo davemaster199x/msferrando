@@ -13,6 +13,10 @@
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="msferrando.com">
+    <link rel="stylesheet" href="./scripts/bootstrap.min.css">
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/popper.min.js"></script>
+    <script src="./scripts/bootstrap.min.js"></script>
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
@@ -338,7 +342,7 @@ Can be completed on the student’s availability.&nbsp;<br>-Schedules:
 (links to the schedule and booking)&nbsp; <br>&nbsp;- Tue-Wed (8AM-5PM)<br>&nbsp;- Thur-Fri (8AM-5PM)<br>&nbsp;- Sat-Sun (8AM-5PM)<br>
                     <br>Requirements for SP:&nbsp;<br>-TDC Certificate&nbsp;<br>-PSA Certificate&nbsp;<br>-Medical Certificate from an LTO Accredited
 Center&nbsp;&nbsp;<br>
-                    <br>JUNE PROMO!!&nbsp;<br>Php 2000&nbsp;<br>Free Medical Certificate fee!!!&nbsp;<br>Free 2-day lunch!!&nbsp;<br>Free Driver’s Manual!!!&nbsp;<br>
+                    <!-- <br>JUNE PROMO!!&nbsp;<br>Php 2000&nbsp;<br>Free Medical Certificate fee!!!&nbsp;<br>Free 2-day lunch!!&nbsp;<br>Free Driver’s Manual!!!&nbsp;<br> -->
                   </p>
                 </div>
               </div>
@@ -447,43 +451,40 @@ notice)
           <form action="scripts/form-e962.php" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px" source="customphp" name="form">
             <div class="u-form-group u-form-name">
               <label for="name-719c" class="u-label">Full Name:</label>
-              <input type="text" placeholder="Enter your Name" id="name-719c" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" required="">
+              <input type="text" placeholder="Enter your Name" id="stud_name" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" required="">
             </div>
             <div class="u-form-group u-form-group-2">
               <label for="text-56f6" class="u-label">Email Address:</label>
-              <input type="text" placeholder="Enter your Email Address" id="text-56f6" name="email-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
+              <input type="email" placeholder="Enter your Email Address" id="stud_email_address" name="email-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
             </div>
             <div class="u-form-email u-form-group">
               <label for="email-719c" class="u-label">Contact Number:</label>
-              <input type="email" placeholder="Enter your phone number" id="email-719c" name="phone" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" required="">
+              <input type="number" placeholder="Enter your phone number" id="stud_contact" name="phone" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" required="">
             </div>
             <div class="u-form-group u-form-group-4">
               <label for="text-584d" class="u-label">Address:</label>
-              <input type="text" placeholder="Enter your address" id="text-584d" name="address" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
+              <textarea placeholder="Enter your Address" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" id="stud_address" cols="30" rows="3"></textarea>
             </div>
             <div class="u-form-date u-form-group u-form-group-5">
               <label for="date-829a" class="u-label">Birthdate:</label>
-              <input type="date" placeholder="MM/DD/YYYY" id="date-829a" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" required="">
+              <input type="date" placeholder="MM/DD/YYYY" id="stud_birthdate" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" required="">
             </div>
             <div class="u-form-group u-form-select u-form-group-6">
               <label for="select-2419" class="u-label">Select Course:</label>
               <div class="u-form-select-wrapper">
-                <select id="select-2419" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
-                  <option value="15 Hours Theoretical Course (TDC)">15 Hours Theoretical Course (TDC)</option>
-                  <option value="18 Hours Practical Driving Course (TDC)">18 Hours Practical Driving Course (TDC)</option>
-                  <option value="Additional Driving">Additional Driving</option>
+                <select id="course" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
+                  <option value="tdc">Theoretical Driving Course (TDC)</option>
+                  <option value="pdc">Practical Driving Course (TDC)</option>
+                  <!-- <option value="modal_add_driving">Additional Driving</option> -->
                 </select>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
               </div>
             </div>
-            <div class="u-form-agree u-form-group u-form-group-7">
-              <input type="checkbox" id="agree-d7a2" name="agree" class="u-agree-checkbox" required="">
-              <label for="agree-d7a2" class="u-label">I accept the <a href="#">Terms of Service</a>
-              </label>
-            </div>
+            
             <div class="u-align-center u-form-group u-form-submit">
-              <a href="#" class="u-btn u-btn-round u-btn-submit u-button-style u-custom-color-8 u-hover-custom-color-3 u-radius-13 u-btn-1">Submit</a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
+              <button type="button" onclick="driving_schedule()" class="u-btn u-btn-round u-btn-submit u-button-style u-custom-color-8 u-hover-custom-color-3 u-radius-13 u-btn-1" data-toggle="modal" data-target="#myModal">
+                Continue
+              </button>
             </div>
             <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
             <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
@@ -537,4 +538,74 @@ notice)
       </a>.  -->
     </section>
   </body>
+
+  <script>
+    function driving_schedule() {
+      course = document.getElementById("course").value;
+      if (course == 'tdc') {
+          show_tdc();
+      } else {
+          show_pdc();
+      }
+    }
+
+    function show_tdc() {
+      stud_name = document.getElementById("stud_name").value;
+      stud_email_address = document.getElementById("stud_email_address").value;
+      stud_contact = document.getElementById("stud_contact").value;
+      stud_address = document.getElementById("stud_address").value;
+      stud_birthdate = document.getElementById("stud_birthdate").value;
+      $.ajax({
+        url: 'index_ajax.php',
+        type: 'POST',
+        async: false,
+        data:{
+            stud_name:stud_name,
+            stud_email_address:stud_email_address,
+            stud_contact:stud_contact,
+            stud_address:stud_address,
+            stud_birthdate:stud_birthdate,
+            show_tdc: 1,
+        },
+            success: function(response){
+              $('#show_tdc').html(response);
+            }
+        });
+    }
+
+    function show_pdc() {
+
+    }
+
+    function close_modal() {
+      location.reload();
+    }
+
+  </script>
 </html>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal" data-backdrop="static">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">MS Ferrando Driving School</h4>
+        <button type="button" onclick="close_modal()" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div id="show_tdc"></div>
+        <div id="show_pdc"></div>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+      </div>
+      
+    </div>
+  </div>
+</div>
