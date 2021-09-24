@@ -581,6 +581,134 @@ notice)
       location.reload();
     }
 
+    function myFunction() {
+      tdc_first_day = document.getElementById("tdc_first_day").value;
+      var tdc_second_day = document.getElementById("tdc_second_day").value;
+      var d = new Date(tdc_first_day);
+      x = new Date(tdc_first_day).getTime();
+      y = new Date(tdc_second_day).getTime();
+      var weekday = new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+      var n = weekday[d.getDay()];
+      if (n == 'Tuesday' || n == 'Thursday' || n == 'Saturday') {
+        document.getElementById("tdc_second_day").disabled = false;
+      } else if (y<=x){
+        alert('Opss!! Invalid Schedule. Please try to select Again..');
+        document.getElementById("tdc_first_day").value = '';
+        document.getElementById("tdc_second_day").value = '';
+        document.getElementById("tdc_second_day").disabled = true;
+      } else {
+        alert('Please follow the Day Schedule for first day!! Thank you..');
+        document.getElementById("tdc_first_day").value = '';
+        document.getElementById("tdc_second_day").disabled = true;
+        document.getElementById("tdc_second_day").value = '';
+      }
+
+      $.ajax({
+        url: 'index_ajax.php',
+        type: 'POST',
+        async: false,
+        data:{
+            tdc_first_day:tdc_first_day,
+            day1: 1,
+        },
+            success: function(response){
+              if (response == 'sobra') {
+                alert('Sorry the maximum students for this schedule are already Completed!! Please try another schedule. Thank you...');
+                document.getElementById("tdc_first_day").value = '';
+                document.getElementById("tdc_second_day").value = '';
+                document.getElementById("tdc_second_day").disabled = true;
+              }
+            }
+        });
+    }
+
+    function myFunctions() {
+      var tdc_first_day = document.getElementById("tdc_first_day").value;
+      var tdc_second_day = document.getElementById("tdc_second_day").value;
+      x = new Date(tdc_first_day).getTime();
+      y = new Date(tdc_second_day).getTime();
+      var d = new Date(tdc_second_day);
+      var weekday = new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+      var n = weekday[d.getDay()];
+      if (n == 'Wednesday' || n == 'Friday' || n == 'Sunday') {
+      } else if (y<=x){
+        alert('Opss!! Invalid Schedule. Please try to select Again..');
+        document.getElementById("tdc_first_day").value = '';
+        document.getElementById("tdc_second_day").value = '';
+        document.getElementById("tdc_second_day").disabled = true;
+      } else {
+        alert('Please follow the Day Schedule for first day!! Thank you..');
+        document.getElementById("tdc_second_day").value = '';
+      }
+
+      $.ajax({
+        url: 'index_ajax.php',
+        type: 'POST',
+        async: false,
+        data:{
+            tdc_second_day:tdc_second_day,
+            day2: 1,
+        },
+            success: function(response){
+              if (response == 'sobra') {
+                alert('Sorry the maximum students for this schedule are already Completed!! Please try another schedule. Thank you...');
+                document.getElementById("tdc_second_day").value = '';
+              }
+            }
+        });
+    }
+
+    function save_application() {
+      stud_name = document.getElementById("stud_name").value;
+      stud_email_address = document.getElementById("stud_email_address").value;
+      stud_contact = document.getElementById("stud_contact").value;
+      stud_address = document.getElementById("stud_address").value;
+      stud_birthdate = document.getElementById("stud_birthdate").value;
+
+      tdc_first_day = document.getElementById("tdc_first_day").value;
+      tdc_second_day = document.getElementById("tdc_second_day").value;
+      if (stud_name == '' && stud_email_address == '' && stud_contact == '' && stud_address == '' && stud_birthdate == '' || tdc_first_day == '' && tdc_second_day == '') {
+        alert('Please complete Student Information and Schedule Dates!! Thank you..');
+      } else {
+        $.ajax({
+        url: 'index_ajax.php',
+        type: 'POST',
+        async: false,
+        data:{
+            stud_name:stud_name,
+            stud_email_address:stud_email_address,
+            stud_contact:stud_contact,
+            stud_address:stud_address,
+            stud_birthdate:stud_birthdate,
+            tdc_first_day:tdc_first_day,
+            tdc_second_day:tdc_second_day,
+            save_application: 1,
+        },
+            success: function(response){
+              if (response == 'success') {
+                alert('Yehey na save na!!');
+                // alert('Sorry the maximum students for this schedule are already Completed!! Please try another schedule. Thank you...');
+                // document.getElementById("tdc_second_day").value = '';
+              }
+            }
+        });
+      }
+    }
+
   </script>
 </html>
 
@@ -591,7 +719,7 @@ notice)
     
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">MS Ferrando Driving School</h4>
+        <h4 class="modal-title">MS Ferrando Driving School Institute</h4>
         <button type="button" onclick="close_modal()" class="close" data-dismiss="modal">&times;</button>
       </div>
       
