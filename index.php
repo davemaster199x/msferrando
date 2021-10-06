@@ -781,6 +781,7 @@ notice)
 
       tdc_third_day = document.getElementById("tdc_third_day").value;
       tdc_third_time = document.getElementById("tdc_third_time").value;
+      if (confirm('Please take a screenshot or picture for the following 3 days Schedule for you Reference!! Thank you.')) {
         if (stud_name == '' && stud_email_address == '' && stud_contact == '' && stud_address == '' && stud_birthdate == '') {
           alert('Please complete the Student Information!! Thank you..');
         } else {
@@ -803,12 +804,36 @@ notice)
               save_application: 1,
           },
               success: function(response){
-                if (response == 'success') {
-                  alert('Yehey na save na!!');
+                if (response == '1') {
+                  alert('Opps!! Someone already take the last seat of the "'+tdc_first_time+'" First Schedule. Please try to reschedule again.. Thank you.');
+                  document.getElementById("tdc_first_time").disabled = false;
+                } else if (response == '2') {
+                  alert('Opps!! Someone already take the last seat of the "'+tdc_second_time+'" Second Schedule. Please try to reschedule again.. Thank you.');
+                  document.getElementById("tdc_second_time").disabled = false;
+                } else if (response == '3') {
+                  alert('Opps!! Someone already take the last seat of the "'+tdc_third_time+'" Third Schedule. Please try to reschedule again.. Thank you.');
+                  document.getElementById("tdc_third_time").disabled = false;
+                } else if (response == 'success') {
+                  alert('Your TDC Schedule Successfully Submit!!');
+                  $('#show_tdc').hide();
+                  $('#show_payment').show();
+                } else {
+                  alert('Opps!! Someone already take your Schedule at the same day and time. Please try to rechedule it again. Thank you..');
+                  document.getElementById("tdc_first_day").value = '';
+                  document.getElementById("tdc_first_day").disabled = false;
+                  document.getElementById("tdc_first_time").value = '';
+
+                  document.getElementById("tdc_second_day").value = '';
+                  document.getElementById("tdc_second_time").value = '';
+
+                  document.getElementById("tdc_third_day").value = '';
+                  document.getElementById("tdc_third_time").value = '';
+
                 }
               }
           });
         }
+      }
     }
 
   </script>
@@ -828,6 +853,11 @@ notice)
       <!-- Modal body -->
       <div class="modal-body">
         <div id="show_tdc"></div>
+        <div style="display: none;" id="show_payment">
+            <h4 align="center">You can pay online or just pay during Schedule!!</h4>
+            <center><label>*Note: If you pay online, just take a screenshot of the transaction and visit <a href="https://www.facebook.com/MSFerrandoDriving" target="_blank">MS Ferrando</a> Facebook Page for the confirmation!! Thank you.</label></center>
+            <img class="img-fluid" src="./images/payment.jpg" alt="" style="display: block; margin-left: auto; margin-right: auto;">
+        </div>
         <div id="show_pdc"></div>
       </div>
       

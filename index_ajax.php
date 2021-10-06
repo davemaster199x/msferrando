@@ -2,60 +2,6 @@
     include("./admin/connection.php");
     date_default_timezone_set('Asia/Manila');
 
-    if (isset($_POST['select_course'])) {
-        $course = $_POST['course'];
-    
-        $query = mysqli_query($conn, "SELECT * FROM tbl_schedule WHERE sched_course = '$course' AND sched_status_website = 1 ORDER BY sched_id DESC");
-        $rows = mysqli_num_rows($query);
-        echo '
-            <div class="u-form-group u-form-select u-form-group-6">
-                <label for="select-2419" class="u-label">Select Available Schedule:</label>
-                <div class="u-form-select-wrapper">
-                <select id="sched_id" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">';
-                while($data = mysqli_fetch_array($query)) {
-                    $sched_id = $data['sched_id'];
-                    $count_student = mysqli_query($conn, "SELECT * FROM tbl_student WHERE sched_id = $sched_id");
-                    $total_students = mysqli_num_rows($count_student);
-                    if ($total_students === 10) {
-                        $disabled = 'disabled';
-                    } else {
-                        $disabled = '';
-                    }
-                    echo '<option '.$disabled.' value="'.$data['sched_id'].'">'.$data['sched_description'].' (₱'.$data['sched_price'].') ('.$total_students.' Students Enrolled)</option>';
-                }
-                    if ($rows == 0) {
-                        echo '
-                        <option value="" disabled selected>No Schedule Available!!</option
-                        ';
-                    }
-                echo '
-                </select>
-                </div>
-            </div>
-        ';
-        
-      }
-
-    if (isset($_POST['submit_info'])) {
-        $sched_id = $_POST['sched_id'];
-        $stud_name = $_POST['stud_name'];
-        $stud_email_address = $_POST['stud_email_address'];
-        $stud_contact = $_POST['stud_contact'];
-        $stud_birthdate = $_POST['stud_birthdate'];
-        $stud_address = $_POST['stud_address'];
-
-        $count_student = mysqli_query($conn, "SELECT * FROM tbl_student WHERE sched_id = $sched_id");
-        $total_students = mysqli_num_rows($count_student);
-        if ($total_students === 10) {
-            echo 'sobranasa10';
-        } else {
-            $result = mysqli_query($conn, "INSERT INTO tbl_student (sched_id, stud_date_created, stud_name, stud_email_address, stud_contact, stud_address, stud_birthdate) VALUES ('$sched_id', NOW(), '$stud_name', '$stud_email_address', '$stud_contact', '$stud_address', '$stud_birthdate')");
-            if ($result) {
-                echo 'success';
-            }
-        }
-    }
-
     if (isset($_POST['show_tdc'])) {
         $stud_name = $_POST['stud_name'];
         $stud_email_address = $_POST['stud_email_address'];
@@ -63,8 +9,12 @@
         $stud_birthdate = $_POST['stud_birthdate'];
         $stud_address = $_POST['stud_address'];
 
+        $result_tdc_price = mysqli_query($conn, "SELECT * FROM tbl_tdc_price");
+        $data = mysqli_fetch_assoc($result_tdc_price);
+        $tdc_price = $data['tdc_price'];
+        $tdc = number_format($tdc_price);
         echo '
-        <h4 align="center">15 Theoretical Driving Course (TDC)</h4>
+        <h4 align="center">15 Theoretical Driving Course (TDC) @<label style="color: red;">'.$tdc.'</label></h4>
         <div class="row">
             <div class="col-md-6">
                 <div class="card-box">
@@ -215,13 +165,42 @@
         $tdc_third_day = $_POST['tdc_third_day'];
         $tdc_third_time = $_POST['tdc_third_time'];
 
-        $result = mysqli_query($conn, "INSERT INTO tbl_student (stud_date_created,stud_name,stud_email_address,stud_password,stud_contact_number,stud_address,stud_birthdate) VALUES (NOW(),'$stud_name','$stud_email_address','0','$stud_contact','$stud_address','$stud_birthdate')");
-        $stud_id = $conn->insert_id;
-        if ($result) {
-            $insert_schedule = mysqli_query($conn, "INSERT INTO tbl_tdc (stud_id, tdc_first_day, tdc_second_day) VALUES ('$stud_id', '$tdc_first_day', '$tdc_second_day')");
-            if ($insert_schedule) {
-                echo 'success';
+        $result_max = mysqli_query($conn, "SELECT max_tdc_stud FROM tbl_maxstud");
+        $data = mysqli_fetch_assoc($result_max);
+        $max_tdc_stud = $data['max_tdc_stud'];
+
+        $day1 = '';
+        $count_day1 = mysqli_query($conn, "SELECT tdc_id FROM tbl_tdc WHERE tdc_first_day = '$tdc_first_day' AND tdc_first_time = '$tdc_first_time'");
+        $total_day1 = mysqli_num_rows($count_day1);
+        if ($total_day1 == $max_tdc_stud) {
+            $day1 = 1;
+        }
+
+        $day2 = '';
+        $count_day2 = mysqli_query($conn, "SELECT tdc_id FROM tbl_tdc WHERE tdc_second_day = '$tdc_second_day' AND tdc_second_time = '$tdc_second_time'");
+        $total_day2 = mysqli_num_rows($count_day2);
+        if ($total_day2 == $max_tdc_stud) {
+            $day2 = 2;
+        }
+
+        $day3 = '';
+        $count_day3 = mysqli_query($conn, "SELECT tdc_id FROM tbl_tdc WHERE tdc_third_day = '$tdc_third_day' AND tdc_third_time = '$tdc_third_time'");
+        $total_day3 = mysqli_num_rows($count_day3);
+        if ($total_day3 == $max_tdc_stud) {
+            $day3 = 3;
+        }
+
+        if ($day1 == '' && $day2 == '' && $day3 == '') {
+            $result = mysqli_query($conn, "INSERT INTO tbl_student (stud_date_created,stud_name,stud_email_address,stud_password,stud_contact_number,stud_address,stud_birthdate) VALUES (NOW(),'$stud_name','$stud_email_address','0','$stud_contact','$stud_address','$stud_birthdate')");
+            $stud_id = $conn->insert_id;
+            if ($result) {
+                $insert_schedule = mysqli_query($conn, "INSERT INTO tbl_tdc (stud_id, tdc_first_day, tdc_first_time, tdc_second_day, tdc_second_time, tdc_third_day, tdc_third_time) VALUES ('$stud_id', '$tdc_first_day', '$tdc_first_time', '$tdc_second_day', '$tdc_second_time', '$tdc_third_day', '$tdc_third_time')");
+                if ($insert_schedule) {
+                    echo 'success';
+                }
             }
+        } else{
+            echo $day1.''.$day2.''.$day3;
         }
     }
 
