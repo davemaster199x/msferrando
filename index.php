@@ -543,8 +543,10 @@ notice)
     function driving_schedule() {
       course = document.getElementById("course").value;
       if (course == 'tdc') {
+          $('#show_pdc').hide();
           show_tdc();
       } else {
+          $('#show_tdc').hide();
           show_pdc();
       }
     }
@@ -854,8 +856,8 @@ notice)
       <div class="modal-body">
         <div id="show_tdc"></div>
         <div style="display: none;" id="show_payment">
-            <h4 align="center">You can pay online or just pay during Schedule!!</h4>
-            <center><label>*Note: If you pay online, just take a screenshot of the transaction and visit <a href="https://www.facebook.com/MSFerrandoDriving" target="_blank">MS Ferrando</a> Facebook Page for the confirmation!! Thank you.</label></center>
+            <h4 align="center">Slots get filled in a snap! You can enroll online or walk-in before slots run out!</h4>
+            <center><label>*Note: If you pay online, just take a screenshot of the transaction and visit <a href="https://www.facebook.com/MSFerrandoDriving" target="_blank">MS Ferrando</a> Facebook Page to confirm your schedule, same goes to walk-in applicants. Please be advised that unpaid bookings and unconfirm walk-in will result to auto-cancellation in 24 hours. Thank you.</label></center>
             <img class="img-fluid" src="./images/payment.jpg" alt="" style="display: block; margin-left: auto; margin-right: auto;">
         </div>
         <div id="show_pdc"></div>
