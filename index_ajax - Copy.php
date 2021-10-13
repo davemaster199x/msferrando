@@ -1,106 +1,135 @@
 <?php
     include("./admin/connection.php");
     date_default_timezone_set('Asia/Manila');
-    use PHPMailer\PHPMailer\PHPMailer;
-    require_once 'phpmailer/Exception.php';
-    require_once 'phpmailer/PHPMailer.php';
-    require_once 'phpmailer/SMTP.php';
-    $mail = new PHPMailer(true);
 
-    if (isset($_POST['driving_schedule'])) {
+    if (isset($_POST['show_tdc'])) {
         $stud_name = $_POST['stud_name'];
         $stud_email_address = $_POST['stud_email_address'];
         $stud_contact = $_POST['stud_contact'];
         $stud_birthdate = $_POST['stud_birthdate'];
         $stud_address = $_POST['stud_address'];
 
-        $code = rand(4,1000000);
-
-        $message = '
-        <div style="padding: 20px 0px 0px 0px; background-color: #0E3741;" class="shadow">
-            <img src="https://msferrando.mikaelarealty.com/images/banner.png" style="width: 100%;">
-            <table width="100%" border="0" cellspacing="0" cellpadding="20" style="background-color: #47bcde; color: #5a5f61; font-family:verdana;">
-                <tr>
-                    <td style="background-color: #fff; border-top: 10px solid #0E3741; border-bottom: 10px solid #0E3741;">
-                        <p style="margin-top: -5px;">Hi Student,</p>
-                        <label>Here is you code: '.$code.'</label><br>
-                        <label>Note* You can use this code once.</label><br>
-                    </td>
-                </tr>
-            </table>
-            <div style="text-align: center; padding: 20px 0px; color: #fff; background-color: #0E3741;">
-                Vinzon Street<br>
-                Barangay. 15-B, Corner Rustico Cabaguio Street,<br>
-                Poblacion District, Davao City, Philippines 8000<br><br>
-                <a href="https://msferrando.com/" style="color: white;">https://msferrando.com/</a>
-            </div>
-        </div>
-        ';
-        
-        try{
-                $mail->isSMTP();
-                $mail->Host = 'smtp.gmail.com';
-                $mail->SMTPAuth = true;
-                $mail->Username = "malhindavid@gmail.com";
-                $mail->Password = "pgjpvspfpauidugk";
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                $mail->Port = '587';
-
-                $mail->setFrom("malhindavid@gmail.com");
-                $mail->addAddress("$stud_email_address");
-
-                $mail->isHTML(true);
-                $mail->Subject = "MS Ferrando Driving School Institute | Verification Code";
-                $mail->Body = "$message";
-
-                $mail->send();
-                echo "success";
-            } catch (Exception $e){
-                echo "failed";
-            }
-        
+        $result_tdc_price = mysqli_query($conn, "SELECT * FROM tbl_tdc_price");
+        $data = mysqli_fetch_assoc($result_tdc_price);
+        $tdc_price = $data['tdc_price'];
+        $tdc = number_format($tdc_price);
         echo '
-        <div class="col-md-12">
-            <div class="card-box">
-                <h4 class="header-title mb-3">Student Information</h4>
-                <label>Student Name: '.$stud_name.'</label><br>
-                <label>Email Address: '.$stud_email_address.'</label><br>
-                <label>Contact Number: '.$stud_contact.'</label><br>
-                <label>Birthdate: '.$stud_birthdate.'</label><br>
-                <label>Address: '.$stud_address.'</label>
+        <h4 align="center">15 Theoretical Driving Course (TDC) @<label style="color: red;">'.$tdc.'</label></h4>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card-box">
+                    <h4 class="header-title mb-3">Student Information</h4>
+                    <label>Student Name: '.$stud_name.'</label><br>
+                    <label>Email Address: '.$stud_email_address.'</label><br>
+                    <label>Contact Number: '.$stud_contact.'</label><br>
+                    <label>Birthdate: '.$stud_birthdate.'</label><br>
+                    <label>Address: '.$stud_address.'</label>
+                </div>
             </div>
-        </div>
-        <hr>
-        <div class="col-md-12">
-            <div class="card-box">
-                <label>Please check your email for the verification!</label>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="hidden" class="form-control" id="veri_code" placeholder="Enter Code" value="'.$code.'">
-                            <input type="number" class="form-control" id="input_code" placeholder="Enter Code">
+            <div class="col-md-8">
+                <div class="card-box">
+                    <h4 class="header-title mb-3"align="center">Select Schedule</h4>
+                    <center>
+                        <label>You can select any schedule but please follow the DAY SIMULTANEOUSLY!! </label>
+                    </center>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>First Day</label>
+                            <ul style="margin-top: 0px;">
+                                <li>Monday</li>
+                                <li>Thursday</li>
+                            </ul>  
+                        </div>
+                        <div class="col-md-4">
+                            <label>Second Day</label>
+                            <ul style="margin-top: 0px;">
+                                <li>Tuesday</li>
+                                <li>Friday</li>
+                            </ul> 
+                        </div>
+                        <div class="col-md-4">
+                            <label>Third Day</label>
+                            <ul style="margin-top: 0px;">
+                                <li>Wednesday</li>
+                                <li>Saturday</li>
+                            </ul> 
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <center>
+                        <strong>No Schedule on SUNDAY!</strong>
+                    </center>
+                    <hr>
+                    <form >
                         <div class="form-group">
-                            <input type="button" class="form-control btn btn-primary" id="confirm_button" value="Confirm" onclick="verify_code()">
+                            <label for="exampleInputEmail1">First Day:</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control" id="tdc_first_day" onchange="first_day()">
+                                </div>
+                                <div class="col-md-6">
+                                    <select id="tdc_first_time" class="form-control" disabled onchange="first_time()">
+                                        <option disabled selected>-Select Time-</option>
+                                        <option value="am">AM</option>
+                                        <option value="pm">PM</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div><br>
-                <div class="row" id="show_stud_password">
-                    <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="student_password" disabled placeholder="Enter Password">
+                            <label for="exampleInputEmail1">Second Day:</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control" id="tdc_second_day" disabled onchange="second_day()">
+                                </div>
+                                <div class="col-md-6">
+                                    <select id="tdc_second_time" class="form-control" disabled onchange="second_time()">
+                                        <option disabled selected>-Select Time-</option>
+                                        <option value="am">AM</option>
+                                        <option value="pm">PM</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
                         <div class="form-group">
-                            <input type="button" class="form-control btn btn-success" id="student_save" disabled value="Save Application">
+                            <label for="exampleInputEmail1">Third Day:</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control" id="tdc_third_day" disabled onchange="third_day()">
+                                </div>
+                                <div class="col-md-6">
+                                    <select id="tdc_third_time" class="form-control" disabled onchange="third_time()">
+                                        <option disabled selected>-Select Time-</option>
+                                        <option value="am">AM</option>
+                                        <option value="pm">PM</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <label id="reminder" style="display: none;">Please take a screenshot or picture for the following 3 days Schedule for you Reference!! Thank you.</label>
+                        <input type="button" class="btn btn-danger float-left" value="Reset Schedule" onclick="reset_schedule()">
+                        <input type="button" class="btn btn-success float-right" value="Submit Application" onclick="save_application()" disabled id="show_application">
+                    </form>
                 </div>
             </div>
         </div>
+
+        <script>
+        $(function(){
+            var dtToday = new Date();
+            
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            if(month < 10)
+                month = "0" + month.toString();
+            if(day < 10)
+                day = "0" + day.toString();
+            
+            var minDate= year + "-" + month + "-" + day;
+            
+            $("#tdc_first_day").attr("min", minDate);
+        });
+        </script>
         ';
     }
 

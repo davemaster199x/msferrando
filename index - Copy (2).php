@@ -83,9 +83,9 @@ help you become a responsible driver you expect you to be!&nbsp;&nbsp;<br>
         </p>
         <div class="u-container-style u-custom-color-4 u-group u-opacity u-opacity-15 u-radius-32 u-shape-round u-group-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">
           <div class="u-container-layout u-container-layout-1">
-            <h1 class="u-text u-text-3" align="center" data-animation-name="lightSpeedIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Enroll Now<span style="font-weight: 700;"></span>
+            <h1 class="u-text u-text-3" data-animation-name="lightSpeedIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Enroll Now<span style="font-weight: 700;"></span>
             </h1>
-            <h6 class="u-custom-font u-text u-text-font u-text-4" align="center" data-animation-name="lightSpeedIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">15hr - Theoretical Driving Course</h6>
+            <h6 class="u-custom-font u-text u-text-font u-text-4" data-animation-name="lightSpeedIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">15hr - Theoretical Driving Course</h6>
             <a href="Home.html#sec-e962" data-page-id="631429632" class="u-btn u-btn-round u-button-style u-custom-color-4 u-custom-font u-heading-font u-hover-custom-color-8 u-radius-50 u-btn-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">click me!</a>
           </div>
         </div>
@@ -471,6 +471,17 @@ notice)
               <label for="date-829a" class="u-label">Birthdate:</label>
               <input type="date" placeholder="MM/DD/YYYY" id="stud_birthdate" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white" required="">
             </div>
+            <div class="u-form-group u-form-select u-form-group-6">
+              <label for="select-2419" class="u-label">Select Course:</label>
+              <div class="u-form-select-wrapper">
+                <select id="course" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
+                  <option value="tdc">Theoretical Driving Course (TDC)</option>
+                  <option value="pdc">Practical Driving Course (TDC)</option>
+                  <!-- <option value="modal_add_driving">Additional Driving</option> -->
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
             
             <div class="u-align-center u-form-group u-form-submit">
               <button type="button" onclick="driving_schedule()" class="u-btn u-btn-round u-btn-submit u-button-style u-custom-color-8 u-hover-custom-color-3 u-radius-13 u-btn-1" data-toggle="modal" data-target="#myModal">
@@ -532,49 +543,14 @@ notice)
 
   <script>
     function driving_schedule() {
-      stud_name = document.getElementById("stud_name").value;
-      stud_email_address = document.getElementById("stud_email_address").value;
-      stud_contact = document.getElementById("stud_contact").value;
-      stud_address = document.getElementById("stud_address").value;
-      stud_birthdate = document.getElementById("stud_birthdate").value;
-
-      if (stud_name == '' && stud_email_address == '' && stud_contact == '' && stud_address == '' && stud_birthdate == '') {
-        alert('Please complete the Student Information! Thank you.');
-        location.reload();
+      course = document.getElementById("course").value;
+      if (course == 'tdc') {
+          $('#show_pdc').hide();
+          show_tdc();
       } else {
-        $.ajax({
-          url: 'index_ajax.php',
-          type: 'POST',
-          async: false,
-          data:{
-              stud_name:stud_name,
-              stud_email_address:stud_email_address,
-              stud_contact:stud_contact,
-              stud_address:stud_address,
-              stud_birthdate:stud_birthdate,
-              driving_schedule: 1,
-          },
-              success: function(response){
-                $('#show_student').html(response);
-              }
-          });
+          $('#show_tdc').hide();
+          show_pdc();
       }
-    }
-
-    function verify_code() {
-      veri_code = document.getElementById("veri_code").value;
-      input_code = document.getElementById("input_code").value;
-
-      if (veri_code == input_code) {
-        document.getElementById("student_password").disabled = false;
-        document.getElementById("student_save").disabled = false;
-        document.getElementById("confirm_button").disabled = true;
-        document.getElementById("input_code").disabled = true;
-      } else {
-        alert('Incorrect Code! Please try again.');
-        document.getElementById("input_code").value = '';
-      }
-
     }
 
     function show_tdc() {
@@ -889,7 +865,7 @@ notice)
 
 <!-- The Modal -->
 <div class="modal fade" id="myModal" data-backdrop="static">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
     
       <!-- Modal Header -->
@@ -900,13 +876,13 @@ notice)
       
       <!-- Modal body -->
       <div class="modal-body">
-        <div id="show_student"></div>
-        <!-- <div style="display: none;" id="show_payment">
+        <div id="show_tdc"></div>
+        <div style="display: none;" id="show_payment">
             <h4 align="center">Slots get filled in a snap! You can enroll online or walk-in before slots run out!</h4>
             <center><label>*Note: If you pay online, just take a screenshot of the transaction and visit <a href="https://www.facebook.com/MSFerrandoDriving" target="_blank">MS Ferrando</a> Facebook Page to confirm your schedule, same goes to walk-in applicants. Please be advised that unconfirm bookings will result to auto-cancellation in 24 hours. Thank you.</label></center>
             <img class="img-fluid" src="./images/payment.jpg" alt="" style="display: block; margin-left: auto; margin-right: auto;">
         </div>
-        <div id="show_pdc"></div> -->
+        <div id="show_pdc"></div>
       </div>
       
       <!-- Modal footer -->
