@@ -538,27 +538,32 @@ notice)
       stud_address = document.getElementById("stud_address").value;
       stud_birthdate = document.getElementById("stud_birthdate").value;
 
-      if (stud_name == '' && stud_email_address == '' && stud_contact == '' && stud_address == '' && stud_birthdate == '') {
+      if (stud_name == '' || stud_email_address == '' || stud_contact == '' || stud_address == '' || stud_birthdate == '') {
         alert('Please complete the Student Information! Thank you.');
         location.reload();
-      } else {
-        $.ajax({
-          url: 'index_ajax.php',
-          type: 'POST',
-          async: false,
-          data:{
-              stud_name:stud_name,
-              stud_email_address:stud_email_address,
-              stud_contact:stud_contact,
-              stud_address:stud_address,
-              stud_birthdate:stud_birthdate,
-              driving_schedule: 1,
-          },
-              success: function(response){
-                $('#show_student').html(response);
-              }
-          });
-      }
+        } else {
+          setTimeout(function(){
+          
+            $.ajax({
+              url: 'index_ajax.php',
+              type: 'POST',
+              async: false,
+              data:{
+                  stud_name:stud_name,
+                  stud_email_address:stud_email_address,
+                  stud_contact:stud_contact,
+                  stud_address:stud_address,
+                  stud_birthdate:stud_birthdate,
+                  driving_schedule: 1,
+              },
+                  success: function(response){
+                    $('#show_spinner').hide();
+                    $('#show_student').html(response);
+                  }
+              });
+          
+          },3000);
+        }
     }
 
     function verify_code() {
@@ -566,7 +571,7 @@ notice)
       input_code = document.getElementById("input_code").value;
 
       if (veri_code == input_code) {
-        document.getElementById("student_password").disabled = false;
+        document.getElementById("stud_password").disabled = false;
         document.getElementById("student_save").disabled = false;
         document.getElementById("confirm_button").disabled = true;
         document.getElementById("input_code").disabled = true;
@@ -577,241 +582,17 @@ notice)
 
     }
 
-    function show_tdc() {
-      stud_name = document.getElementById("stud_name").value;
-      stud_email_address = document.getElementById("stud_email_address").value;
-      stud_contact = document.getElementById("stud_contact").value;
-      stud_address = document.getElementById("stud_address").value;
-      stud_birthdate = document.getElementById("stud_birthdate").value;
-      $.ajax({
-        url: 'index_ajax.php',
-        type: 'POST',
-        async: false,
-        data:{
-            stud_name:stud_name,
-            stud_email_address:stud_email_address,
-            stud_contact:stud_contact,
-            stud_address:stud_address,
-            stud_birthdate:stud_birthdate,
-            show_tdc: 1,
-        },
-            success: function(response){
-              $('#show_tdc').html(response);
-            }
-        });
-    }
-
-    function show_pdc() {
-      stud_name = document.getElementById("stud_name").value;
-      stud_email_address = document.getElementById("stud_email_address").value;
-      stud_contact = document.getElementById("stud_contact").value;
-      stud_address = document.getElementById("stud_address").value;
-      stud_birthdate = document.getElementById("stud_birthdate").value;
-      $.ajax({
-        url: 'index_ajax.php',
-        type: 'POST',
-        async: false,
-        data:{
-            stud_name:stud_name,
-            stud_email_address:stud_email_address,
-            stud_contact:stud_contact,
-            stud_address:stud_address,
-            stud_birthdate:stud_birthdate,
-            show_pdc: 1,
-        },
-            success: function(response){
-              $('#show_pdc').html(response);
-            }
-        });
+    function myFunction() {
+      var x = document.getElementById("stud_password");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
     }
 
     function close_modal() {
       location.reload();
-    }
-
-    function reset_schedule() {
-      if (confirm('Are you sure?')) {
-        document.getElementById("tdc_first_day").disabled = false;
-        document.getElementById("tdc_first_time").disabled = true;
-        document.getElementById("tdc_second_day").disabled = true;
-        document.getElementById("tdc_second_time").disabled = true;
-        document.getElementById("tdc_third_day").disabled = true;
-        document.getElementById("tdc_third_time").disabled = true;
-
-        document.getElementById("tdc_first_day").value = '';
-        document.getElementById("tdc_first_time").value = '';
-        document.getElementById("tdc_second_day").value = '';
-        document.getElementById("tdc_second_time").value = '';
-        document.getElementById("tdc_third_day").value = '';
-        document.getElementById("tdc_third_time").value = '';
-      }
-    }
-
-    function first_day() {
-      tdc_first_day = document.getElementById("tdc_first_day").value;
-      var d = new Date(tdc_first_day);
-      var weekday = new Array(7);
-      weekday[0] = "Sunday";
-      weekday[1] = "Monday";
-      weekday[2] = "Tuesday";
-      weekday[3] = "Wednesday";
-      weekday[4] = "Thursday";
-      weekday[5] = "Friday";
-      weekday[6] = "Saturday";
-      var n = weekday[d.getDay()];
-
-      var dtToday = new Date(tdc_first_day); 
-      var month = dtToday.getMonth() + 1;
-      var day = dtToday.getDate();
-      var year = dtToday.getFullYear();
-      if(month < 10)
-          month = "0" + month.toString();
-      if(day < 10)
-          day = "0" + day.toString();
-      var minDate= year + "-" + month + "-" + day;
-      $("#tdc_second_day").attr("min", minDate);
-
-      if (n == 'Monday' || n == 'Thursday') {
-        document.getElementById("tdc_first_time").disabled = false;
-      } else {
-        alert('Please select Monday or Thursday for First Day Schedule!! Thank you..');
-        document.getElementById("tdc_first_day").value = '';
-        document.getElementById("tdc_first_time").disabled = true;
-      }
-    }
-
-    function first_time() {
-      tdc_first_day = document.getElementById("tdc_first_day").value;
-      tdc_first_time = document.getElementById("tdc_first_time").value;
-
-      $.ajax({
-        url: 'index_ajax.php',
-        type: 'POST',
-        async: false,
-        data:{
-            tdc_first_day:tdc_first_day,
-            tdc_first_time,tdc_first_time,
-            day1: 1,
-        },
-            success: function(response){
-              if (response == 'sobra') {
-                alert('Sorry the maximum students for this schedule are already Completed!! Please try another schedule. Thank you...');
-                document.getElementById("tdc_first_time").value = '';
-              } else {
-                document.getElementById("tdc_first_day").disabled = true;
-                document.getElementById("tdc_first_time").disabled = true;
-                document.getElementById("tdc_second_day").disabled = false;
-              }
-            }
-        });
-    }
-
-    function second_day() {
-      tdc_second_day = document.getElementById("tdc_second_day").value;
-      var d = new Date(tdc_second_day);
-      var weekday = new Array(7);
-      weekday[0] = "Sunday";
-      weekday[1] = "Monday";
-      weekday[2] = "Tuesday";
-      weekday[3] = "Wednesday";
-      weekday[4] = "Thursday";
-      weekday[5] = "Friday";
-      weekday[6] = "Saturday";
-      var n = weekday[d.getDay()];
-
-      var dtToday = new Date(tdc_second_day); 
-      var month = dtToday.getMonth() + 1;
-      var day = dtToday.getDate();
-      var year = dtToday.getFullYear();
-      if(month < 10)
-          month = "0" + month.toString();
-      if(day < 10)
-          day = "0" + day.toString();
-      var minDate= year + "-" + month + "-" + day;
-      $("#tdc_third_day").attr("min", minDate);
-
-      if (n == 'Tuesday' || n == 'Friday') {
-        document.getElementById("tdc_second_time").disabled = false;
-      } else {
-        alert('Please select Tuesday or Friday for Second Day Schedule!! Thank you..');
-        document.getElementById("tdc_second_day").value = '';
-        document.getElementById("tdc_second_time").disabled = true;
-      }
-    }
-
-    function second_time() {
-      tdc_second_day = document.getElementById("tdc_second_day").value;
-      tdc_second_time = document.getElementById("tdc_second_time").value;
-
-      $.ajax({
-        url: 'index_ajax.php',
-        type: 'POST',
-        async: false,
-        data:{
-            tdc_second_day:tdc_second_day,
-            tdc_second_time,tdc_second_time,
-            day2: 1,
-        },
-            success: function(response){
-              if (response == 'sobra') {
-                alert('Sorry the maximum students for this schedule are already Completed!! Please try another schedule. Thank you...');
-                document.getElementById("tdc_second_time").value = '';
-              } else {
-                document.getElementById("tdc_second_day").disabled = true;
-                document.getElementById("tdc_second_time").disabled = true;
-                document.getElementById("tdc_third_day").disabled = false;
-              }
-            }
-        });
-    }
-
-    function third_day() {
-      tdc_third_day = document.getElementById("tdc_third_day").value;
-      var d = new Date(tdc_third_day);
-      var weekday = new Array(7);
-      weekday[0] = "Sunday";
-      weekday[1] = "Monday";
-      weekday[2] = "Tuesday";
-      weekday[3] = "Wednesday";
-      weekday[4] = "Thursday";
-      weekday[5] = "Friday";
-      weekday[6] = "Saturday";
-      var n = weekday[d.getDay()];
-
-      if (n == 'Wednesday' || n == 'Saturday') {
-        document.getElementById("tdc_third_time").disabled = false;
-      } else {
-        alert('Please select Wednesday or Saturday for Third Day Schedule!! Thank you..');
-        document.getElementById("tdc_third_day").value = '';
-        document.getElementById("tdc_third_time").disabled = true;
-      }
-    }
-
-    function third_time() {
-      tdc_third_day = document.getElementById("tdc_third_day").value;
-      tdc_third_time = document.getElementById("tdc_third_time").value;
-
-      $.ajax({
-        url: 'index_ajax.php',
-        type: 'POST',
-        async: false,
-        data:{
-            tdc_third_day:tdc_third_day,
-            tdc_third_time,tdc_third_time,
-            day3: 1,
-        },
-            success: function(response){
-              if (response == 'sobra') {
-                alert('Sorry the maximum students for this schedule are already Completed!! Please try another schedule. Thank you...');
-                document.getElementById("tdc_third_time").value = '';
-              } else {
-                document.getElementById("tdc_third_day").disabled = true;
-                document.getElementById("tdc_third_time").disabled = true;
-                document.getElementById("show_application").disabled = false;
-                document.getElementById("reminder").style = '';
-              }
-            }
-        });
     }
 
     function save_application() {
@@ -820,19 +601,9 @@ notice)
       stud_contact = document.getElementById("stud_contact").value;
       stud_address = document.getElementById("stud_address").value;
       stud_birthdate = document.getElementById("stud_birthdate").value;
+      stud_password = document.getElementById("stud_password").value;
 
-      tdc_first_day = document.getElementById("tdc_first_day").value;
-      tdc_first_time = document.getElementById("tdc_first_time").value;
-
-      tdc_second_day = document.getElementById("tdc_second_day").value;
-      tdc_second_time = document.getElementById("tdc_second_time").value;
-
-      tdc_third_day = document.getElementById("tdc_third_day").value;
-      tdc_third_time = document.getElementById("tdc_third_time").value;
-      if (confirm('Please take a screenshot or picture for the following 3 days Schedule for you Reference!! Thank you.')) {
-        if (stud_name == '' && stud_email_address == '' && stud_contact == '' && stud_address == '' && stud_birthdate == '') {
-          alert('Please complete the Student Information!! Thank you..');
-        } else {
+      if (confirm('Are you sure?')) {
           $.ajax({
           url: 'index_ajax.php',
           type: 'POST',
@@ -843,47 +614,20 @@ notice)
               stud_contact:stud_contact,
               stud_address:stud_address,
               stud_birthdate:stud_birthdate,
-              tdc_first_day:tdc_first_day,
-              tdc_first_time:tdc_first_time,
-              tdc_second_day:tdc_second_day,
-              tdc_second_time:tdc_second_time,
-              tdc_third_day:tdc_third_day,
-              tdc_third_time:tdc_third_time,
+              stud_password:stud_password,
               save_application: 1,
           },
               success: function(response){
-                if (response == '1') {
-                  alert('Opps!! Someone already take the last seat of the "'+tdc_first_time+'" First Schedule. Please try to reschedule again.. Thank you.');
-                  document.getElementById("tdc_first_time").disabled = false;
-                } else if (response == '2') {
-                  alert('Opps!! Someone already take the last seat of the "'+tdc_second_time+'" Second Schedule. Please try to reschedule again.. Thank you.');
-                  document.getElementById("tdc_second_time").disabled = false;
-                } else if (response == '3') {
-                  alert('Opps!! Someone already take the last seat of the "'+tdc_third_time+'" Third Schedule. Please try to reschedule again.. Thank you.');
-                  document.getElementById("tdc_third_time").disabled = false;
-                } else if (response == 'success') {
-                  alert('Your TDC Schedule Successfully Submit!!');
-                  $('#show_tdc').hide();
-                  $('#show_payment').show();
-                } else {
-                  alert('Opps!! Someone already take your Schedule at the same day and time. Please try to rechedule it again. Thank you..');
-                  document.getElementById("tdc_first_day").value = '';
-                  document.getElementById("tdc_first_day").disabled = false;
-                  document.getElementById("tdc_first_time").value = '';
-
-                  document.getElementById("tdc_second_day").value = '';
-                  document.getElementById("tdc_second_time").value = '';
-
-                  document.getElementById("tdc_third_day").value = '';
-                  document.getElementById("tdc_third_time").value = '';
-
+                if (response == 'success') {
+                  alert('Your Application Successfully Saved. You can now login to the Student Portal!!');
+                  location.replace("./student")
+                } else if (response == 'duplicate') {
+                  alert('Student already exist! Please try to use forgot password to retrieve you credentials. Thank you.');
                 }
               }
           });
-        }
       }
     }
-
   </script>
 </html>
 
@@ -894,12 +638,18 @@ notice)
     
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">MS Ferrando Driving School Institute</h4>
+        <h4 class="modal-title">MS Ferrando Driving School Institute</h4><br>
         <button type="button" onclick="close_modal()" class="close" data-dismiss="modal">&times;</button>
       </div>
       
       <!-- Modal body -->
       <div class="modal-body">
+        <h4 align="center" id="show_spinner">
+            Please wait.. 
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </h4>
         <div id="show_student"></div>
         <!-- <div style="display: none;" id="show_payment">
             <h4 align="center">Slots get filled in a snap! You can enroll online or walk-in before slots run out!</h4>
