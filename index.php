@@ -249,7 +249,7 @@ LIFETIME PRIDE <a href="https://www.tesda.gov.ph/" class="u-active-none u-border
             <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-valign-bottom-md u-valign-bottom-sm u-valign-bottom-xs u-container-layout-1">
                 <h3 class="u-align-center u-text u-text-2" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">TDC</h3>
-                <h6 class="u-align-center u-text u-text-3" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Practical Driving Course</h6>
+                <h6 class="u-align-center u-text u-text-3" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Theoretical  Driving Course</h6>
                 <p class="u-align-center u-text u-text-4" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">No SP yet?&nbsp; This is one of what you need.</p>
                 <a href="Home.html#sec-fea1" data-page-id="631429632" class="u-btn u-btn-round u-button-style u-custom-color-8 u-hover-palette-1-light-1 u-radius-50 u-btn-1">Learn More about TDC<br>
                 </a>

@@ -11,3 +11,4 @@ Stud payment status
 PHP mailer code 
 - pgjpvspfpauidugk
 
+$email = mysqli_real_escape_string($conn, $_POST['email']);

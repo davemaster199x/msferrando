@@ -2,7 +2,7 @@
 session_start();
 include("../connection.php");
 date_default_timezone_set('Asia/Manila');
-if (empty($_SESSION['user_id'])) {
+if (empty($_SESSION['stud_id'])) {
     header("Location: ../index.php");
 }
  ?>
@@ -10,7 +10,7 @@ if (empty($_SESSION['user_id'])) {
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>MS Ferrando | Students</title>
+        <title>MS Ferrando | Change Password</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -51,12 +51,12 @@ if (empty($_SESSION['user_id'])) {
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <h4 class="page-title">Students</h4>
+                                    <h4 class="page-title">Change Password</h4>
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
-                        <?php include './students_content.php'; ?>
+                        <?php include './change_password_content.php'; ?>
                         <!-- end row -->
                     </div> <!-- end container-fluid -->
                 </div> <!-- end content -->
@@ -114,9 +114,6 @@ if (empty($_SESSION['user_id'])) {
         <!-- Buttons examples -->
         <script src="../assets/libs/datatables/dataTables.buttons.min.js"></script>
         <script src="../assets/libs/datatables/buttons.bootstrap4.min.js"></script>
-        <script src="../assets/libs/jszip/jszip.min.js"></script>
-        <script src="../assets/libs/pdfmake/pdfmake.min.js"></script>
-        <script src="../assets/libs/pdfmake/vfs_fonts.js"></script>
         <script src="../assets/libs/datatables/buttons.html5.min.js"></script>
         <script src="../assets/libs/datatables/buttons.print.min.js"></script>
         <script src="../assets/libs/datatables/buttons.colVis.js"></script>
@@ -125,6 +122,5 @@ if (empty($_SESSION['user_id'])) {
         <script src="../assets/libs/datatables/responsive.bootstrap4.min.js"></script>
         <!-- Datatables init -->
         <script src="../assets/js/pages/datatables.init.js"></script>
-
     </body>
 </html>
