@@ -2,6 +2,7 @@
 session_start();
 include("../connection.php");
 date_default_timezone_set('Asia/Manila');
+$stud_id = $_SESSION['stud_id'];
 if (empty($_SESSION['stud_id'])) {
     header("Location: ../index.php");
 }
@@ -49,9 +50,14 @@ if (empty($_SESSION['stud_id'])) {
                     <div class="container-fluid">
                         <!-- start page title -->
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-8">
                                 <div class="page-title-box">
                                     <h4 class="page-title">Dashboard</h4>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="page-title-box">
+                                    <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-payment" style="float: right;" value="Payment Method">
                                 </div>
                             </div>
                         </div>

@@ -11,4 +11,9 @@ Stud payment status
 PHP mailer code 
 - pgjpvspfpauidugk
 
+manual x 2= 16 hrs 
+matic x1 = 8hrs 
+motor manual x2 = 16hrs 
+motor matic x1= 8hrs
+
 $email = mysqli_real_escape_string($conn, $_POST['email']);

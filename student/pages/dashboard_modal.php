@@ -1,81 +1,133 @@
-<!-- // This modal for the adding of schedule -->
+<!-- // This modal for the adding of TDC schedule -->
 <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Add Schedule</h4>
+                <?php
+                    $result_tdc_price = mysqli_query($conn, "SELECT * FROM tbl_tdc_price");
+                    $data = mysqli_fetch_assoc($result_tdc_price);
+                    $tdc_price = $data['tdc_price'];
+                    $tdc = number_format($tdc_price);
+                ?>
+                <h4 class="modal-title">Select TDC Schedule @<label style="color: red;"><?=$tdc?></label></h4>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="field-1" class="control-label">Schedule Description:</label>
-                            <textarea class="form-control" id="sched_description" cols="30" rows="3"></textarea>
+                <div class="col-sm-12">
+                    <center>
+                        <label>You can select any schedule but please follow the DAY SIMULTANEOUSLY!! </label>
+                    </center>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>First Day</label>
+                            <ul style="margin-top: 0px;">
+                                <li>Monday</li>
+                                <li>Thursday</li>
+                            </ul>  
+                        </div>
+                        <div class="col-md-4">
+                            <label>Second Day</label>
+                            <ul style="margin-top: 0px;">
+                                <li>Tuesday</li>
+                                <li>Friday</li>
+                            </ul> 
+                        </div>
+                        <div class="col-md-4">
+                            <label>Third Day</label>
+                            <ul style="margin-top: 0px;">
+                                <li>Wednesday</li>
+                                <li>Saturday</li>
+                            </ul> 
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
+                    <center>
+                        <strong>No Schedule on SUNDAY!</strong>
+                    </center>
+                    <hr>
+                    <form >
                         <div class="form-group">
-                            <label for="field-1" class="control-label">Schedule Price:</label>
-                            <input type="number" class="form-control" id="sched_price"></input>
+                            <label for="exampleInputEmail1">First Day:</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control" id="tdc_first_day" onchange="first_day()">
+                                </div>
+                                <div class="col-md-6">
+                                    <select id="tdc_first_time" class="form-control" disabled onchange="first_time()">
+                                        <option disabled selected>-Select Time-</option>
+                                        <option value="am">AM</option>
+                                        <option value="pm">PM</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
                         <div class="form-group">
-                            <label for="field-1" class="control-label">Select Course:</label>
-                            <select id="sched_course" class="form-control"> 
-                                <option value="TDC">TDC</option>
-                                <option value="PDC">PDC</option>
-                                <option value="Additional Driving">Additional Driving</option>
-                            </select>
+                            <label for="exampleInputEmail1">Second Day:</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control" id="tdc_second_day" disabled onchange="second_day()">
+                                </div>
+                                <div class="col-md-6">
+                                    <select id="tdc_second_time" class="form-control" disabled onchange="second_time()">
+                                        <option disabled selected>-Select Time-</option>
+                                        <option value="am">AM</option>
+                                        <option value="pm">PM</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Third Day:</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control" id="tdc_third_day" disabled onchange="third_day()">
+                                </div>
+                                <div class="col-md-6">
+                                    <select id="tdc_third_time" class="form-control" disabled onchange="third_time()">
+                                        <option disabled selected>-Select Time-</option>
+                                        <option value="am">AM</option>
+                                        <option value="pm">PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <label id="reminder" style="display: none;">Please take a screenshot or picture for the following 3 days Schedule for you Reference!! Thank you.</label>
+                        <input type="button" class="btn btn-danger float-left" value="Reset Schedule" onclick="reset_tdc_schedule()">
+                        <input type="button" class="btn btn-success float-right" value="Submit Application" onclick="save_application()" disabled id="show_application">
+                    </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info waves-effect waves-light" onclick="save_schedule()">Add Schedule</button>
             </div>
         </div>
     </div>
 </div>
-<!-- // END modal for the adding of schedule -->
+<!-- // END modal for the adding of TDC schedule -->
 
-
-
-<!-- // This modal for the update of schedule -->
-<div id="update-schedule-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Update Schedule</h4>
-            </div>
-            <div class="modal-body">
-                <div id="show_update_schedule"></div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success waves-effect waves-light" onclick="update_schedule()">Update Schedule</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- // END modal for the update of schedule -->
-
- <!--  Modal content for the above example -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-<div class="modal-dialog modal-lg">
+<!-- The Modal -->
+<div class="modal fade" id="myModal-payment" data-backdrop="static">
+    <div class="modal-dialog modal-xl">
     <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title" id="myLargeModalLabel">List of Students</h4>
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">MS Ferrando Driving School Institute</h4><br>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div>
+            <h4 align="center">Slots get filled in a snap! You can enroll online or walk-in before slots run out!</h4>
+            <center><label>*Note: If you pay online, just take a screenshot of the transaction and visit <a href="https://www.facebook.com/MSFerrandoDriving" target="_blank">MS Ferrando</a> Facebook Page to confirm your schedule, same goes to walk-in applicants. Please be advised that unconfirm bookings will result to auto-cancellation in 24 hours. Thank you.</label></center>
+            <img class="img-fluid" src="../../images/payment.jpg" alt="" style="display: block; margin-left: auto; margin-right: auto;">
         </div>
-        <div class="modal-body">
-        <div id="show_schedule_students"></div>
-        </div>
-    </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+      </div>
+      
+    </div>
+  </div>
+</div>
