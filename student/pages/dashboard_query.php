@@ -99,5 +99,14 @@
       }
   }
   
+  if (isset($_POST['cancel_booking'])) {
+    $tdc_id = $_POST['tdc_id'];
+
+    $query = mysqli_query($conn, "DELETE FROM tbl_tdc WHERE tdc_id = '$tdc_id'");
+    if ($query) {
+        echo 'success';
+    }
+}
+  
   mysqli_close($conn);
  ?>

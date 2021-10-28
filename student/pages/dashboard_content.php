@@ -36,18 +36,7 @@
                     <tbody>
                       <?php 
                         $count = 1;
-                        $query_tdc = mysqli_query($conn, "SELECT
-                                                        tbl_student.stud_name, 
-                                                        tbl_tdc.tdc_stud_status, 
-                                                        tbl_tdc.tdc_stud_payment_status, 
-                                                        tbl_tdc.tdc_created, 
-                                                        tbl_tdc.tdc_price
-                                                      FROM
-                                                        tbl_student
-                                                        INNER JOIN
-                                                        tbl_tdc
-                                                        ON 
-                                                          tbl_student.stud_id = tbl_tdc.stud_id WHERE tbl_student.stud_id = $stud_id ");
+                        $query_tdc = mysqli_query($conn, "SELECT tbl_student.stud_name, tbl_tdc.tdc_stud_status, tbl_tdc.tdc_stud_payment_status, tbl_tdc.tdc_created, tbl_tdc.tdc_price, tbl_tdc.tdc_id FROM tbl_student INNER JOIN tbl_tdc ON tbl_student.stud_id = tbl_tdc.stud_id WHERE tbl_student.stud_id = $stud_id ");
                         while($data = mysqli_fetch_array($query_tdc)) {
                       ?>
                       <tr style="cursor: pointer;">
@@ -85,7 +74,16 @@
                             ?>
                           </td>
                           <td class="text-center">₱ <?=number_format($data['tdc_price'])?></td>
-                          <td></td>
+                          <td class="text-center">
+                            <input type="button" class="btn btn-success" value="View Schedule">
+                            <?php 
+                              if ($data['tdc_stud_status'] == 0) {
+                               echo '
+                                <input type="button" class="btn btn-danger" value="X" title="Cancel Schedule" id="'.$data['tdc_id'].'" onclick="cancel_booking(this.id)">
+                              ';
+                              }    
+                            ?>
+                          </td>
                       </tr>
                       <?php } ?>
                     </tbody>
@@ -97,7 +95,7 @@
             <div class="card-box table-responsive">
                 <h4 class="header-title">Practical Driving Schedule
                   <div class="float-right">
-                    <button  type="button" class="btn btn-icon waves-effect waves-light btn-success" data-toggle="modal" data-target="#con-close-modal"><i class="fa fa-plus"></i> Add PDC</button>
+                    <button  type="button" class="btn btn-icon waves-effect waves-light btn-success" data-toggle="modal" data-target="#modal-pdc"><i class="fa fa-plus"></i> Add PDC</button>
                   </div>
                 </h4>
 
@@ -439,6 +437,28 @@
                 }
               }
           });
+      }
+    }
+
+    function cancel_booking(id) {
+      if (confirm('Are you sure you want to cancel you booking?')) {
+        $.ajax({
+        url: 'dashboard_query.php',
+        type: 'POST',
+        async: false,
+        data:{
+            tdc_id:id,
+            cancel_booking: 1,
+        },
+            success: function(response){
+              if (response == 'success') {
+                alert('You have successfully cancel your booking.');
+                location.reload();
+              } else {
+                alert('Error!');
+              }
+            }
+        });
       }
     }
           
