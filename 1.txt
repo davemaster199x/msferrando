@@ -1,0 +1,171 @@
+Hostname: online.emarchitects.co.uk
+Username: nrelevy_brilmoran
+Password: 3mqAZBmdhr
+
+Your SVN credentials:
+https://86.23.4.82:60443/svn/Eyal_Moran_Arch
+Username: dmalhin
+Password: vp7Q3GzFSdrmxJE
+
+Below are the links to the system that we use
+https://www.tasktree.net 
+http://bms.timesheettree.org/loginform.php
+Id: davem
+pswrd: mdave
+
+This is the login details for all prjects's BMS sites
+id: nrelevy
+pswrd - relevynr
+
+https://86.23.4.82:60443/svn/Hall_Randall
+bms.hallandrandall.com -BMS site for HNR
+bms.tectum.co.uk - Tectum
+
+FTP for Tectum
+Hostname: bms.tectum.co.uk
+nrelevy_briltectum 
+Bril008!
+
+Hostname: bms.hallandrandall.com
+Username: nrelevy_brilghr
+Password: xSoIIKtwwy
+
+Hostname: pms.maintenanceteamltd.co.uk
+Username: nrelevy_briltmt
+Password: HEzKSwK5az
+
+Hostname: rbs.russellblack.co.uk
+Username: nrelevy_brilrbs
+Password: IVbRsubqZF
+
+Hostname: crm.bbscapital.com
+Username: nrelevy_brilbbscap
+Password: CkTuSTqWGv
+
+cms.rielloconstruction.co.uk
+nrelevy_brilrec
+H397aNbHPZ
+
+WEBSITE is:
+Hostname: sleepingbabies.co.uk
+Username: nrelevy_brilsleep
+Password: BnqRtcCLGA
+
+SBS is:
+Hostname: sbs.sleepingbabies.co.uk
+Username: nrelevy_brilsbaby
+Password: oMy8GM1tqc
+
+Hostname: bms.interbelt.co.uk
+Username: nrelevy_brilinter
+Password: 8OV0f3gxO3
+
+
+https://86.23.4.82:60443/svn/PSL_CRM - crm.pslrecruitmentservices.co.uk
+https://86.23.4.82:60443/svn/PSL_Portal - rms.pslrecruitmentservices.co.uk
+https://86.23.4.82:60443/svn/PSLRecruitment_web - www.pslrecruitmentservices.co.uk
+Hostname: rms.pslrecruitmentservices.co.uk
+Username: nrelevy_brilpslrms
+Password: r2OWVZtIgH
+
+Hostname: crm.pslrecruitmentservices.co.uk
+Username: nrelevy_brilpslcrm
+Password: Ciuk004!
+
+Hostname: rms.pslrecruitmentservices.co.uk
+Username: nrelevy_brilpslrms
+Password: r2OWVZtIgH
+
+Hostname: bms.smarterpayments.co.uk
+Username: nrelevy_brilsmp
+Password: uItekFQxi4
+
+Hostname: recoverypms.carcashpoint.com
+Username: nrelevy_brilrpms
+Password: QS7drfg0ol
+
+Hostname: bms.tvvs.co.uk
+Username: nrelevy_briltvvs
+Password: iv0lFg9c5S
+
+Hostname: bms.gasmark1.com
+Username: nrelevy_brilgmo
+Password: ygrw8sG4cu
+
+bms.mkfleet-maintenance.co.uk
+nrelevy_brilmkf
+TOg1yZTiA4
+
+Hostname: independent-living.co.uk
+Username: nrelevy_brililc
+Password: 0GJcJFNb4J
+
+Hostname: bms.daycomaintenance.co.uk
+Username: nrelevy_brildayco
+Password: TLvO451HCS
+
+Hostname: crm.thepaymentsco.com
+Username: nrelevy_briltpc
+Password: kxQsC4F2Wc
+
+Hostname: bms.storm-it.com
+Username: nrelevy_brilsit
+Password: NaP3Ehv8G!
+
+Hostname: bms.smelec.co.uk
+Username: nrelevy_brilsme
+Password: oKOXTqt16o
+
+Hostname: bms.harkalm.com
+Username: nrelevy_brilhark
+Password: gh1F0yzO0n
+
+Russell Black
+Invoice id - 231113
+fk_magent_id - 68
+
+Russell@sherr.co.uk
+
+ant2912@aol.com
+
+displayPdfInvoice
+
+HP1 1LB
+
+Quote
+
+205.00
+130.00
+
+Reminder:
+viewcstdeals.php - get the query id where fk_cust_id = $_GET['cid'] and servicetype != To 
+editdeal.php - get the query for the list of outstanding docs in the database
+Table name: contracts
+
+Create a function that will get the candidate Id and link it in actions.php
+Create a new case that will handle the candidate function and call a class
+Create a new function class that will sent the candidate cv
+
+
+Adding in acions.php
+$contract = new contract($_POST,"contracts");
+$ctid = $contract->add();
+
+Deleting in actions.php
+$client = new client($_POST,"prospects");
+$client->delete('client_id','cid');
+
+Edit in actions.php
+$client = new client($_POST,"prospects");
+$client->edit('client_id','cid');
+
+Job 9940 - origjob_id = 10183
+
+name, invoice number and statement number
+
+
+@imdaviee you have a review meeting on Tuesday 2nd Nov at 8:15am, please find below your zoom link:
+https://us02web.zoom.us/j/81230444342?pwd=MUY4VFowU3VIVGNEZzBjcTd3UHFuUT09
+
+Meeting ID: 812 3044 4342
+Passcode: 850773
