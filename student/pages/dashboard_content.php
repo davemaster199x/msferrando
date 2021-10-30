@@ -12,7 +12,7 @@
                       if ($total_stud == 0) {
                         $disabled = '';
                       } else {
-                        $disabled = 'disabled';
+                        $disabled = 'style="display: none;"';
                       }
                     ?>
                     <button  type="button" <?=$disabled?> class="btn btn-success btn-block" data-toggle="modal" data-target="#con-close-modal" style="white-space: nowrap;"><i class="fa fa-plus"></i> Add TDC</button>
@@ -26,6 +26,7 @@
                     <tr>
                         <th>No.</th>
                         <th>Student Name</th>
+                        <th class="text-center">Schedule</th>
                         <th class="text-center">Student Status</th>
                         <th class="text-center">Payment Status</th>
                         <th class="text-center">Schedule Created/Info</th>
@@ -36,12 +37,31 @@
                     <tbody>
                       <?php 
                         $count = 1;
-                        $query_tdc = mysqli_query($conn, "SELECT tbl_student.stud_name, tbl_tdc.tdc_stud_status, tbl_tdc.tdc_stud_payment_status, tbl_tdc.tdc_created, tbl_tdc.tdc_price, tbl_tdc.tdc_id FROM tbl_student INNER JOIN tbl_tdc ON tbl_student.stud_id = tbl_tdc.stud_id WHERE tbl_student.stud_id = $stud_id ");
+                        $query_tdc = mysqli_query($conn, "SELECT tdc_first_day, tdc_first_time, tdc_second_day, tdc_second_time, tdc_third_day, tdc_third_time, tbl_student.stud_name, tbl_tdc.tdc_stud_status, tbl_tdc.tdc_stud_payment_status, tbl_tdc.tdc_created, tbl_tdc.tdc_price, tbl_tdc.tdc_id FROM tbl_student INNER JOIN tbl_tdc ON tbl_student.stud_id = tbl_tdc.stud_id WHERE tbl_student.stud_id = $stud_id ");
                         while($data = mysqli_fetch_array($query_tdc)) {
+                        $first_day = date('M d, Y', strtotime($data['tdc_first_day']));
+                        $first_time = ($data['tdc_first_time'] == 'am') ? '7am-12pm' : '1pm-6pm';
+
+                        $second_day = date('M d, Y', strtotime($data['tdc_second_day']));
+                        $second_time = ($data['tdc_second_time'] == 'am') ? '7am-12pm' : '1pm-6pm';
+
+                        $third_day = date('M d, Y', strtotime($data['tdc_third_day']));
+                        $third_time = ($data['tdc_third_time'] == 'am') ? '7am-12pm' : '1pm-6pm';
                       ?>
                       <tr style="cursor: pointer;">
                           <td><?=$count++?></td>
                           <td><?=$data['stud_name'];?></td>
+                          <td>
+                          <?php
+                            echo '
+                            <label>
+                                First Day: '.$first_day.' | Time: '.$first_time.'<br>
+                                Second Day: '.$second_day.' | Time: '.$second_time.'<br>
+                                Third Day: '.$third_day.' | Time: '.$third_time.'
+                            </label>
+                            ';
+                          ?>
+                          </td>
                           <td class="text-center">
                             <?php 
                               if ($data['tdc_stud_status'] == 0) {
@@ -75,7 +95,7 @@
                           </td>
                           <td class="text-center">₱ <?=number_format($data['tdc_price'])?></td>
                           <td class="text-center">
-                            <input type="button" class="btn btn-success" value="View Schedule">
+                            <input type="button" class="btn btn-success" value="Update Schedule" data-toggle="modal" data-target="#view-schedule" id="<?=$data['tdc_id']?>" onclick="show_schedule(this.id)">
                             <?php 
                               if ($data['tdc_stud_status'] == 0) {
                                echo '
@@ -187,7 +207,6 @@
       <script type="text/javascript">
         $(function(){
             var dtToday = new Date();
-            
             var month = dtToday.getMonth() + 1;
             var day = dtToday.getDate();
             var year = dtToday.getFullYear();
@@ -459,6 +478,263 @@
               }
             }
         });
+      }
+    }
+
+    function show_schedule(id) {
+      $.ajax({
+        url: 'dashboard_query.php',
+        type: 'POST',
+        async: false,
+        data:{
+            tdc_id:id,
+            show_schedule: 1,
+        },
+            success: function(response){
+              $('#show_schedule').html(response);
+            }
+        });
+    }
+
+    function reset_tdc_schedule_update() {
+      if (confirm('Are you sure?')) {
+        document.getElementById("tdc_first_day_update").disabled = false;
+        document.getElementById("tdc_first_time_update").disabled = true;
+        document.getElementById("tdc_second_day_update").disabled = true;
+        document.getElementById("tdc_second_time_update").disabled = true;
+        document.getElementById("tdc_third_day_update").disabled = true;
+        document.getElementById("tdc_third_time_update").disabled = true;
+
+        document.getElementById("tdc_first_day_update").value = '';
+        document.getElementById("tdc_first_time_update").value = '';
+        document.getElementById("tdc_second_day_update").value = '';
+        document.getElementById("tdc_second_time_update").value = '';
+        document.getElementById("tdc_third_day_update").value = '';
+        document.getElementById("tdc_third_time_update").value = '';
+      }
+    }
+
+    function first_day_update() {
+      tdc_first_day = document.getElementById("tdc_first_day_update").value;
+      var d = new Date(tdc_first_day);
+      var weekday = new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+      var n = weekday[d.getDay()];
+
+      var dtToday = new Date(tdc_first_day); 
+      var month = dtToday.getMonth() + 1;
+      var day = dtToday.getDate();
+      var year = dtToday.getFullYear();
+      if(month < 10)
+          month = "0" + month.toString();
+      if(day < 10)
+          day = "0" + day.toString();
+      var minDate= year + "-" + month + "-" + day;
+      $("#tdc_second_day_update").attr("min", minDate);
+
+      if (n == 'Monday' || n == 'Thursday') {
+        document.getElementById("tdc_first_time_update").disabled = false;
+      } else {
+        alert('Please select Monday or Thursday for First Day Schedule!! Thank you..');
+        document.getElementById("tdc_first_day_update").value = '';
+        document.getElementById("tdc_first_time_update").disabled = true;
+      }
+    }
+
+    function first_time_update() {
+      tdc_first_day = document.getElementById("tdc_first_day_update").value;
+      tdc_first_time = document.getElementById("tdc_first_time_update").value;
+
+      $.ajax({
+        url: 'dashboard_query.php',
+        type: 'POST',
+        async: false,
+        data:{
+            tdc_first_day:tdc_first_day,
+            tdc_first_time,tdc_first_time,
+            day1: 1,
+        },
+            success: function(response){
+              if (response == 'sobra') {
+                alert('Sorry the maximum students for this schedule are already Completed!! Please try another schedule. Thank you...');
+                document.getElementById("tdc_first_time_update").value = '';
+              } else {
+                document.getElementById("tdc_first_day_update").disabled = true;
+                document.getElementById("tdc_first_time_update").disabled = true;
+                document.getElementById("tdc_second_day_update").disabled = false;
+              }
+            }
+        });
+    }
+
+    function second_day_update() {
+      tdc_second_day = document.getElementById("tdc_second_day_update").value;
+      var d = new Date(tdc_second_day);
+      var weekday = new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+      var n = weekday[d.getDay()];
+
+      var dtToday = new Date(tdc_second_day); 
+      var month = dtToday.getMonth() + 1;
+      var day = dtToday.getDate();
+      var year = dtToday.getFullYear();
+      if(month < 10)
+          month = "0" + month.toString();
+      if(day < 10)
+          day = "0" + day.toString();
+      var minDate= year + "-" + month + "-" + day;
+      $("#tdc_third_day_update").attr("min", minDate);
+
+      if (n == 'Tuesday' || n == 'Friday') {
+        document.getElementById("tdc_second_time_update").disabled = false;
+      } else {
+        alert('Please select Tuesday or Friday for Second Day Schedule!! Thank you..');
+        document.getElementById("tdc_second_day_update").value = '';
+        document.getElementById("tdc_second_time_update").disabled = true;
+      }
+    }
+
+    function second_time_update() {
+      tdc_second_day = document.getElementById("tdc_second_day_update").value;
+      tdc_second_time = document.getElementById("tdc_second_time_update").value;
+
+      $.ajax({
+        url: 'dashboard_query.php',
+        type: 'POST',
+        async: false,
+        data:{
+            tdc_second_day:tdc_second_day,
+            tdc_second_time,tdc_second_time,
+            day2: 1,
+        },
+            success: function(response){
+              if (response == 'sobra') {
+                alert('Sorry the maximum students for this schedule are already Completed!! Please try another schedule. Thank you...');
+                document.getElementById("tdc_second_time_update").value = '';
+              } else {
+                document.getElementById("tdc_second_day_update").disabled = true;
+                document.getElementById("tdc_second_time_update").disabled = true;
+                document.getElementById("tdc_third_day_update").disabled = false;
+              }
+            }
+        });
+    }
+
+    function third_day_update() {
+      tdc_third_day = document.getElementById("tdc_third_day_update").value;
+      var d = new Date(tdc_third_day);
+      var weekday = new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+      var n = weekday[d.getDay()];
+
+      if (n == 'Wednesday' || n == 'Saturday') {
+        document.getElementById("tdc_third_time_update").disabled = false;
+      } else {
+        alert('Please select Wednesday or Saturday for Third Day Schedule!! Thank you..');
+        document.getElementById("tdc_third_day_update").value = '';
+        document.getElementById("tdc_third_time_update").disabled = true;
+      }
+    }
+
+    function third_time_update() {
+      tdc_third_day = document.getElementById("tdc_third_day_update").value;
+      tdc_third_time = document.getElementById("tdc_third_time_update").value;
+
+      $.ajax({
+        url: 'dashboard_query.php',
+        type: 'POST',
+        async: false,
+        data:{
+            tdc_third_day:tdc_third_day,
+            tdc_third_time,tdc_third_time,
+            day3: 1,
+        },
+            success: function(response){
+              if (response == 'sobra') {
+                alert('Sorry the maximum students for this schedule are already Completed!! Please try another schedule. Thank you...');
+                document.getElementById("tdc_third_time_update").value = '';
+              } else {
+                document.getElementById("tdc_third_day_update").disabled = true;
+                document.getElementById("tdc_third_time_update").disabled = true;
+                document.getElementById("show_application_update").disabled = false;
+                document.getElementById("reminder_update").style = '';
+              }
+            }
+        });
+    }
+
+    function save_application_update() {
+      tdc_id = document.getElementById("tdc_id_update").value;
+
+      tdc_first_day = document.getElementById("tdc_first_day_update").value;
+      tdc_first_time = document.getElementById("tdc_first_time_update").value;
+
+      tdc_second_day = document.getElementById("tdc_second_day_update").value;
+      tdc_second_time = document.getElementById("tdc_second_time_update").value;
+
+      tdc_third_day = document.getElementById("tdc_third_day_update").value;
+      tdc_third_time = document.getElementById("tdc_third_time_update").value;
+      if (confirm('Please take a screenshot or picture for the following 3 days Schedule for you Reference!! Thank you.')) {
+          $.ajax({
+          url: 'dashboard_query.php',
+          type: 'POST',
+          async: false,
+          data:{
+              tdc_id:tdc_id,
+              tdc_first_day:tdc_first_day,
+              tdc_first_time:tdc_first_time,
+              tdc_second_day:tdc_second_day,
+              tdc_second_time:tdc_second_time,
+              tdc_third_day:tdc_third_day,
+              tdc_third_time:tdc_third_time,
+              save_application_update: 1,
+          },
+              success: function(response){
+                if (response == '1') {
+                  alert('Opps!! Someone already take the last seat of the "'+tdc_first_time+'" First Schedule. Please try to reschedule again.. Thank you.');
+                  document.getElementById("tdc_first_time_update").disabled = false;
+                } else if (response == '2') {
+                  alert('Opps!! Someone already take the last seat of the "'+tdc_second_time+'" Second Schedule. Please try to reschedule again.. Thank you.');
+                  document.getElementById("tdc_second_time_update").disabled = false;
+                } else if (response == '3') {
+                  alert('Opps!! Someone already take the last seat of the "'+tdc_third_time+'" Third Schedule. Please try to reschedule again.. Thank you.');
+                  document.getElementById("tdc_third_time_update").disabled = false;
+                } else if (response == 'success') {
+                  alert('Your TDC Schedule Successfully Updated!');
+                  location.reload();
+                } else {
+                  alert('Opps!! Someone already take your Schedule at the same day and time. Please try to rechedule it again. Thank you..');
+                  document.getElementById("tdc_first_day_update").value = '';
+                  document.getElementById("tdc_first_day_update").disabled = false;
+                  document.getElementById("tdc_first_time_update").value = '';
+
+                  document.getElementById("tdc_second_day_update").value = '';
+                  document.getElementById("tdc_second_time_update").value = '';
+
+                  document.getElementById("tdc_third_day_update").value = '';
+                  document.getElementById("tdc_third_time_update").value = '';
+
+                }
+              }
+          });
       }
     }
           

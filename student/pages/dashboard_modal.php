@@ -54,8 +54,8 @@
                                 <div class="col-md-6">
                                     <select id="tdc_first_time" class="form-control" disabled onchange="first_time()">
                                         <option disabled selected>-Select Time-</option>
-                                        <option value="am">AM</option>
-                                        <option value="pm">PM</option>
+                                        <option value="am">7am-12pm</option>
+                                        <option value="pm">1pm-6pm</option>
                                     </select>
                                 </div>
                             </div>
@@ -69,8 +69,8 @@
                                 <div class="col-md-6">
                                     <select id="tdc_second_time" class="form-control" disabled onchange="second_time()">
                                         <option disabled selected>-Select Time-</option>
-                                        <option value="am">AM</option>
-                                        <option value="pm">PM</option>
+                                        <option value="am">7am-12pm</option>
+                                        <option value="pm">1pm-6pm</option>
                                     </select>
                                 </div>
                             </div>
@@ -84,15 +84,15 @@
                                 <div class="col-md-6">
                                     <select id="tdc_third_time" class="form-control" disabled onchange="third_time()">
                                         <option disabled selected>-Select Time-</option>
-                                        <option value="am">AM</option>
-                                        <option value="pm">PM</option>
+                                        <option value="am">7am-12pm</option>
+                                        <option value="pm">1pm-6pm</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <label id="reminder" style="display: none;">Please take a screenshot or picture for the following 3 days Schedule for you Reference!! Thank you.</label>
                         <input type="button" class="btn btn-danger float-left" value="Reset Schedule" onclick="reset_tdc_schedule()">
-                        <input type="button" class="btn btn-success float-right" value="Submit Application" onclick="save_application()" disabled id="show_application">
+                        <input type="button" class="btn btn-success float-right" value="Submit Schedule" onclick="save_application()" disabled id="show_application">
                     </form>
                 </div>
             </div>
@@ -102,6 +102,24 @@
     </div>
 </div>
 <!-- // END modal for the adding of TDC schedule -->
+
+<!-- // This modal for the Viewing of TDC schedule -->
+<div id="view-schedule" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">View/Update TDC Schedule</h4>
+            </div>
+            <div class="modal-body">
+                <div id="show_schedule"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // END modal for the Viewing of TDC schedule -->
 
 <!-- The Modal -->
 <div class="modal fade" id="myModal-payment" data-backdrop="static">
