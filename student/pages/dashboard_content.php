@@ -3,7 +3,7 @@
         <div class="row">
           <div class="col-12">
             <div class="card-box table-responsive">
-                <h4 class="header-title">Theoretical  Driving Schedule
+                <h4 class="header-title">Theoretical Driving Course Schedule
                   <div class="float-right">
                     <?php
                       $tdc_rec = mysqli_query($conn, "SELECT COUNT(tbl_tdc.tdc_stud_status) AS total_stud FROM tbl_tdc WHERE stud_id = '$stud_id'");
@@ -110,8 +110,9 @@
                 </table>
             </div>
           </div>
-
-          <div class="col-12">
+          
+          <!-- For PDC table -->
+          <!-- <div class="col-12">
             <div class="card-box table-responsive">
                 <h4 class="header-title">Practical Driving Schedule
                   <div class="float-right">
@@ -194,7 +195,7 @@
                     </tbody>
                 </table>
             </div>
-          </div>
+          </div> -->
           
         </div>
         <!--End This part for the list of all patients -->
