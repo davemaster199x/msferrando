@@ -95,7 +95,14 @@
                           </td>
                           <td class="text-center">₱ <?=number_format($data['tdc_price'])?></td>
                           <td class="text-center">
-                            <input type="button" class="btn btn-success" value="Update Schedule" data-toggle="modal" data-target="#view-schedule" id="<?=$data['tdc_id']?>" onclick="show_schedule(this.id)">
+                            <?php 
+                              if ($data['tdc_stud_status'] == 2) {
+                                $disabled = 'disabled';
+                              } else {
+                                $disabled = '';
+                              }
+                            ?>
+                            <input type="button" <?=$disabled?> class="btn btn-success" value="Update Schedule" data-toggle="modal" data-target="#view-schedule" id="<?=$data['tdc_id']?>" onclick="show_schedule(this.id)">
                             <?php 
                               if ($data['tdc_stud_status'] == 0) {
                                echo '

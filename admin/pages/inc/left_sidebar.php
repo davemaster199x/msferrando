@@ -17,6 +17,20 @@
                 </li>
 
                 <li>
+                    <a href="./tdc_schedule.php" class="">
+                        <i class="fe-calendar"></i>
+                        <span> TDC Schedule </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./pdc_schedule.php" class="">
+                        <i class="fe-calendar"></i>
+                        <span> PDC Schedule </span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="./students.php" class="">
                         <i class="fe-users"></i>
                         <span> Students </span>
