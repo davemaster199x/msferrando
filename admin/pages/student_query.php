@@ -4,23 +4,23 @@
   date_default_timezone_set('Asia/Manila');
 
   if (isset($_POST['save_student'])) {
-    $sched_id = $_POST['sched_id'];
-    $stud_name = $_POST['stud_name'];
-    $stud_email_address = $_POST['stud_email_address'];
-    $stud_contact = $_POST['stud_contact'];
+    $stud_name = mysqli_real_escape_string($conn, $_POST['stud_name']);
+    $stud_email_address = mysqli_real_escape_string($conn, $_POST['stud_email_address']);
+    $stud_password = mysqli_real_escape_string($conn, $_POST['stud_password']);
+    $stud_contact = mysqli_real_escape_string($conn, $_POST['stud_contact']);
     $stud_birthdate = $_POST['stud_birthdate'];
-    $stud_address = $_POST['stud_address'];
+    $stud_address = mysqli_real_escape_string($conn, $_POST['stud_address']);
 
-    $count_student = mysqli_query($conn, "SELECT * FROM tbl_student WHERE sched_id = $sched_id");
-    $total_students = mysqli_num_rows($count_student);
-    if ($total_students === 10) {
-        echo 'sobranasa10';
+    $result_dup = mysqli_query($conn, "SELECT * FROM tbl_student WHERE stud_email_address = '$stud_email_address' AND stud_name = '$stud_name' LIMIT 1");
+    $count = mysqli_num_rows($result_dup);
+    if ($count == 1) {
+        echo 'duplicate';
     } else {
-        $result = mysqli_query($conn, "INSERT INTO tbl_student (sched_id, stud_date_created, stud_name, stud_email_address, stud_contact, stud_address, stud_birthdate) VALUES ('$sched_id', NOW(), '$stud_name', '$stud_email_address', '$stud_contact', '$stud_address', '$stud_birthdate')");
+        $result = mysqli_query($conn, "INSERT INTO tbl_student (stud_date_created,stud_name,stud_email_address,stud_password,stud_contact_number,stud_address,stud_birthdate) VALUES (NOW(),'$stud_name','$stud_email_address','$stud_password','$stud_contact','$stud_address','$stud_birthdate')");
         if ($result) {
             echo 'success';
         }
-    }  
+    }
   }
 
   if (isset($_POST['delete_student'])) {
@@ -37,66 +37,18 @@
 
     $query = mysqli_query($conn, "SELECT * FROM tbl_student WHERE stud_id = $stud_id");
     $data = mysqli_fetch_assoc($query);
-    $sched_id = $data['sched_id'];
     $stud_name = $data['stud_name'];
     $stud_email_address = $data['stud_email_address'];
-    $stud_contact = $data['stud_contact'];
+    $stud_password = $data['stud_password'];
+    $stud_contact_number = $data['stud_contact_number'];
     $stud_birthdate = $data['stud_birthdate'];
     $stud_address = $data['stud_address'];
-    $stud_status = $data['stud_status'];
-    $stud_payment = $data['stud_payment'];
-    $stud_notes = $data['stud_notes'];
     echo '
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <label for="field-1" class="control-label">Select Schedule:</label>
-                <input type="hidden" class="form-control" id="stud_id_update" value="'.$stud_id.'">
-                <input type="hidden" class="form-control" id="sched_id_temp" value="'.$sched_id.'">
-                <select id="sched_id_update" class="form-control">';
-                    echo '<option></option>';
-                $query_schedule = mysqli_query($conn, "SELECT * FROM tbl_schedule WHERE sched_status = 1 ORDER BY sched_id DESC");
-                while($data_schedule = mysqli_fetch_array($query_schedule)) {
-                    $sched_id1 = $data_schedule['sched_id'];
-                    $count_student = mysqli_query($conn, "SELECT * FROM tbl_student WHERE sched_id = $sched_id1");
-                    $total_students = mysqli_num_rows($count_student);
-                    if ($total_students === 10) {
-                        $disabled = 'disabled';
-                    } else {
-                        $disabled = '';
-                    }
-                    echo '<option '.$disabled.' value="'.$data_schedule['sched_id'].'" '; if($data_schedule['sched_id'] === $sched_id) { echo 'selected'; } echo'>'.$data_schedule['sched_description'].' (₱'.$data_schedule['sched_price'].') ('.$total_students.' Students Enrolled)</option>';
-                }
-                echo '
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="field-1" class="control-label">Student Status:</label>
-                <select id="stud_status_update" class="form-control">
-                    <option value="1"'; if($stud_status == 1) { echo 'selected'; } echo '>Done</option>
-                    <option value="0"'; if($stud_status == 0) { echo 'selected'; } echo '>In Progress</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="field-1" class="control-label">Student Payment:</label>
-                <select id="stud_payment_update" class="form-control">
-                    <option value="0"'; if($stud_payment == 0) { echo 'selected'; } echo '>Receivable</option>
-                    <option value="1"'; if($stud_payment == 1) { echo 'selected'; } echo '>Partially Paid</option>
-                    <option value="2"'; if($stud_payment == 2) { echo 'selected'; } echo '>Fully Paid</option>
-                </select>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
                 <label for="field-1" class="control-label">Student Name:</label>
+                <input type="hidden" class="form-control" id="stud_id_update" value="'.$stud_id.'">
                 <input type="text" class="form-control" id="stud_name_update" value="'.$stud_name.'">
             </div>
         </div>
@@ -110,8 +62,22 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
+                <label for="field-1" class="control-label">Student Password:</label>
+                <input type="password" class="form-control" id="stud_password_update" value="'.$stud_password.'">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="field-1" class="control-label">Show Password</label><br>
+                <input type="checkbox" onclick="myFunctions()" > 
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
                 <label for="field-1" class="control-label">Student Contact:</label>
-                <input type="text" class="form-control" id="stud_contact_update" value="'.$stud_contact.'">
+                <input type="number" class="form-control" id="stud_contact_number_update" value="'.$stud_contact_number.'">
             </div>
         </div>
         <div class="col-md-6">
@@ -129,30 +95,19 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <label for="field-1" class="control-label">Notes:</label>
-                <textarea id="stud_notes_update" class="form-control" cols="30" rows="6">'.$stud_notes.'</textarea>
-            </div>
-        </div>
-    </div>
     ';
     }
 
     if (isset($_POST['update_student'])) {
         $stud_id = $_POST['stud_id'];
-        $sched_id = $_POST['sched_id'];
-        $stud_status = $_POST['stud_status'];
-        $stud_payment = $_POST['stud_payment'];
-        $stud_name = $_POST['stud_name'];
-        $stud_email_address = $_POST['stud_email_address'];
-        $stud_contact = $_POST['stud_contact'];
+        $stud_name = mysqli_real_escape_string($conn, $_POST['stud_name']);
+        $stud_email_address = mysqli_real_escape_string($conn, $_POST['stud_email_address']);
+        $stud_password = mysqli_real_escape_string($conn, $_POST['stud_password']);
+        $stud_contact_number = mysqli_real_escape_string($conn, $_POST['stud_contact_number']);
         $stud_birthdate = $_POST['stud_birthdate'];
-        $stud_address = $_POST['stud_address'];
-        $stud_notes = $_POST['stud_notes'];
+        $stud_address = mysqli_real_escape_string($conn, $_POST['stud_address']);
     
-        $result = mysqli_query($conn, "UPDATE tbl_student SET sched_id = '$sched_id', stud_status = '$stud_status', stud_payment = '$stud_payment', stud_name = '$stud_name', stud_email_address = '$stud_email_address', stud_contact = '$stud_contact', stud_birthdate = '$stud_birthdate', stud_address = '$stud_address', stud_notes = '$stud_notes' WHERE stud_id = '$stud_id'");
+        $result = mysqli_query($conn, "UPDATE tbl_student SET stud_name = '$stud_name', stud_email_address = '$stud_email_address', stud_password = '$stud_password', stud_contact_number = '$stud_contact_number', stud_birthdate = '$stud_birthdate', stud_address = '$stud_address' WHERE stud_id = '$stud_id'");
         if ($result) {
             echo 'success';
         }

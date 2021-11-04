@@ -15,48 +15,24 @@
                     <tr>
                         <th>No.</th>
                         <th>Student Name</th>
-                        <th class="text-center">Schedule</th>
                         <th class="text-center">Email Address</th>
                         <th class="text-center">Contact #</th>
-                        <th class="text-center">Status</th>
-                        <th class="text-center">Payment</th>
+                        <th class="text-center">Birthdate</th>
                         <th class="text-center">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                       <?php 
                         $count = 1;
-                        $query = mysqli_query($conn, "SELECT * FROM tbl_student INNER JOIN tbl_schedule ON tbl_student.sched_id = tbl_schedule.sched_id ORDER BY stud_id DESC");
+                        $query = mysqli_query($conn, "SELECT * FROM tbl_student ORDER BY stud_name");
                         while($data = mysqli_fetch_array($query)) {
                       ?>
                       <tr style="cursor: pointer;">
                           <td><?=$count++?></td>
                           <td><?=$data['stud_name']?></td>
-                          <td class="text-center"><?=$data['sched_description'].' (₱'.$data['sched_price'].')'?></td>
                           <td class="text-center"><?=$data['stud_email_address']?></td>
-                          <td class="text-center"><?=$data['stud_contact']?></td>
-                          <td class="text-center">
-                            <?php 
-                            $status = $data['stud_status'];
-                            if ($status == 0) {
-                              echo '<span class="badge label-table badge-warning">In Progress</span>';
-                            } else {
-                              echo '<span class="badge label-table badge-success">Done</span>';
-                            }
-                            ?>
-                          </td>
-                          <td class="text-center">
-                            <?php 
-                            $stud_payment = $data['stud_payment'];
-                            if ($stud_payment == 0) {
-                              echo '<span class="badge label-table badge-danger">Receivable</span>';
-                            } elseif ($stud_payment == 1) {
-                              echo '<span class="badge label-table badge-warning">Partially Paid</span>';
-                            } else {
-                              echo '<span class="badge label-table badge-success">Fully Paid</span>';
-                            }
-                            ?>
-                          </td>
+                          <td class="text-center"><?=$data['stud_contact_number']?></td>
+                          <td class="text-center"><?=$data['stud_birthdate']?></td>
                           <td class="text-center">
                           <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#update-student-modal" id="<?=$data['stud_id']?>" onclick="show_update_student(this.id)"> <i class="far fa-edit"></i> </button>
                           <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" id="<?=$data['stud_id']?>" onclick="delete_student(this.id)"> <i class="fas fa-times"></i> </button>
@@ -80,39 +56,30 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="field-1" class="control-label">Select Schedule:</label>
-                                    <select id="sched_id" class="form-control"> 
-                                        <?php
-                                        $query_schedule = mysqli_query($conn, "SELECT * FROM tbl_schedule WHERE sched_status = 1 ORDER BY sched_id DESC");
-                                        while($data_schedule = mysqli_fetch_array($query_schedule)) {
-                                          $sched_id = $data_schedule['sched_id'];
-                                          $count_student = mysqli_query($conn, "SELECT * FROM tbl_student WHERE sched_id = $sched_id");
-                                          $total_students = mysqli_num_rows($count_student);
-                                          if ($total_students === 10) {
-                                              $disabled = 'disabled';
-                                          } else {
-                                              $disabled = '';
-                                          }
-                                            echo '<option '.$disabled.' value="'.$data_schedule['sched_id'].'">'.$data_schedule['sched_description'].' (₱'.$data_schedule['sched_price'].') ('.$total_students.' Students Enrolled)</option>';
-                                        }
-                                        ?>
-                                    </select>
+                                    <label for="field-1" class="control-label">Student Name:</label>
+                                    <input type="text" class="form-control" id="stud_name" placeholder="Enter Student Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="field-1" class="control-label">Student Email:</label>
+                                    <input type="text" class="form-control" id="stud_email_address" placeholder="Enter Student Email">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="field-1" class="control-label">Student Name:</label>
-                                    <input type="text" class="form-control" id="stud_name">
+                                    <label for="field-1" class="control-label">Student Password:</label>
+                                    <input type="password" class="form-control" id="stud_password" placeholder="Enter Student Password">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="field-1" class="control-label">Student Email:</label>
-                                    <input type="text" class="form-control" id="stud_email_address">
+                                    <label for="field-1" class="control-label">Show Password</label><br>
+                                    <input type="checkbox" onclick="myFunction()" > 
                                 </div>
                             </div>
                         </div>
@@ -120,7 +87,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="field-1" class="control-label">Student Contact:</label>
-                                    <input type="text" class="form-control" id="stud_contact">
+                                    <input type="number" class="form-control" id="stud_contact_number" placeholder="Enter Student Contact">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -134,7 +101,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="field-1" class="control-label">Student Address:</label>
-                                    <textarea id="stud_address" class="form-control" cols="30" rows="4"></textarea>
+                                    <textarea id="stud_address" class="form-control" cols="30" rows="4" placeholder="Enter Student Address"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -165,15 +132,33 @@
 
       <script src="../assets/jquery.min.js"></script>
       <script type="text/javascript">
+          function myFunction() {
+            var x = document.getElementById("stud_password");
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
+            }
+          }
+
+          function myFunctions() {
+            var x = document.getElementById("stud_password_update");
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
+            }
+          }
+    
           function save_student() {
-            sched_id = document.getElementById("sched_id").value;
             stud_name = document.getElementById("stud_name").value;
             stud_email_address = document.getElementById("stud_email_address").value;
-            stud_contact = document.getElementById("stud_contact").value;
+            stud_password = document.getElementById("stud_password").value;
+            stud_contact = document.getElementById("stud_contact_number").value;
             stud_birthdate = document.getElementById("stud_birthdate").value;
             stud_address = document.getElementById("stud_address").value;
 
-            if (stud_name == '' || stud_email_address == '' || stud_contact == '' || stud_birthdate == '' || stud_address == '') {
+            if (stud_name == '' || stud_email_address == '' || stud_contact == '' || stud_birthdate == '' || stud_address == '' || stud_password == '') {
               alert('Please fill up all Student Information!!');
             } else {
               $.ajax({
@@ -181,9 +166,9 @@
                   type: 'POST',
                   async: false,
                   data:{
-                    sched_id:sched_id,
                     stud_name:stud_name,
                     stud_email_address:stud_email_address,
+                    stud_password:stud_password,
                     stud_contact:stud_contact,
                     stud_birthdate:stud_birthdate,
                     stud_address:stud_address,
@@ -193,8 +178,10 @@
                         if (response == 'success') {
                           alert('Student Successfully Added!!');
                           location.reload();
-                        } else if (response == 'sobranasa10') {
-                          alert('Sorry the maximum students for this schedule already Completed!! Please try another schedule. Thank you...');
+                        } else if (response == 'duplicate') {
+                          alert('Student already exist!');
+                        } else {
+                          alert('Something went wrong!!');
                         }
                       }
                 });
@@ -239,21 +226,12 @@
 
           function update_student() {
             stud_id = document.getElementById("stud_id_update").value;
-            sched_id_update = document.getElementById("sched_id_update").value;
-            sched_id_temp = document.getElementById("sched_id_temp").value;
-            if (sched_id_update == '') {
-              sched_id = sched_id_temp;
-            } else {
-              sched_id = sched_id_update;
-            }
-            stud_status = document.getElementById("stud_status_update").value;
-            stud_payment = document.getElementById("stud_payment_update").value;
             stud_name = document.getElementById("stud_name_update").value;
             stud_email_address = document.getElementById("stud_email_address_update").value;
-            stud_contact = document.getElementById("stud_contact_update").value;
+            stud_password = document.getElementById("stud_password_update").value;
+            stud_contact_number = document.getElementById("stud_contact_number_update").value;
             stud_birthdate = document.getElementById("stud_birthdate_update").value;
             stud_address = document.getElementById("stud_address_update").value;
-            stud_notes = document.getElementById("stud_notes_update").value;
 
             if (confirm('Are you sure?')) {
                   $.ajax({
@@ -262,15 +240,12 @@
                     async: false,
                     data:{
                         stud_id:stud_id,
-                        sched_id:sched_id,
-                        stud_status:stud_status,
-                        stud_payment:stud_payment,
                         stud_name:stud_name,
                         stud_email_address:stud_email_address,
-                        stud_contact:stud_contact,
+                        stud_password:stud_password,
+                        stud_contact_number:stud_contact_number,
                         stud_birthdate:stud_birthdate,
                         stud_address:stud_address,
-                        stud_notes:stud_notes,
                         update_student: 1,
                     },
                         success: function(response){
