@@ -2,25 +2,25 @@
 session_start();
 include("../connection.php");
 date_default_timezone_set('Asia/Manila');
-if (empty($_SESSION['user_id'])) {
-    header("Location: ../index.php");
-}
-
+$stud_id = $_SESSION['stud_id'];
+$result = mysqli_query($conn, "SELECT * FROM tbl_student INNER JOIN tbl_tdc ON tbl_student.stud_id = tbl_tdc.stud_id WHERE tbl_student.stud_id = '$stud_id' AND tdc_stud_status = 0 ORDER BY tdc_id DESC LIMIT 1");
+$data = mysqli_fetch_assoc($result);
 $today = date('Y-m-d H:i:s');
-$result = mysqli_query($conn, "SELECT * FROM tbl_student INNER JOIN tbl_tdc ON tbl_student.stud_id = tbl_tdc.stud_id WHERE tdc_stud_status = 0 ORDER BY tdc_id DESC");
-while($data = mysqli_fetch_array($result)) {
-    $tdc_id = isset($data['tdc_id']) ? $data['tdc_id'] : '';
-    $tdc_created = isset($data['tdc_created']) ? $data['tdc_created'] : '';
-    $tdc_invalid = date('Y-m-d H:i:s', strtotime( $tdc_created . " +1 days"));
-    if ($today >= $tdc_invalid) {
-        mysqli_query($conn, "DELETE FROM tbl_tdc WHERE tdc_id = '$tdc_id'");
-    } else {
-        // echo '
-        // <script>
-        //     alert("alert");
-        // </script>
-        // ';
-    }
+$tdc_id = isset($data['tdc_id']) ? $data['tdc_id'] : '';
+$tdc_created = isset($data['tdc_created']) ? $data['tdc_created'] : '';
+$tdc_invalid = date('Y-m-d H:i:s', strtotime( $tdc_created . " +1 days"));
+if ($today >= $tdc_invalid) {
+    mysqli_query($conn, "DELETE FROM tbl_tdc WHERE tdc_id = '$tdc_id'");
+} 
+// else {
+//     echo '
+//     <script>
+//         alert("Nag alert");
+//     </script>
+//     ';
+// }
+if (empty($_SESSION['stud_id'])) {
+    header("Location: ../index.php");
 }
  ?>
 <!DOCTYPE html>
@@ -66,9 +66,14 @@ while($data = mysqli_fetch_array($result)) {
                     <div class="container-fluid">
                         <!-- start page title -->
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-8">
                                 <div class="page-title-box">
                                     <h4 class="page-title">Dashboard</h4>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="page-title-box">
+                                    <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-payment" style="float: right;" value="Payment Method">
                                 </div>
                             </div>
                         </div>
@@ -131,9 +136,6 @@ while($data = mysqli_fetch_array($result)) {
         <!-- Buttons examples -->
         <script src="../assets/libs/datatables/dataTables.buttons.min.js"></script>
         <script src="../assets/libs/datatables/buttons.bootstrap4.min.js"></script>
-        <script src="../assets/libs/jszip/jszip.min.js"></script>
-        <script src="../assets/libs/pdfmake/pdfmake.min.js"></script>
-        <script src="../assets/libs/pdfmake/vfs_fonts.js"></script>
         <script src="../assets/libs/datatables/buttons.html5.min.js"></script>
         <script src="../assets/libs/datatables/buttons.print.min.js"></script>
         <script src="../assets/libs/datatables/buttons.colVis.js"></script>

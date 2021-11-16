@@ -113,14 +113,41 @@
 
     $query = mysqli_query($conn, "SELECT * FROM tbl_tdc WHERE tdc_id = '$tdc_id'");
     $data = mysqli_fetch_assoc($query);
+    if ($data['tdc_first_day'] == '0000-00-00') {
+        $first_day = '';
+    } else {
     $first_day = date('M d, Y', strtotime($data['tdc_first_day']));
+    }
+    
+    if ($data['tdc_first_time'] == '-Sele') {
+    $first_time = '';
+    } else {
     $first_time = ($data['tdc_first_time'] == 'am') ? '7am-12pm' : '1pm-6pm';
-
+    }
+    
+    if ($data['tdc_second_day'] == '0000-00-00') {
+    $second_day = '';
+    } else {
     $second_day = date('M d, Y', strtotime($data['tdc_second_day']));
-    $second_time = ($data['tdc_second_time'] == 'am') ? '7am-12pm' : '1pm-6pm';
+    }
 
+    if ($data['tdc_second_time'] == '-Sele') {
+    $second_time = '';
+    } else {
+    $second_time = ($data['tdc_second_time'] == 'am') ? '7am-12pm' : '1pm-6pm';
+    }
+    
+    if ($data['tdc_third_day'] == '0000-00-00') {
+    $third_day = '';
+    } else {
     $third_day = date('M d, Y', strtotime($data['tdc_third_day']));
+    }
+
+    if ($data['tdc_third_time'] == '-Sele') {
+    $third_time = '';
+    } else {
     $third_time = ($data['tdc_third_time'] == 'am') ? '7am-12pm' : '1pm-6pm';
+    }
     echo '
         <input type="hidden" id="tdc_id_update" value="'.$tdc_id.'">
         <div class="col-sm-12">
@@ -170,8 +197,8 @@
                             <input type="date" class="form-control" id="tdc_first_day_update" onchange="first_day_update()" value="">
                         </div>
                         <div class="col-md-6">
-                            <select id="tdc_first_time_update" class="form-control" disabled onchange="first_time_update()">
-                                <option disabled selected>-Select Time-</option>
+                            <select id="tdc_first_time_update" class="form-control"  onchange="first_time_update()">
+                                <option  selected>-Select Time-</option>
                                 <option value="am">7am-12pm</option>
                                 <option value="pm">1pm-6pm</option>
                             </select>
@@ -182,11 +209,11 @@
                     <label for="exampleInputEmail1">Second Day:</label>
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="date" class="form-control" id="tdc_second_day_update" disabled onchange="second_day_update()" value="">
+                            <input type="date" class="form-control" id="tdc_second_day_update"  onchange="second_day_update()" value="">
                         </div>
                         <div class="col-md-6">
-                            <select id="tdc_second_time_update" class="form-control" disabled onchange="second_time_update()">
-                                <option disabled selected>-Select Time-</option>
+                            <select id="tdc_second_time_update" class="form-control"  onchange="second_time_update()">
+                                <option  selected>-Select Time-</option>
                                 <option value="am">7am-12pm</option>
                                 <option value="pm">1pm-6pm</option>
                             </select>
@@ -197,11 +224,11 @@
                     <label for="exampleInputEmail1">Third Day:</label>
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="date" class="form-control" id="tdc_third_day_update" disabled onchange="third_day_update()" value="">
+                            <input type="date" class="form-control" id="tdc_third_day_update"  onchange="third_day_update()" value="">
                         </div>
                         <div class="col-md-6">
-                            <select id="tdc_third_time_update" class="form-control" disabled onchange="third_time_update()">
-                                <option disabled selected>-Select Time-</option>
+                            <select id="tdc_third_time_update" class="form-control"  onchange="third_time_update()">
+                                <option  selected>-Select Time-</option>
                                 <option value="am">7am-12pm</option>
                                 <option value="pm">1pm-6pm</option>
                             </select>
@@ -210,7 +237,7 @@
                 </div>
                 <label id="reminder_update" style="display: none;">Please take a screenshot or picture for the following 3 days Schedule for you Reference!! Thank you.</label>
                 <input type="button" class="btn btn-danger float-left" value="Reset Schedule" onclick="reset_tdc_schedule_update()">
-                <input type="button" class="btn btn-success float-right" value="Update Schedule" disabled onclick="save_application_update()" id="show_application_update">
+                <input type="button" class="btn btn-success float-right" value="Update Schedule"  onclick="save_application_update()" id="show_application_update">
             </form>
         </div>
         <script>

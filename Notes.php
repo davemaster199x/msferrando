@@ -17,3 +17,12 @@ motor manual x2 = 16hrs
 motor matic x1= 8hrs
 
 $email = mysqli_real_escape_string($conn, $_POST['email']);
+
+HOST - ftp.mikaelarealty.com
+USERNAME - msferrando@msferrando.mikaelarealty.com
+PASS - dave1234
+
+$db_host = "localhost";
+$db_user = "mikaelty_dave";
+$db_pass = "IAKxScG3uv7Ilu1U";
+$db_name = "mikaelty_msferrando";

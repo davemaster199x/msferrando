@@ -5,29 +5,12 @@ date_default_timezone_set('Asia/Manila');
 if (empty($_SESSION['user_id'])) {
     header("Location: ../index.php");
 }
-
-$today = date('Y-m-d H:i:s');
-$result = mysqli_query($conn, "SELECT * FROM tbl_student INNER JOIN tbl_tdc ON tbl_student.stud_id = tbl_tdc.stud_id WHERE tdc_stud_status = 0 ORDER BY tdc_id DESC");
-while($data = mysqli_fetch_array($result)) {
-    $tdc_id = isset($data['tdc_id']) ? $data['tdc_id'] : '';
-    $tdc_created = isset($data['tdc_created']) ? $data['tdc_created'] : '';
-    $tdc_invalid = date('Y-m-d H:i:s', strtotime( $tdc_created . " +1 days"));
-    if ($today >= $tdc_invalid) {
-        mysqli_query($conn, "DELETE FROM tbl_tdc WHERE tdc_id = '$tdc_id'");
-    } else {
-        // echo '
-        // <script>
-        //     alert("alert");
-        // </script>
-        // ';
-    }
-}
  ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>MS Ferrando | Dashboard</title>
+        <title>MS Ferrando | TDC Schedule</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -68,12 +51,12 @@ while($data = mysqli_fetch_array($result)) {
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
-                                    <h4 class="page-title">Dashboard</h4>
+                                    <h4 class="page-title">TDC Schedule</h4>
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
-                        <?php include './dashboard_content.php'; ?>
+                        <?php include './tdc_schedule_content.php'; ?>
                         <!-- end row -->
                     </div> <!-- end container-fluid -->
                 </div> <!-- end content -->

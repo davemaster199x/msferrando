@@ -21,27 +21,27 @@
                         <div class="col-md-4">
                             <label>First Day</label>
                             <ul style="margin-top: 0px;">
-                                <li>Tuesday</li>
-                                <li>Friday</li>
+                                <li>Monday</li>
+                                <li>Thursday</li>
                             </ul>  
                         </div>
                         <div class="col-md-4">
                             <label>Second Day</label>
                             <ul style="margin-top: 0px;">
-                                <li>Wednesday</li>
-                                <li>Saturday</li>
+                                <li>Tuesday</li>
+                                <li>Friday</li>
                             </ul> 
                         </div>
                         <div class="col-md-4">
                             <label>Third Day</label>
                             <ul style="margin-top: 0px;">
-                                <li>Thursday</li>
-                                <li>Sunday</li>
+                                <li>Wednesday</li>
+                                <li>Saturday</li>
                             </ul> 
                         </div>
                     </div>
                     <center>
-                        <strong>No Schedule on MONDAY!</strong>
+                        <strong>No Schedule on SUNDAY!</strong>
                     </center>
                     <hr>
                     <form >
@@ -52,8 +52,8 @@
                                     <input type="date" class="form-control" id="tdc_first_day" onchange="first_day()">
                                 </div>
                                 <div class="col-md-6">
-                                    <select id="tdc_first_time" class="form-control" onchange="first_time()">
-                                        <option  selected>-Select Time-</option>
+                                    <select id="tdc_first_time" class="form-control" disabled onchange="first_time()">
+                                        <option disabled selected>-Select Time-</option>
                                         <option value="am">7am-12pm</option>
                                         <option value="pm">1pm-6pm</option>
                                     </select>
@@ -64,11 +64,11 @@
                             <label for="exampleInputEmail1">Second Day:</label>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="date" class="form-control" id="tdc_second_day" onchange="second_day()">
+                                    <input type="date" class="form-control" id="tdc_second_day" disabled onchange="second_day()">
                                 </div>
                                 <div class="col-md-6">
-                                    <select id="tdc_second_time" class="form-control" onchange="second_time()">
-                                        <option  selected>-Select Time-</option>
+                                    <select id="tdc_second_time" class="form-control" disabled onchange="second_time()">
+                                        <option disabled selected>-Select Time-</option>
                                         <option value="am">7am-12pm</option>
                                         <option value="pm">1pm-6pm</option>
                                     </select>
@@ -79,11 +79,11 @@
                             <label for="exampleInputEmail1">Third Day:</label>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="date" class="form-control" id="tdc_third_day" onchange="third_day()">
+                                    <input type="date" class="form-control" id="tdc_third_day" disabled onchange="third_day()">
                                 </div>
                                 <div class="col-md-6">
-                                    <select id="tdc_third_time" class="form-control"  onchange="third_time()">
-                                        <option  selected>-Select Time-</option>
+                                    <select id="tdc_third_time" class="form-control" disabled onchange="third_time()">
+                                        <option disabled selected>-Select Time-</option>
                                         <option value="am">7am-12pm</option>
                                         <option value="pm">1pm-6pm</option>
                                     </select>
@@ -92,7 +92,7 @@
                         </div>
                         <label id="reminder" style="display: none;">Please take a screenshot or picture for the following 3 days Schedule for you Reference!! Thank you.</label>
                         <input type="button" class="btn btn-danger float-left" value="Reset Schedule" onclick="reset_tdc_schedule()">
-                        <input type="button" class="btn btn-success float-right" value="Submit Schedule" onclick="save_application()"  id="show_application">
+                        <input type="button" class="btn btn-success float-right" value="Submit Schedule" onclick="save_application()" disabled id="show_application">
                     </form>
                 </div>
             </div>

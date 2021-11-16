@@ -69,8 +69,41 @@
 
         <!-- This part for the list of all patients -->
         <div class="row">
-          <div class="col-12">
-            
+          <div class="col-md-6">
+              <div class="card-box">
+                  <h4 class="header-title mb-3">TDC Settings</h4>
+                  <form class="form-horizontal" >
+                      <div class="form-group row">
+                          <label for="inputEmail3" class="col-3 col-form-label">TDC Price:</label>
+                          <?php 
+                            $query_price = mysqli_query($conn, "SELECT * FROM tbl_tdc_price");
+                            $data = mysqli_fetch_assoc($query_price);
+                            $tdc_price = $data['tdc_price'];
+                          ?>
+                          <div class="col-4">
+                              <input type="number" class="form-control" id="tdc_price" placeholder="Price" value="<?=$tdc_price;?>">
+                          </div>
+                      </div>
+                  </form>
+                  <form class="form-horizontal" >
+                      <div class="form-group row">
+                          <label for="inputEmail3" class="col-3 col-form-label">Max Student:</label>
+                          <?php 
+                            $query_max = mysqli_query($conn, "SELECT * FROM tbl_maxstud");
+                            $data = mysqli_fetch_assoc($query_max);
+                            $max_tdc_stud = $data['max_tdc_stud'];
+                          ?>
+                          <div class="col-4">
+                              <input type="number" class="form-control" id="max_tdc_stud" placeholder="Max Student" value="<?=$max_tdc_stud;?>">
+                          </div>
+                      </div>
+                  </form>
+                  <div class="form-group mb-0 row">
+                      <div class="offset-3 col-9">
+                          <button type="submit" class="btn btn-success waves-effect waves-light" onclick="update_tdc_settings()">Update Changes</button>
+                      </div>
+                  </div>
+              </div>
           </div>
         </div>
         <!--End This part for the list of all patients -->
@@ -81,6 +114,28 @@
 
   <script src="../assets/jquery.min.js"></script>
   <script type="text/javascript">
-    
+    function update_tdc_settings() {
+      tdc_price = document.getElementById("tdc_price").value;
+      max_tdc_stud = document.getElementById("max_tdc_stud").value;
+
+      if (confirm('Are you sure?')) {
+        $.ajax({
+          url: 'dashboard_query.php',
+          type: 'POST',
+          async: false,
+          data:{
+            tdc_price:tdc_price,
+            max_tdc_stud:max_tdc_stud,
+            update_tdc_settings: 1,
+          },
+              success: function(response){
+                if (response == 'success') {
+                  alert('Settings Successfully Update!!');
+                  location.reload();
+                }
+              }
+          });
+      }
+    }
           
   </script>
