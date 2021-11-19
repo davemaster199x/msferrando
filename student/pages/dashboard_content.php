@@ -94,7 +94,7 @@
                           <td class="text-center">
                             <?php 
                               if ($data['tdc_stud_status'] == 0) {
-                                echo '<span class="badge label-table badge-danger">Invalidate</span>';
+                                echo '<span class="badge label-table badge-danger">Invalid</span>';
                               } elseif ($data['tdc_stud_status'] == 1) {
                                 echo '<span class="badge label-table badge-primary">Validate</span>';
                               } else {
@@ -436,7 +436,6 @@
                 // document.getElementById("tdc_third_day").disabled = true;
                 // document.getElementById("tdc_third_time").disabled = true;
                 // document.getElementById("show_application").disabled = false;
-                document.getElementById("reminder").style = '';
               }
             }
         });
@@ -476,7 +475,7 @@
                   alert('Opps!! Someone already take the last seat of the "'+tdc_third_time+'" Third Schedule. Please try to reschedule again.. Thank you.');
                   document.getElementById("tdc_third_time").disabled = false;
                 } else if (response == 'success') {
-                  alert('Your TDC Schedule Successfully Submit!!');
+                  alert('Your TDC schedule is successfully submitted. Please click on the “Payment Method” to successfully secure your slot.');
                   location.reload();
                 } else {
                   alert('Opps!! Someone already take your Schedule at the same day and time. Please try to rechedule it again. Thank you..');
@@ -712,7 +711,6 @@
                 // document.getElementById("tdc_third_day_update").disabled = true;
                 // document.getElementById("tdc_third_time_update").disabled = true;
                 // document.getElementById("show_application_update").disabled = false;
-                document.getElementById("reminder_update").style = '';
               }
             }
         });
@@ -755,7 +753,7 @@
                   alert('Opps!! Someone already take the last seat of the "'+tdc_third_time+'" Third Schedule. Please try to reschedule again.. Thank you.');
                   document.getElementById("tdc_third_time_update").disabled = false;
                 } else if (response == 'success') {
-                  alert('Your TDC Schedule Successfully Updated!');
+                  alert('Your TDC Schedule Successfully Updated. Please click on the “Payment Method” to successfully secure your slot.');
                   location.reload();
                 } else {
                   alert('Opps!! Someone already take your Schedule at the same day and time. Please try to rechedule it again. Thank you..');

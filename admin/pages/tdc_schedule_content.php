@@ -79,7 +79,7 @@
                           <td class="text-center">
                             <?php 
                               if ($data['tdc_stud_status'] == 0) {
-                                echo '<span class="badge label-table badge-danger">Invalidate</span>';
+                                echo '<span class="badge label-table badge-danger">Invalid</span>';
                               } elseif ($data['tdc_stud_status'] == 1) {
                                 echo '<span class="badge label-table badge-primary">Validate</span>';
                               } else {
@@ -170,12 +170,12 @@
 
     function reset_tdc_schedule_update() {
       if (confirm('Are you sure?')) {
-        document.getElementById("tdc_first_day_update").disabled = false;
-        document.getElementById("tdc_first_time_update").disabled = true;
-        document.getElementById("tdc_second_day_update").disabled = true;
-        document.getElementById("tdc_second_time_update").disabled = true;
-        document.getElementById("tdc_third_day_update").disabled = true;
-        document.getElementById("tdc_third_time_update").disabled = true;
+        // document.getElementById("tdc_first_day_update").disabled = false;
+        // document.getElementById("tdc_first_time_update").disabled = true;
+        // document.getElementById("tdc_second_day_update").disabled = true;
+        // document.getElementById("tdc_second_time_update").disabled = true;
+        // document.getElementById("tdc_third_day_update").disabled = true;
+        // document.getElementById("tdc_third_time_update").disabled = true;
 
         document.getElementById("tdc_first_day_update").value = '';
         document.getElementById("tdc_first_time_update").value = '';
@@ -347,7 +347,6 @@
                 // document.getElementById("tdc_third_day_update").disabled = true;
                 // document.getElementById("tdc_third_time_update").disabled = true;
                 // document.getElementById("show_application_update").disabled = false;
-                document.getElementById("reminder_update").style = '';
               }
             }
         });

@@ -152,7 +152,7 @@
         <input type="hidden" id="tdc_id_update" value="'.$tdc_id.'">
         <div class="col-sm-12">
             <center>
-                <label>You can select any schedule but please follow the DAY SIMULTANEOUSLY!! </label>
+                <label>Please Select the days following the order of the schedule.</label>
             </center>
             <div class="row">
                 <div class="col-md-4">
@@ -235,7 +235,6 @@
                         </div>
                     </div>
                 </div>
-                <label id="reminder_update" style="display: none;">Please take a screenshot or picture for the following 3 days Schedule for you Reference!! Thank you.</label>
                 <input type="button" class="btn btn-danger float-left" value="Reset Schedule" onclick="reset_tdc_schedule_update()">
                 <input type="button" class="btn btn-success float-right" value="Update Schedule"  onclick="save_application_update()" id="show_application_update">
             </form>

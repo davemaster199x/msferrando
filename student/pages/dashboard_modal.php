@@ -15,7 +15,7 @@
             <div class="modal-body">
                 <div class="col-sm-12">
                     <center>
-                        <label>You can select any schedule but please follow the DAY SIMULTANEOUSLY!! </label>
+                        <label>Please Select the days following the order of the schedule. </label>
                     </center>
                     <div class="row">
                         <div class="col-md-4">
@@ -90,7 +90,6 @@
                                 </div>
                             </div>
                         </div>
-                        <label id="reminder" style="display: none;">Please take a screenshot or picture for the following 3 days Schedule for you Reference!! Thank you.</label>
                         <input type="button" class="btn btn-danger float-left" value="Reset Schedule" onclick="reset_tdc_schedule()">
                         <input type="button" class="btn btn-success float-right" value="Submit Schedule" onclick="save_application()"  id="show_application">
                     </form>
@@ -136,7 +135,7 @@
       <div class="modal-body">
         <div>
             <h4 align="center">Slots get filled in a snap! You can enroll online or walk-in before slots run out!</h4>
-            <center><label>*Note: If you pay online, just take a screenshot of the transaction and visit <a href="https://www.facebook.com/MSFerrandoDriving" target="_blank">MS Ferrando</a> Facebook Page to confirm your schedule, same goes to walk-in applicants. Please be advised that unconfirm bookings will result to auto-cancellation in 24 hours. Thank you.</label></center>
+            <center><label>*Note: If you pay online, just take a screenshot of the transaction and visit <a href="https://www.facebook.com/MSFerrandoDriving" target="_blank">MS Ferrando</a> Facebook Page to confirm your schedule, same goes to walk-in applicants. Please be advised that unconfirmed bookings will result to auto-cancellation in 24 hours. Thank you.</label></center>
             <img class="img-fluid" src="../../images/payment.jpg" alt="" style="display: block; margin-left: auto; margin-right: auto;">
         </div>
       </div>

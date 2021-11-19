@@ -49,7 +49,7 @@
         <input type="hidden" id="tdc_id_update" value="'.$tdc_id.'">
         <div class="col-sm-12">
             <center>
-                <label>You can select any schedule but please follow the DAY SIMULTANEOUSLY!! </label>
+                <label>Please Select the days following the order of the schedule.</label>
             </center>
             <div class="row">
                 <div class="col-md-4">
@@ -90,7 +90,7 @@
                         <input type="hidden" id="tdc_id" value="'.$tdc_id.'">
                         <div class="col-7">
                             <select class="form-control" id="tdc_stud_status">
-                                <option '; if($tdc_stud_status == 0) { echo 'selected'; } echo ' value="0">Invalidate</option>
+                                <option '; if($tdc_stud_status == 0) { echo 'selected'; } echo ' value="0">Invalid</option>
                                 <option '; if($tdc_stud_status == 1) { echo 'selected'; } echo ' value="1">Validate</option>
                                 <option '; if($tdc_stud_status == 2) { echo 'selected'; } echo ' value="2">Done</option>
                             </select>
@@ -102,7 +102,7 @@
                         <label for="inputEmail3" class="col-4 col-form-label">Payment Status:</label>
                         <div class="col-7">
                             <select class="form-control" id="tdc_stud_payment_status">
-                                <option '; if($tdc_stud_payment_status == 0) { echo 'selected'; } echo ' value="0">Not Pay</option>
+                                <option '; if($tdc_stud_payment_status == 0) { echo 'selected'; } echo ' value="0">Unpaid</option>
                                 <option '; if($tdc_stud_payment_status == 1) { echo 'selected'; } echo ' value="1">Partially Paid</option>
                                 <option '; if($tdc_stud_payment_status == 2) { echo 'selected'; } echo ' value="2">Fully Paid</option>
                             </select>
