@@ -35,7 +35,7 @@
     <meta property="og:url" content="index.html">
   </head>
   <body data-home-page="Home.html" data-home-page-title="Home" class="u-body u-overlap u-overlap-contrast u-overlap-transparent"><header class="u-clearfix u-custom-color-4 u-header u-sticky u-header" id="sec-de9b" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-clearfix u-sheet u-sheet-1">
-        <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="1080" data-image-height="1080">
+        <a href="./" class="u-image u-logo u-image-1" data-image-width="1080" data-image-height="1080">
           <img src="images/msfdilogowhite.png" class="u-logo-image u-logo-image-1" data-image-width="75">
         </a>
         <nav class="u-align-right u-menu u-menu-dropdown u-offcanvas u-menu-1" data-position="">
@@ -337,12 +337,18 @@ and Simulation</td>
                       </tbody>
                     </table>
                   </div>
-                  <p class="u-align-left u-text u-text-4" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">&nbsp; TDC is a 15-hour theoretical driving class and is one of the LTO’s requirements for Student Permit (SP) application.&nbsp;<br>
-                    <br>- A TDC Certificate will be issued
-upon completion.&nbsp;<br>-
-Can be completed on the student’s availability.&nbsp;<br>-Schedules:
-(links to the schedule and booking)&nbsp; <br>&nbsp;- Tue-Wed (8AM-5PM)<br>&nbsp;- Thur-Fri (8AM-5PM)<br>&nbsp;- Sat-Sun (8AM-5PM)<br>
-                    <br>Requirements for SP:&nbsp;<br>-TDC Certificate&nbsp;<br>-PSA Certificate&nbsp;<br>-Medical Certificate from an LTO Accredited
+                  <p class="u-align-left u-text u-text-4" style="text-align: justify;" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">&nbsp; TDC is a 15-hour theoretical driving class and is one of the LTO’s requirements for Student Permit (SP) application.&nbsp;<br>
+                    <ul>
+                      <li>A TDC Certificate will be issued upon <br> completion.</li>
+                      <li>Can be completed on the student’s <br> availability.</li>
+                    </ul> 
+                    <dl>
+                      <dt>Schedules:</dt>
+                      <dd>- Tue-Wed (8AM-5PM)</dd>
+                      <dd>- Thur-Fri (8AM-5PM)</dd>
+                      <dd>- Sat-Sun (8AM-5PM)</dd>
+                    </dl>
+                    Requirements for SP:&nbsp;<br>-TDC Certificate&nbsp;<br>-PSA Certificate&nbsp;<br>-Medical Certificate from an LTO <br> Accredited
 Center&nbsp;&nbsp;<br>
                     <!-- <br>JUNE PROMO!!&nbsp;<br>Php 2000&nbsp;<br>Free Medical Certificate fee!!!&nbsp;<br>Free 2-day lunch!!&nbsp;<br>Free Driver’s Manual!!!&nbsp;<br> -->
                   </p>
@@ -370,7 +376,7 @@ Center&nbsp;&nbsp;<br>
                   <h2 class="u-align-center u-subtitle u-text u-text-2" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Practical&nbsp;<br>Driving Course
                   </h2>
                   <p class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-text u-text-3" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">RATES:&nbsp;</p>
-                  <p class="u-align-left u-text u-text-4" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">&nbsp; PDC is a
+                  <p class="u-align-left u-text u-text-4" style="text-align: justify;" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">&nbsp; PDC is a
 standard 8-hour driving course required by LTO to acquire a Non-Professional
 Driver’s License (NPDL) or when adding a restriction code for both Professional
 Driver’s License (PDL) and Non-Professional Driver’s License (NPDL).<br>&nbsp; A student may
@@ -384,25 +390,26 @@ Medical
 certificate<br>&nbsp;3.&nbsp;
 Police clearance&nbsp;&nbsp;&nbsp;
                   </p>
-                  <p class="u-align-left u-text u-text-5" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Restriction code
+                  <p class="u-align-left u-text u-text-5" style="text-align: justify;" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Restriction code
 A : Motorcycle&nbsp; (Manual and Automatic
-Transmission Combo – Total of 8 Hours) : Php 2500<br>
+Transmission Combo – Total of 8 Hours) : Php 2,500<br>
                     <br>Restriction code
-B: Light Vehicle with GVW up to 5000 kg&nbsp;<br>&nbsp;
--Manual
-Transmission (Total of 8 hours) – Php 4500 (Prices may change without prior notice)<br>&nbsp;
-- Automatic
+B: Light Vehicle with GVW up to 5,000 kg&nbsp;<br>&nbsp;
+* Manual
+Transmission (Total of 8 hours) – Php 4,500<br>&nbsp;
+* Automatic
 Transmission&nbsp; (Total of 8 hours) – Php
-5500 (Prices may change without prior notice)&nbsp;&nbsp;<br>
+5,500&nbsp;&nbsp;<br>
                     <br>PROMO PACKAGES
-(Prices may change without prior notice)&nbsp;<br>&nbsp;-Package 1: A+B1
+&nbsp;<br>&nbsp;*Package 1: A+B1
 (MT/AT Motorcycle 8 hours &nbsp;+ MT Light
-vehicle 8 hours) Php 6000&nbsp;&nbsp;&nbsp;<br>&nbsp;-Package 2: A+B2
-(MT/AT Motorcycle 8 hours + AT Light vehicle 8 hours) Php 7000<br>&nbsp;-
+vehicle 8 hours) Php 6,000&nbsp;&nbsp;&nbsp;<br>&nbsp;*Package 2: A+B2
+(MT/AT Motorcycle 8 hours + AT Light vehicle 8 hours) Php 7,000<br>&nbsp;*
 Package 3: 2B
-(AT+MT Light Vehicles Total of 16 hours ) Php 9500<br>&nbsp;-
+(AT+MT Light Vehicles Total of 16 hours ) Php 9,500<br>&nbsp;-
 Add ons: Php
 750/2 hours
+<label for=""> <strong> (Prices may change without prior notice)</strong></label>
                   </p>
                 </div>
               </div>
@@ -422,19 +429,14 @@ Add ons: Php
                   </h1>
                   <p class="u-align-left u-text u-text-2" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Do you have a license but needs to refresh
 driving skills?&nbsp; We got your back!<br>
-                    <br>Light Trainings: ( I’ll add more descriptions to this, usap muna
-kami ni DI para clear)&nbsp;<br>&nbsp;-2 hours/session- Manual
-Transmission (Total of 10 hours) – Php 5500 (Prices may change without prior
-notice)<br>&nbsp;-
+                    <br>Light Trainings: &nbsp;<br>&nbsp;-2 hours/session- Manual
+Transmission (Total of 10 hours) – Php 5,500 <br>&nbsp;-
 2 hours/session- Automatic
-Transmission (Total of 10 hours) – Php 6800 (Prices may change without prior
-notice)<br>
-                    <br>Intensive Drives: ( I’ll add more descriptions to this, usap muna
-kami ni DI para clear)&nbsp;&nbsp;<br>&nbsp;-4 hours per session Manual
-Transmission (Total of 12 hours) – Php 7000 (Prices may change without prior
-notice)<br>&nbsp;-4 hours per session Manual
-Transmission (Total of 12 hours) – Php 8500 (Prices may change without prior
-notice)
+Transmission (Total of 10 hours) – Php 6,800 <br>
+                    <br>Intensive Drives: &nbsp;&nbsp;<br>&nbsp;-4 hours per session Manual
+Transmission (Total of 12 hours) – Php 7,000 <br>&nbsp;-4 hours per session Manual
+Transmission (Total of 12 hours) – Php 8,500 <br>
+<label for=""> <strong> (Prices may change without prior notice)</strong></label>
                   </p>
                 </div>
               </div>

@@ -26,3 +26,18 @@ $db_host = "localhost";
 $db_user = "mikaelty_dave";
 $db_pass = "IAKxScG3uv7Ilu1U";
 $db_name = "mikaelty_msferrando";
+
+Name Server 1
+ns8365.hostgator.com
+
+Name Server 2
+ns8366.hostgator.com
+
+FTP Account
+ferrando@msferrandodriving.com
+gator4183.hostgator.com
+ferrando
+
+Database Login
+username: msfering_msferra
+pass: msfering_msferrando
