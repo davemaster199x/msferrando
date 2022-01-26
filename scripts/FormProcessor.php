@@ -2,6 +2,10 @@
 
 class FormProcessor
 {
+    private $_secret_key;
+    private $_recaptcha_server = 'https://www.google.com/recaptcha/api/siteverify';
+    private $_captcha_field = 'recaptchaResponse';
+
     private $_messages = array(
         'submitted_from' => 'Form submitted from website: %s',
         'submitted_by' => 'Visitor IP address: %s',
@@ -12,7 +16,9 @@ class FormProcessor
         'unknown_method' => 'Unknown server request method'
     );
 
-    public function __construct() {}
+    public function __construct($secret_key) {
+        $this->_secret_key = $secret_key;
+    }
 
     public function process($form)
     {
@@ -26,6 +32,11 @@ class FormProcessor
 
         // will die() if there are any errors
         $this->_checkRequiredFields($form);
+
+        // will die() if there is recaptcha error
+        if ($this->_secret_key) {
+            $this->_checkRecaptcha($form);
+        }
 
         // will die() if there is a send email problem
         $this->_formSubmission($form);
@@ -90,6 +101,45 @@ class FormProcessor
         }
         if (!empty($errors)) {
             die($this->_getErrorResponse(array('fields' => $errors)));
+        }
+    }
+
+    private function _checkRecaptcha($form) {
+        $response = $_REQUEST[$this->_captcha_field];
+        if (empty($response)) {
+            die($this->_getErrorResponse($this->_messages['failed_to_send_email']));
+        }
+
+        $data = array (
+            'secret' => $this->_secret_key,
+            'response' => $response,
+            'remoteip' => $_SERVER['REMOTE_ADDR']
+        );
+
+        if (function_exists('curl_init') && function_exists('curl_exec')) {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $this->_recaptcha_server);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            $r = curl_exec($ch);
+            curl_close($ch);
+        } else {
+            $req = "";
+            foreach ($data as $key => $value) {
+                $req .= $key . '=' . urlencode(stripslashes($value)) . '&';
+            }
+            // Cut the last '&'
+            $req = substr($req, 0, strlen($req)-1);
+
+            $r = file_get_contents($this->_recaptcha_server . '?' . $req);
+        }
+
+        $resp = json_decode($r);
+
+        if (!$resp->success) {
+            die($this->_getErrorResponse($this->_messages['failed_to_send_email']));
         }
     }
 
