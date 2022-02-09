@@ -111,6 +111,14 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group row">
+                        <label for="inputEmail3" class="col-4 col-form-label">Student Notes:</label>
+                        <div class="col-7">
+                            <textarea class="form-control" id="tdc_notes" cols="20" rows="5">'.$data['tdc_notes'].'</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group row">
                         <label for="inputEmail3" class="col-4 col-form-label"></label>
                         <div class="col-7">
                             <input type="button" class="btn btn-primary" value="Update Status" onclick="update_stud_status()">
@@ -246,8 +254,9 @@
         $tdc_id = $_POST['tdc_id'];
         $tdc_stud_status = $_POST['tdc_stud_status'];
         $tdc_stud_payment_status = $_POST['tdc_stud_payment_status'];
+        $tdc_notes = $_POST['tdc_notes'];
 
-        $result = mysqli_query($conn, "UPDATE tbl_tdc SET tdc_stud_status = '$tdc_stud_status', tdc_stud_payment_status = '$tdc_stud_payment_status' WHERE tdc_id = '$tdc_id'");
+        $result = mysqli_query($conn, "UPDATE tbl_tdc SET tdc_stud_status = '$tdc_stud_status', tdc_stud_payment_status = '$tdc_stud_payment_status', tdc_notes = '$tdc_notes' WHERE tdc_id = '$tdc_id'");
         if ($result) {
             echo 'success';
         }

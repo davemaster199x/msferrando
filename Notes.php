@@ -41,3 +41,37 @@ ferrando
 Database Login
 username: msfering_msferra
 pass: msfering_msferrando
+
+<?php
+$db_host = "localhost";
+$db_user = "msfering_msferra";
+$db_pass = "msfering_msferrando";
+$db_name = "msfering_msferrando";
+
+$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+
+if(mysqli_connect_errno())
+{
+	echo 'Unknown Database : '.mysqli_connect_error();
+}
+?>
+
+<script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+			$('[data-toggle="tooltip"]').tooltip(); 
+			CKEDITOR.replace('thank_you_email_body');	
+		
+	});
+
+	var htl = CKEDITOR.instances['thank_you_email_body'].getData(); //get the note
+</script>
+
+<script src="https://cdn.ckeditor.com/4.5.9/full/ckeditor.js"></script>
+    <script>
+    CKEDITOR.replace( 'note', {
+        customConfig: '/ckeditor/config.js'
+    } );
+	note = CKEDITOR.instances.note.getData(); // get the note
+</script>

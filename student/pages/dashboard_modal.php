@@ -8,11 +8,16 @@
                     $result_tdc_price = mysqli_query($conn, "SELECT * FROM tbl_tdc_price");
                     $data = mysqli_fetch_assoc($result_tdc_price);
                     $tdc_price = $data['tdc_price'];
+                    $tdc_desc = $data['tdc_desc'];
                     $tdc = number_format($tdc_price);
                 ?>
-                <h4 class="modal-title">Select TDC Schedule @<label style="color: red;"><?=$tdc?></label></h4>
+                <h4 class="modal-title">Select TDC Schedule</h4><br>
             </div>
             <div class="modal-body">
+                <div class="col-sm-12">
+                    <label for=""><?=$tdc_desc;?></label>
+                </div>
+                <hr>
                 <div class="col-sm-12">
                     <center>
                         <label>Please Select the days following the order of the schedule. </label>

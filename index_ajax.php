@@ -18,7 +18,7 @@
 
         $message = '
         <div style="padding: 20px 0px 0px 0px; background-color: #0E3741;" class="shadow">
-            <img src="https://msferrando.mikaelarealty.com/images/banner.png" style="width: 100%;">
+            <img src="https://msferrandodriving.com/images/banner.jpg" style="width: 100%;">
             <table width="100%" border="0" cellspacing="0" cellpadding="20" style="background-color: #47bcde; color: #5a5f61; font-family:verdana;">
                 <tr>
                     <td style="background-color: #fff; border-top: 10px solid #0E3741; border-bottom: 10px solid #0E3741;">
@@ -32,7 +32,7 @@
                 Vinzon Street<br>
                 Barangay. 15-B, Corner Rustico Cabaguio Street,<br>
                 Poblacion District, Davao City, Philippines 8000<br><br>
-                <a href="https://msferrando.com/" style="color: white;">https://msferrando.com/</a>
+                <a href="https:/msferrandodriving.com/" style="color: white;">https://msferrandodriving.com/</a>
             </div>
         </div>
         ';

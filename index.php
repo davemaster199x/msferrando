@@ -6,10 +6,11 @@
     <meta name="keywords" content="Ready to step on the gas?, Enroll now!​">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <link rel="icon" href="./images/MSFDILOGO5INCH.png">
     <title>MS Ferrando Driving Institute</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
     <link rel="stylesheet" href="Home.css" media="screen">
+    <link rel="icon" href="./images/MSFDILOGO5INCH.png">
+    <!-- <link rel="shortcut icon" href="./images/MSFDILOGO5INCH.png"> -->
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="msferrando.com">
@@ -160,16 +161,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
             <div class="u-align-justify-lg u-align-justify-xl u-container-style u-layout-cell u-size-30 u-white u-layout-cell-2">
               <div class="u-container-layout u-container-layout-2">
                 <h1 class="u-align-center-md u-align-center-sm u-align-center-xs u-text u-text-custom-color-8 u-title u-text-1" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Drive towards your dreams</h1>
-                <p class="u-align-justify-md u-align-justify-sm u-align-justify-xs u-text u-text-2" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">MSFDI Stands for Marvin Sardido Ferrando
-Driving Institute.&nbsp; A lad who spent his
-life on the road driving jeepneys and taxis to suffice his needs in schooling
-and everyday living.&nbsp; Marvin is an
-educator himself, a product of St. John Paul College, with the Bachelor in
-Elementary Education- Major in General Education- degree.&nbsp; With a passion to teach, ​he made a twist in
-educating aspiring drivers instead.&nbsp; His
-main is goal to provide proper training and experience to driver’s license
-applicants to avoid or lessen cases of roads accidents, and be an advocate of
-responsible driving and road safety.&nbsp; &nbsp;&nbsp;<br>
+                <p class="u-align-justify-md u-align-justify-sm u-align-justify-xs u-text u-text-2" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">MSFDI Stands for Marvin Sardido Ferrando Driving Institute.  A lad who spent his life on the road driving jeepneys and taxis to suffice his needs in schooling and everyday living.  Marvin is an educator himself, a product of St. John Paul College, with the Bachelor in Elementary Education- Major in General Education- degree.  With a passion to teach, ​he made a twist in educating aspiring drivers instead.  His main goal is to provide proper training and experience to driver’s license applicants to avoid or lessen cases of road accidents, and be an advocate of responsible driving and road safety.&nbsp;<br>
                   <br>Together with the Land Transportation Office
 (LTO) and Technical Education and Skills Development Authority (TESDA), with
 his own trainings and certifications, he built MSDFI from scratch providing the
@@ -259,20 +251,47 @@ for a month or so?&nbsp; Here’s the next step!</p>
                 <a href="Home.html#carousel_497d" data-page-id="631429632" class="u-btn u-btn-round u-button-style u-custom-color-8 u-hover-palette-1-light-1 u-radius-50 u-btn-2">Learn More about PDC</a>
               </div>
             </div>
-            <div class="u-align-center u-container-style u-list-item u-repeater-item">
+            <div class="u-container-style u-list-item u-repeater-item">
               <div class="u-container-layout u-similar-container u-valign-bottom-md u-valign-bottom-sm u-valign-bottom-xs u-container-layout-3">
-                <h3 class="u-align-center u-text u-text-8" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Additional Driving</h3>
-                <h6 class="u-align-center u-text u-text-9" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">&nbsp;</h6>
-                <p class="u-align-center u-text u-text-10" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Refresher Course</p>
-                <a href="Home.html#carousel_af55" data-page-id="631429632" class="u-btn u-btn-round u-button-style u-custom-color-8 u-hover-palette-1-light-1 u-radius-50 u-btn-3">Additional Driving</a>
+                <h3 class="u-align-center u-text u-text-8" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction=""> CDE&nbsp;</h3>
+                <h6 class="u-align-center u-text u-text-9" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction=""> Renewal license</h6>
+                <p class="u-align-center u-text u-text-10" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction=""> Need to renew your license?  Here’s a requirement before doing so!</p>
+                <a href="Home.html#carousel_ba8f" data-page-id="631429632" class="u-btn u-btn-round u-button-style u-custom-color-8 u-hover-palette-1-light-1 u-radius-50 u-btn-3">Learn More about CDE</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="u-clearfix u-section-8" id="sec-fea1">
-      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-sheet-1">
+    <section class="u-align-center u-clearfix u-section-8" id="carousel_c3c8">
+      <div class="u-clearfix u-sheet u-valign-middle-sm u-valign-middle-xl u-valign-middle-xs u-sheet-1">
+        <h2 class="u-text u-text-palette-1-base u-text-1" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-direction=""> ADDITIONAL SERVICES</h2>
+        <div class="u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-align-center u-container-style u-list-item u-palette-1-light-3 u-repeater-item u-list-item-1">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <h4 class="u-text u-text-palette-1-base u-text-2" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-direction=""><b>REFRESHER’S COURSE</b>
+                </h4>
+                <div class="u-border-2 u-border-palette-1-base u-line u-line-horizontal u-line-1"></div>
+                <p class="u-text u-text-grey-50 u-text-3" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-direction=""><b></b>Do you already hold a licence but need more time to practice? This is what you need!
+                </p>
+              </div>
+            </div>
+            <div class="u-align-center u-container-style u-list-item u-palette-1-light-3 u-repeater-item u-list-item-2">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <h4 class="u-text u-text-palette-1-base u-text-4" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-direction=""><b>IN-DEMAND!</b>
+                </h4>
+                <div class="u-border-2 u-border-palette-1-base u-line u-line-horizontal u-line-2"></div>
+                <p class="u-text u-text-grey-50 u-text-5" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-direction=""> &nbsp;<span class="u-file-icon u-icon u-icon-1"><img src="images/182864017.png" alt=""></span>&nbsp;Defensive Driving Course - more detailed training you need!! 30 hours, free Restriction Code a!<br>&nbsp;<span class="u-file-icon u-icon u-icon-2"><img src="images/182864018.png" alt=""></span>&nbsp;Total Defensive Driving Course - the best of all the driving courses! Be confident driving after 60-hour long training, with free Restriction Code A, just add Php 2000 and get covered from TDC to licence!<br>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="sec-fea1">
+      <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
           <div class="u-layout" style="">
             <div class="u-layout-row" style="">
@@ -348,7 +367,7 @@ Center&nbsp;&nbsp;<br>
         </div>
       </div>
     </section>
-    <section class="u-clearfix u-section-9" id="carousel_497d">
+    <section class="u-clearfix u-section-10" id="carousel_497d">
       <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-sheet-1">
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
           <div class="u-layout" style="">
@@ -380,30 +399,28 @@ certificate<br><span class="u-file-icon u-icon u-icon-3"><img src="images/182864
         </div>
       </div>
     </section>
-    <section class="u-clearfix u-section-10" id="carousel_af55">
-      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-sheet-1">
+    <section class="u-clearfix u-section-11" id="carousel_ba8f">
+      <div class="u-clearfix u-sheet u-valign-middle-md u-sheet-1">
         <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-          <div class="u-layout">
-            <div class="u-layout-row">
-              <div class="u-container-style u-layout-cell u-size-26 u-layout-cell-1">
-                <div class="u-container-layout u-valign-top-sm u-valign-top-xs u-container-layout-1">
-                  <h1 class="u-align-center u-text u-title u-text-1" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Additional Driving</h1>
-                  <p class="u-align-left u-text u-text-2" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Do you have a license but needs to refresh
-driving skills?&nbsp; We got your back!<br>
+          <div class="u-layout" style="">
+            <div class="u-layout-row" style="">
+              <div class="u-container-style u-layout-cell u-size-27 u-layout-cell-1">
+                <div class="u-container-layout u-valign-top-xl u-container-layout-1">
+                  <h1 class="u-text u-title u-text-1" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction=""> CDE&nbsp;</h1>
+                  <h2 class="u-subtitle u-text u-text-2" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction=""> Renewal license</h2>
+                  <p class="u-text u-text-3" data-animation-name="zoomIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">
+                      <span style="font-weight: 400;">Need to renew your license?  Here’s a requirement before doing so!<br>
+                        <br>
+                      </span><span class="u-file-icon u-icon"><img src="images/182864014.png" alt=""></span>
+                      <span style="font-weight: 400;"> Face-to-face : 5-hour classroom Driver’s Enhancement Program (DEP) for driver’s license renewal&nbsp; <br>
+                      </span><span class="u-file-icon u-icon"><img src="images/182864015.png" alt=""></span>
+                      <span style="font-weight: 400;"> &nbsp;Online: Self-paced 5hr online DEP anytime, anywhere!  Enroll and register here!&nbsp; <a href="https://portal.odep.ph/register/360034003100" target="_blank" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">Click here</a>.
+                      </span></b>
                     <br>
-                    <span style="font-weight: 700;">Light Trainings:&nbsp;</span>
-                    <br><span class="u-file-icon u-icon u-icon-1"><img src="images/18286401.png" alt=""></span>&nbsp;2 hours/session- Manual
-Transmission (Total of 10 hours)<br><span class="u-file-icon u-icon u-icon-2"><img src="images/18286402.png" alt=""></span>&nbsp;2 hours/session- Automatic
-Transmission (Total of 10 hours)<br>
-                    <br>
-                    <span style="font-weight: 700;">Intensive Drives:&nbsp;</span>
-                    <br><span class="u-file-icon u-icon u-icon-3"><img src="images/18286403.png" alt=""></span>&nbsp;4 hours per session Manual
-Transmission (Total of 12 hours)<br><span class="u-file-icon u-icon u-icon-4"><img src="images/18286404.png" alt=""></span>&nbsp;4 hours per session Manual
-Transmission (Total of 12 hours)
                   </p>
                 </div>
               </div>
-              <div class="u-container-style u-image u-layout-cell u-size-34 u-image-1" data-image-width="1600" data-image-height="1067">
+              <div class="u-container-style u-image u-layout-cell u-size-33 u-image-1" data-image-width="1600" data-image-height="1065">
                 <div class="u-container-layout u-container-layout-2"></div>
               </div>
             </div>
@@ -411,7 +428,7 @@ Transmission (Total of 12 hours)
         </div>
       </div>
     </section>
-    <section class="u-clearfix u-custom-color-4 u-section-11" id="sec-e962">
+    <section class="u-clearfix u-custom-color-4 u-section-12" id="sec-e962">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <h2 class="u-subtitle u-text u-text-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="">Fill in the Form to Enroll</h2>
         <div class="u-form u-form-1">
@@ -422,7 +439,7 @@ Transmission (Total of 12 hours)
             </div>
             <div class="u-form-group u-form-group-2">
               <label for="text-56f6" class="u-label">Email Address:</label>
-              <input type="email" placeholder="Enter your Email Address" id="stud_email_address" name="email-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
+              <input type="text" placeholder="Enter your Email Address" id="stud_email_address" name="email-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-18 u-white">
             </div>
             <div class="u-form-email u-form-group">
               <label for="email-719c" class="u-label">Contact Number:</label>
@@ -456,7 +473,7 @@ Transmission (Total of 12 hours)
         <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="1080" data-image-height="1080">
           <img src="images/msfdilogowhite1.png" class="u-logo-image u-logo-image-1" data-image-width="37">
         </a>
-        <p class="u-align-center-lg u-align-center-md u-align-center-xl u-text u-text-1" data-animation-name="" data-animation-duration="0" data-animation-direction="">Copyright © 2021 MS Ferrando Driving Institute<br>Email Address:&nbsp;<a href="mailto:ferrandomarvin@gmail.com" role="link" tabindex="0" target="_blank" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">ferrandomarvin@gmail.com</a>
+        <p class="u-align-center-lg u-align-center-md u-align-center-xl u-text u-text-1" data-animation-name="" data-animation-duration="0" data-animation-direction="">Copyright © 2022 MS Ferrando Driving Institute<br>Email Address:&nbsp;<a href="mailto:ferrandomarvin@gmail.com" role="link" tabindex="0" target="_blank" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">ferrandomarvin@gmail.com</a>
           <br>Contact Number: 0946 660 9226<br>
           <br><i></i>
         </p>

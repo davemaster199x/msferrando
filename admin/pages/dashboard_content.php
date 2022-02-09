@@ -69,19 +69,21 @@
 
         <!-- This part for the list of all patients -->
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
               <div class="card-box">
                   <h4 class="header-title mb-3">TDC Settings</h4>
+                  
                   <form class="form-horizontal" >
                       <div class="form-group row">
-                          <label for="inputEmail3" class="col-3 col-form-label">TDC Price:</label>
+                          <label for="inputEmail3" class="col-3 col-form-label">TDC Description:</label>
                           <?php 
                             $query_price = mysqli_query($conn, "SELECT * FROM tbl_tdc_price");
                             $data = mysqli_fetch_assoc($query_price);
                             $tdc_price = $data['tdc_price'];
+                            $tdc_desc = $data['tdc_desc'];
                           ?>
-                          <div class="col-4">
-                              <input type="number" class="form-control" id="tdc_price" placeholder="Price" value="<?=$tdc_price;?>">
+                          <div class="col-9">
+                              <textarea name="" id="tdc_pricing" cols="30" rows="10"><?=$tdc_desc;?></textarea>
                           </div>
                       </div>
                   </form>
@@ -113,18 +115,27 @@
       <!--End For the modal -->
 
   <script src="../assets/jquery.min.js"></script>
+  <script src="https://cdn.ckeditor.com/4.5.9/full/ckeditor.js"></script>
+  <script>
+    CKEDITOR.replace( 'tdc_pricing', {
+        customConfig: '/ckeditor/config.js'
+    } );
+	// note = CKEDITOR.instances.note.getData(); // get the note
+	</script>
   <script type="text/javascript">
     function update_tdc_settings() {
-      tdc_price = document.getElementById("tdc_price").value;
+      // tdc_price = document.getElementById("tdc_price").value;
+      tdc_pricing = CKEDITOR.instances.tdc_pricing.getData();
       max_tdc_stud = document.getElementById("max_tdc_stud").value;
 
+      // alert(tdc_pricing);
       if (confirm('Are you sure?')) {
         $.ajax({
           url: 'dashboard_query.php',
           type: 'POST',
           async: false,
           data:{
-            tdc_price:tdc_price,
+            tdc_pricing:tdc_pricing,
             max_tdc_stud:max_tdc_stud,
             update_tdc_settings: 1,
           },

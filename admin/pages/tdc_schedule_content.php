@@ -16,14 +16,14 @@
                         <th class="text-center">Student Status</th>
                         <th class="text-center">Payment Status</th>
                         <th class="text-center">Schedule Validation/Created</th>
-                        <th class="text-center">TDC Price</th>
+                        <th class="text-center">TDC Notes</th>
                         <th class="text-center">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                       <?php 
                         $count = 1;
-                        $query_tdc = mysqli_query($conn, "SELECT tdc_first_day, tdc_first_time, tdc_second_day, tdc_second_time, tdc_third_day, tdc_third_time, tbl_student.stud_name, tbl_tdc.tdc_stud_status, tbl_tdc.tdc_stud_payment_status, tbl_tdc.tdc_created, tbl_tdc.tdc_price, tbl_tdc.tdc_id FROM tbl_student INNER JOIN tbl_tdc ON tbl_student.stud_id = tbl_tdc.stud_id WHERE tdc_stud_status IN (0,1,2) ORDER BY tdc_id DESC ");
+                        $query_tdc = mysqli_query($conn, "SELECT tdc_first_day, tdc_first_time, tdc_second_day, tdc_second_time, tdc_third_day, tdc_third_time, tbl_student.stud_name, tbl_tdc.tdc_stud_status, tbl_tdc.tdc_stud_payment_status, tbl_tdc.tdc_created, tbl_tdc.tdc_price, tbl_tdc.tdc_id, tbl_tdc.tdc_notes FROM tbl_student INNER JOIN tbl_tdc ON tbl_student.stud_id = tbl_tdc.stud_id WHERE tdc_stud_status IN (0,1,2) ORDER BY tdc_id DESC ");
                         while($data = mysqli_fetch_array($query_tdc)) {
                         if ($data['tdc_first_day'] == '0000-00-00') {
                           $first_day = '';
@@ -107,7 +107,7 @@
                               }              
                             ?>
                           </td>
-                          <td class="text-center">₱ <?=number_format($data['tdc_price'])?></td>
+                          <td class="text-center"><?=$data['tdc_notes']?></td>
                           <td class="text-center">
                             <input type="button" class="btn btn-success" value="Update Schedule" data-toggle="modal" data-target="#view-schedule" id="<?=$data['tdc_id']?>" onclick="show_schedule(this.id)">
                             <?php 
@@ -413,6 +413,7 @@
       tdc_id = document.getElementById("tdc_id").value;
       tdc_stud_status = document.getElementById("tdc_stud_status").value;
       tdc_stud_payment_status = document.getElementById("tdc_stud_payment_status").value;
+      tdc_notes = document.getElementById("tdc_notes").value;
       // alert(tdc_stud_status+' '+tdc_stud_payment_status);
       if (confirm('Are you sure?')) {
         $.ajax({
@@ -423,6 +424,7 @@
             tdc_id:tdc_id,
             tdc_stud_status:tdc_stud_status,
             tdc_stud_payment_status,tdc_stud_payment_status,
+            tdc_notes:tdc_notes,
             update_stud_status: 1,
         },
             success: function(response){
