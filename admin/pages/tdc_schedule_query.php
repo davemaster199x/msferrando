@@ -2,6 +2,11 @@
   session_start();
   include("../connection.php");
   date_default_timezone_set('Asia/Manila');
+  use PHPMailer\PHPMailer\PHPMailer;
+    require_once '../../phpmailer/Exception.php';
+    require_once '../../phpmailer/PHPMailer.php';
+    require_once '../../phpmailer/SMTP.php';
+    $mail = new PHPMailer(true);
 
   if (isset($_POST['show_schedule'])) {
     $tdc_id = $_POST['tdc_id'];
@@ -255,6 +260,70 @@
         $tdc_stud_status = $_POST['tdc_stud_status'];
         $tdc_stud_payment_status = $_POST['tdc_stud_payment_status'];
         $tdc_notes = $_POST['tdc_notes'];
+
+        if ($tdc_stud_status == 1) {
+            if ($tdc_stud_payment_status == 1) {
+                $paystatus = "Partially Paid";
+            } elseif ($tdc_stud_payment_status == 2) {
+                $paystatus = "Fully Paid";
+            } else {
+                $paystatus = 'Unpaid';
+            }
+            $query = mysqli_query($conn, "SELECT
+                                            tbl_student.stud_name,tbl_student.stud_email_address
+                                        FROM
+                                            tbl_tdc
+                                            INNER JOIN
+                                            tbl_student
+                                            ON 
+                                                tbl_tdc.stud_id = tbl_student.stud_id WHERE tdc_id = '$tdc_id'");
+            $data = mysqli_fetch_assoc($query);
+            $stud_name = $data['stud_name'];
+            $stud_email_address = $data['stud_email_address'];
+            $message = '
+            <div style="padding: 20px 0px 0px 0px; background-color: #0E3741;" class="shadow">
+                <img src="https://msferrandodriving.com/images/banner.jpg" style="width: 100%;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="20" style="background-color: #47bcde; color: #5a5f61; font-family:verdana;">
+                    <tr>
+                        <td style="background-color: #fff; border-top: 10px solid #0E3741; border-bottom: 10px solid #0E3741;">
+                            <p style="margin-top: -5px;">Hi '.$stud_name.',</p>
+                            <label>Your TDC Schedule has been approved. Please attend your schedule at exact day and time. Thank you.</label><br>
+                            <label>Payment Status: '.$paystatus.'</label><br><br>
+                            <label>Regards,</label><br>
+                            <label>Ms Ferrando Driving School Institute</label>
+                        </td>
+                    </tr>
+                </table>
+                <div style="text-align: center; padding: 20px 0px; color: #fff; background-color: #0E3741;">
+                    Vinzon Street<br>
+                    Barangay. 15-B, Corner Rustico Cabaguio Street,<br>
+                    Poblacion District, Davao City, Philippines 8000<br><br>
+                    <a href="https:/msferrandodriving.com/" style="color: white;">https://msferrandodriving.com/</a>
+                </div>
+            </div>
+            ';
+            try{
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = "malhindavid@gmail.com";
+                $mail->Password = "pgjpvspfpauidugk";
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->Port = '587';
+
+                $mail->setFrom("malhindavid@gmail.com");
+                $mail->addAddress("$stud_email_address");
+
+                $mail->isHTML(true);
+                $mail->Subject = "MS Ferrando Driving School Institute | TDC Schedule";
+                $mail->Body = "$message";
+
+                $mail->send();
+                // echo "success";
+            } catch (Exception $e){
+                // echo "failed";
+            }
+        }
 
         $result = mysqli_query($conn, "UPDATE tbl_tdc SET tdc_stud_status = '$tdc_stud_status', tdc_stud_payment_status = '$tdc_stud_payment_status', tdc_notes = '$tdc_notes' WHERE tdc_id = '$tdc_id'");
         if ($result) {

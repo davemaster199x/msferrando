@@ -74,4 +74,4 @@ if(mysqli_connect_errno())
         customConfig: '/ckeditor/config.js'
     } );
 	note = CKEDITOR.instances.note.getData(); // get the note
-</script>
+	</script>
