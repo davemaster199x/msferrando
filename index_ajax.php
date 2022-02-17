@@ -41,12 +41,12 @@
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = "malhindavid@gmail.com";
-                $mail->Password = "pgjpvspfpauidugk";
+                $mail->Username = "marvinf@msfdi.com";
+                $mail->Password = "jlmnqtuwdrszfamz";
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = '587';
 
-                $mail->setFrom("malhindavid@gmail.com");
+                $mail->setFrom("marvinf@msfdi.com");
                 $mail->addAddress("$stud_email_address");
 
                 $mail->isHTML(true);

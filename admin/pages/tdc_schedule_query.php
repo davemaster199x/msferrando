@@ -287,7 +287,7 @@
                     <tr>
                         <td style="background-color: #fff; border-top: 10px solid #0E3741; border-bottom: 10px solid #0E3741;">
                             <p style="margin-top: -5px;">Hi '.$stud_name.',</p>
-                            <label>Your TDC Schedule has been approved. Please attend your schedule at exact day and time. Thank you.</label><br>
+                            <label>Your TDC Schedule has been approved. Please attend to your schedule at exact day and time. Thank you.</label><br>
                             <label>Payment Status: '.$paystatus.'</label><br><br>
                             <label>Regards,</label><br>
                             <label>Ms Ferrando Driving School Institute</label>
@@ -306,12 +306,12 @@
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = "malhindavid@gmail.com";
-                $mail->Password = "pgjpvspfpauidugk";
+                $mail->Username = "marvinf@msfdi.com";
+                $mail->Password = "jlmnqtuwdrszfamz";
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = '587';
 
-                $mail->setFrom("malhindavid@gmail.com");
+                $mail->setFrom("marvinf@msfdi.com");
                 $mail->addAddress("$stud_email_address");
 
                 $mail->isHTML(true);
