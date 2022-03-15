@@ -3,9 +3,19 @@
         <div class="row">
           <div class="col-12">
             <div class="card-box table-responsive">
-                <h4 class="header-title">Select Packages for TDC/PDC
+                <h4 class="header-title">Theoretical Driving Course Schedule
                   <div class="float-right">
-                    <button  type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#con-close-modal" style="white-space: nowrap;"><i class="fa fa-plus"></i> Select Package</button>
+                    <?php
+                      $tdc_rec = mysqli_query($conn, "SELECT COUNT(tbl_tdc.tdc_stud_status) AS total_stud FROM tbl_tdc WHERE stud_id = '$stud_id'");
+                      $data = mysqli_fetch_assoc($tdc_rec);
+                      $total_stud = $data['total_stud'];
+                      if ($total_stud == 0) {
+                        $disabled = '';
+                      } else {
+                        $disabled = 'style="display: none;"';
+                      }
+                    ?>
+                    <button  type="button" <?=$disabled?> class="btn btn-success btn-block" data-toggle="modal" data-target="#con-close-modal" style="white-space: nowrap;"><i class="fa fa-plus"></i> Add TDC</button>
                   </div>
                 </h4>
 

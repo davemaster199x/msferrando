@@ -1,103 +1,45 @@
 <!-- // This modal for the adding of TDC schedule -->
 <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <?php
-                    $result_tdc_price = mysqli_query($conn, "SELECT * FROM tbl_tdc_price");
-                    $data = mysqli_fetch_assoc($result_tdc_price);
-                    $tdc_price = $data['tdc_price'];
-                    $tdc_desc = $data['tdc_desc'];
-                    $tdc = number_format($tdc_price);
+                    $result_packages = mysqli_query($conn, "SELECT * FROM tbl_package");
+                    $result_count = mysqli_query($conn, "SELECT * FROM tbl_package");
                 ?>
-                <h4 class="modal-title">Select TDC Schedule</h4><br>
+                <h4 class="modal-title">Select Packages</h4><br>
             </div>
             <div class="modal-body">
-                <div class="col-sm-12">
-                    <label for=""><?=$tdc_desc;?></label>
-                </div>
-                <hr>
-                <div class="col-sm-12">
-                    <center>
-                        <label>Please Select the days following the order of the schedule. </label>
-                    </center>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label>First Day</label>
-                            <ul style="margin-top: 0px;">
-                                <li>Tuesday</li>
-                                <li>Friday</li>
-                            </ul>  
-                        </div>
-                        <div class="col-md-4">
-                            <label>Second Day</label>
-                            <ul style="margin-top: 0px;">
-                                <li>Wednesday</li>
-                                <li>Saturday</li>
-                            </ul> 
-                        </div>
-                        <div class="col-md-4">
-                            <label>Third Day</label>
-                            <ul style="margin-top: 0px;">
-                                <li>Thursday</li>
-                                <li>Sunday</li>
-                            </ul> 
+                <div class="row mt-12">
+                    <div class="col-lg-12">
+                        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <?php $count = 0; $count1 = 0; while($data = mysqli_fetch_array($result_count)) { ?>
+                                <li data-target="#carouselExampleFade" data-slide-to="<?php echo $count++; ?>" class="<?php if($count1++ == 0) { echo 'active'; } else { echo '';} ?>"></li>
+                                <?php } ?>
+                            </ol>
+                            <div class="carousel-inner" role="listbox">
+                                <?php $con = 0; while($datas = mysqli_fetch_array($result_packages)) { ?>
+                                <div class="carousel-item <?php if($con++ == 0) { echo 'active'; } else { echo '';} ?> ">
+                                    <img style="max-height:900px; display: block; margin-left: auto; margin-right: auto;" class="d-block img-fluid" src="../../package/<?php echo $datas['package_img']; ?>" alt="First slide" />
+                                    <!-- <div class="carousel-caption d-none d-md-block">
+                                        <h3 class="text-white">First slide label</h3>
+                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                    </div> -->
+                                </div>
+                                <?php } ?>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
                     </div>
-                    <center>
-                        <strong>No Schedule on MONDAY!</strong>
-                    </center>
-                    <hr>
-                    <form >
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">First Day:</label>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="date" class="form-control" id="tdc_first_day" onchange="first_day()">
-                                </div>
-                                <div class="col-md-6">
-                                    <select id="tdc_first_time" class="form-control" onchange="first_time()">
-                                        <option  selected>-Select Time-</option>
-                                        <option value="am">7am-12pm</option>
-                                        <option value="pm">1pm-6pm</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Second Day:</label>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="date" class="form-control" id="tdc_second_day" onchange="second_day()">
-                                </div>
-                                <div class="col-md-6">
-                                    <select id="tdc_second_time" class="form-control" onchange="second_time()">
-                                        <option  selected>-Select Time-</option>
-                                        <option value="am">7am-12pm</option>
-                                        <option value="pm">1pm-6pm</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Third Day:</label>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="date" class="form-control" id="tdc_third_day" onchange="third_day()">
-                                </div>
-                                <div class="col-md-6">
-                                    <select id="tdc_third_time" class="form-control"  onchange="third_time()">
-                                        <option  selected>-Select Time-</option>
-                                        <option value="am">7am-12pm</option>
-                                        <option value="pm">1pm-6pm</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <input type="button" class="btn btn-danger float-left" value="Reset Schedule" onclick="reset_tdc_schedule()">
-                        <input type="button" class="btn btn-success float-right" value="Submit Schedule" onclick="save_application()"  id="show_application">
-                    </form>
                 </div>
             </div>
             <div class="modal-footer">
