@@ -17,6 +17,13 @@
                 </li>
 
                 <li>
+                    <a href="./packages.php" class="">
+                        <i class="fe-package"></i>
+                        <span> Packages </span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="./change_password.php" class="">
                         <i class="fe-briefcase"></i>
                         <span> Change Password </span>

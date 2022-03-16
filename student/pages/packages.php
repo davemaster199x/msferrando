@@ -5,7 +5,7 @@ include("./inc/config.php");
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>MS Ferrando | Dashboard</title>
+        <title>MS Ferrando | Packages</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,6 +20,8 @@ include("./inc/config.php");
         <link href="../assets/libs/datatables/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
         <link href="../assets/libs/datatables/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
         <link href="../assets/libs/datatables/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+
+        <link href="../assets/libs/lightbox2/lightbox.min.css" rel="stylesheet" type="text/css"/>
 
     </head>
 
@@ -44,19 +46,14 @@ include("./inc/config.php");
                     <div class="container-fluid">
                         <!-- start page title -->
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-12">
                                 <div class="page-title-box">
-                                    <h4 class="page-title">Dashboard</h4>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="page-title-box">
-                                    <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-payment" style="float: right;" value="Payment Method">
+                                    <h4 class="page-title">Packages</h4>
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
-                        <?php include './dashboard_content.php'; ?>
+                        <?php include './packages_content.php'; ?>
                         <!-- end row -->
                     </div> <!-- end container-fluid -->
                 </div> <!-- end content -->
@@ -122,6 +119,8 @@ include("./inc/config.php");
         <script src="../assets/libs/datatables/responsive.bootstrap4.min.js"></script>
         <!-- Datatables init -->
         <script src="../assets/js/pages/datatables.init.js"></script>
+
+        <script src="../assets/libs/lightbox2/lightbox.min.js"></script>
 
     </body>
 </html>
