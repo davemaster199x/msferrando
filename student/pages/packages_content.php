@@ -46,7 +46,7 @@
                                                     <h5 class="card-title">Package Description:</h5>
                                                     <p class="card-text"><?php echo $data_allin['package_name']; ?></p>
                                                     <p class="card-text text-center">
-                                                        <button class="btn btn-success">Select Package</button>
+                                                        <button class="btn btn-success" id="<?php echo $data_allin['package_id']; ?>" onclick="book_now(this.id)">Book Now!</button>
                                                     </p>
                                                 </div>
                                             </div>
@@ -72,7 +72,7 @@
                                                     <h5 class="card-title">Package Description:</h5>
                                                     <p class="card-text"><?php echo $data_pdctdc['package_name']; ?></p>
                                                     <p class="card-text text-center">
-                                                        <button class="btn btn-success">Select Package</button>
+                                                        <button class="btn btn-success" id="<?php echo $data_pdctdc['package_id']; ?>" onclick="book_now()">Book Now!</button>
                                                     </p>
                                                 </div>
                                             </div>
@@ -98,7 +98,7 @@
                                                     <h5 class="card-title">Package Description:</h5>
                                                     <p class="card-text"><?php echo $data_refresh['package_name']; ?></p>
                                                     <p class="card-text text-center">
-                                                        <button class="btn btn-success">Select Package</button>
+                                                        <button class="btn btn-success" id="<?php echo $data_refresh['package_id']; ?>" onclick="book_now()">Book Now!</button>
                                                     </p>
                                                 </div>
                                             </div>
@@ -124,7 +124,7 @@
                                                     <h5 class="card-title">Package Description:</h5>
                                                     <p class="card-text"><?php echo $data_defensive['package_name']; ?></p>
                                                     <p class="card-text text-center">
-                                                        <button class="btn btn-success">Select Package</button>
+                                                        <button class="btn btn-success" id="<?php echo $data_defensive['package_id']; ?>" onclick="book_now()">Book Now!</button>
                                                     </p>
                                                 </div>
                                             </div>
@@ -144,3 +144,35 @@
       <!--End For the modal -->
 
       <script src="../assets/jquery.min.js"></script>
+      <script>
+          function book_now(id) {
+            if (confirm('Are you sure?')) {
+                $.ajax({
+                url: 'package_query.php',
+                type: 'POST',
+                async: false,
+                data:{
+                    package_id:id,
+                    book_now: 1,
+                },
+                    success: function(response){    
+                        if (response == 'success') {
+                            Swal.fire({
+                                title: "Success!",
+                                // text: "You clicked the button!",
+                                type: "success",
+                                confirmButtonClass: "btn btn-confirm mt-2"
+                            })
+                        } else {
+                            Swal.fire({
+                                type: "error",
+                                title: "Oops...",
+                                text: "You can only book once!",
+                                confirmButtonClass: "btn btn-confirm mt-2",
+                            })
+                        }
+                    }
+                });
+            } 
+          }
+      </script>

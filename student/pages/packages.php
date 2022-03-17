@@ -22,6 +22,7 @@ include("./inc/config.php");
         <link href="../assets/libs/datatables/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
 
         <link href="../assets/libs/lightbox2/lightbox.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -121,6 +122,7 @@ include("./inc/config.php");
         <script src="../assets/js/pages/datatables.init.js"></script>
 
         <script src="../assets/libs/lightbox2/lightbox.min.js"></script>
+        <script src="../assets/libs/sweetalert2/sweetalert2.min.js"></script>
 
     </body>
 </html>
