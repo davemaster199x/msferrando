@@ -73,7 +73,7 @@
                               if ($data['book_status'] == 0) {
                                 echo 'Please contact the Official Facebook Page of MS Ferrando for the validation <br> of your schedule. Failure to validate schedule within 24 hours will <br> automatically cancel your booking. Thank you and stay safe!';
                               } else {
-                                echo $data['tdc_created'];
+                                echo $data['book_created'];
                               }               
                             ?>
                           </td>
@@ -85,13 +85,16 @@
                                 $disabled = '';
                               }
                             ?>
-                            <input type="button" <?=$disabled?> class="btn btn-success" value="Update Schedule" data-toggle="modal" data-target="#view-schedule" id="<?=$data['book_id']?>" onclick="show_schedule(this.id)">
                             <?php 
                               if ($data['book_status'] == 0) {
                                echo '
                                 <input type="button" class="btn btn-danger" value="X" title="Cancel Schedule" id="'.$data['book_id'].'" onclick="cancel_booking(this.id)">
                               ';
-                              }    
+                              } elseif($data['book_status'] == 1 || $data['book_status'] == 2) {
+                                echo '
+                                <input type="button" '.$disabled.' class="btn btn-success" value="Add/Update Schedule" data-toggle="modal" data-target="#view-schedule" id="'.$data['book_id'].'" onclick="show_schedule(this.id)">
+                                ';
+                              }
                             ?>
                           </td>
                       </tr>
