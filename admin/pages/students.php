@@ -1,10 +1,5 @@
 <?php
-session_start();
-include("../connection.php");
-date_default_timezone_set('Asia/Manila');
-if (empty($_SESSION['user_id'])) {
-    header("Location: ../index.php");
-}
+include("./inc/config.php");
  ?>
 <!DOCTYPE html>
 <html lang="en">

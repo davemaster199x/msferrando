@@ -16,17 +16,17 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="./tdc_schedule.php" class="">
                         <i class="fe-calendar"></i>
                         <span> TDC Schedule </span>
                     </a>
-                </li>
+                </li> -->
 
                 <li>
-                    <a href="./pdc_schedule.php" class="">
+                    <a href="./schedule.php" class="">
                         <i class="fe-calendar"></i>
-                        <span> PDC Schedule </span>
+                        <span> Schedule </span>
                     </a>
                 </li>
 
