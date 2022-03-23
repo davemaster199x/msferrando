@@ -21,24 +21,24 @@
                     </tr>
                     </thead>
                     <tbody>
-                      <?php 
+                      <?php
                         $count = 1;
                         $query = mysqli_query($conn, "SELECT
-                        tbl_book.book_created, 
-                        tbl_book.book_status, 
-                        tbl_book.book_payment, 
-                        tbl_student.stud_name, 
+                        tbl_book.book_created,
+                        tbl_book.book_status,
+                        tbl_book.book_payment,
+                        tbl_student.stud_name,
                         tbl_package.package_name,
                         tbl_book.book_id
                       FROM
                         tbl_book
                         INNER JOIN
                         tbl_student
-                        ON 
+                        ON
                           tbl_book.stud_id = tbl_student.stud_id
                         INNER JOIN
                         tbl_package
-                        ON 
+                        ON
                           tbl_book.package_id = tbl_package.package_id ORDER BY tbl_book.book_created DESC ");
                         while($data = mysqli_fetch_array($query)) {
                       ?>
@@ -47,34 +47,34 @@
                           <td><?=$data['stud_name'];?></td>
                           <td><?=$data['package_name'];?></td>
                           <td class="text-center">
-                            <?php 
+                            <?php
                               if ($data['book_status'] == 0) {
                                 echo '<span class="badge label-table badge-danger">Invalid</span>';
                               } elseif ($data['book_status'] == 1) {
                                 echo '<span class="badge label-table badge-primary">Validate</span>';
                               } else {
                                 echo '<span class="badge label-table badge-success">Done</span>';
-                              }               
+                              }
                             ?>
                           </td>
                           <td class="text-center">
-                            <?php 
+                            <?php
                               if ($data['book_payment'] == 0) {
                                 echo '<span class="badge label-table badge-danger">Unpaid</span>';
                               } elseif ($data['book_payment'] == 1) {
                                 echo '<span class="badge label-table badge-warning">Partially Paid</span>';
                               } else {
                                 echo '<span class="badge label-table badge-success">Fully Paid</span>';
-                              }               
+                              }
                             ?>
                           </td>
                           <td class="text-center">
-                            <?php 
-                                echo $data['book_created'];             
+                            <?php
+                                echo $data['book_created'];
                             ?>
                           </td>
                           <td class="text-center">
-                            <?php 
+                            <?php
                               if ($data['book_status'] == 2) {
                                 $disabled = 'disabled';
                               } else {
@@ -82,7 +82,7 @@
                               }
                               echo '<input type="button" '.$disabled.' class="btn btn-success" value="Manage Schedule" data-toggle="modal" data-target="#view-schedule" id="'.$data['book_id'].'" onclick="show_schedule(this.id)">';
                             ?>
-                            <?php 
+                            <?php
                               if ($data['book_status'] == 0) {
                                echo '
                                 <input type="button" class="btn btn-danger" value="X" title="Cancel Schedule" id="'.$data['book_id'].'" onclick="cancel_booking(this.id)">
@@ -100,7 +100,7 @@
         <!--End This part for the list of all patients -->
         <!-- end row -->
       <!-- For the modal -->
-      <?php include './dashboard_modal.php'; ?>
+      <?php include './schedule_modal.php'; ?>
       <!--End For the modal -->
 
       <script src="../assets/jquery.min.js"></script>
@@ -140,11 +140,11 @@
 
     function show_schedule(id) {
       $.ajax({
-        url: 'dashboard_query.php',
+        url: 'schedule_query.php',
         type: 'POST',
         async: false,
         data:{
-            tdc_id:id,
+            book_id:id,
             show_schedule: 1,
         },
             success: function(response){
@@ -152,5 +152,5 @@
             }
         });
     }
-          
+
       </script>
