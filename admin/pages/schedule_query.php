@@ -84,7 +84,23 @@
                         <label for="vehicle1">15 Hours TDC:</label>
                     </div>
                     <div class="col-md-6">
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <input type="checkbox" id="tdc" name="tdc" value="tdc">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="vehicle1">Weekends:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="checkbox" id="wkds" name="wkds" value="wkds">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="vehicle1">Weekdays:</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="checkbox" id="wkys" name="wkys" value="wkys">
                     </div>
                 </div>
               </div>
@@ -95,11 +111,11 @@
                         <label for="vehicle1">Car:</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <input type="checkbox" id="cmt" name="cmt" value="cmt">
                         <label for="vehicle1">MT</label> |
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <input type="checkbox" id="cat" name="cat" value="cat">
                         <label for="vehicle1">AT</label> |
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <input type="checkbox" id="ctb" name="ctb" value="ctb">
                         <label for="vehicle1">Both</label>
                     </div>
                 </div>
@@ -108,11 +124,11 @@
                         <label for="vehicle1">Motor:</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <input type="checkbox" id="mmt" name="mmt" value="mmt">
                         <label for="vehicle1">MT</label> |
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <input type="checkbox" id="mat" name="mat" value="mat">
                         <label for="vehicle1">AT</label> |
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <input type="checkbox" id="mbt" name="mbt" value="mbt">
                         <label for="vehicle1">Both</label>
                     </div>
                 </div>
@@ -121,15 +137,15 @@
                         <label for="vehicle1">Hours:</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <input type="checkbox" id="h8" name="h8" value="h8">
                         <label for="vehicle1">8</label> |
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <input type="checkbox" id="h10" name="h10" value="h10">
                         <label for="vehicle1">10</label> |
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <input type="checkbox" id="h16" name="h16" value="h16">
                         <label for="vehicle1">16</label> |
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <input type="checkbox" id="h30" name="h30" value="h30">
                         <label for="vehicle1">30</label> |
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <input type="checkbox" id="h60" name="h60" value="h60">
                         <label for="vehicle1">60</label>
                     </div>
                 </div>
