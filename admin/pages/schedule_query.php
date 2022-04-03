@@ -84,7 +84,7 @@
                         <label for="vehicle1">15 Hours TDC:</label>
                     </div>
                     <div class="col-md-6">
-                        <input type="checkbox" id="tdc" name="tdc" value="tdc">
+                        <input type="checkbox" id="book_tdc" name="book_tdc" value="1">
                     </div>
                 </div>
                 <div class="row">
@@ -92,7 +92,7 @@
                         <label for="vehicle1">Weekends:</label>
                     </div>
                     <div class="col-md-6">
-                        <input type="checkbox" id="wkds" name="wkds" value="wkds">
+                        <input type="checkbox" id="book_tdc_schedds" name="book_tdc_sched" value="wkds">
                     </div>
                 </div>
                 <div class="row">
@@ -100,7 +100,7 @@
                         <label for="vehicle1">Weekdays:</label>
                     </div>
                     <div class="col-md-6">
-                        <input type="checkbox" id="wkys" name="wkys" value="wkys">
+                        <input type="checkbox" id="book_tdc_schedys" name="book_tdc_sched" value="wkys">
                     </div>
                 </div>
               </div>
@@ -111,11 +111,11 @@
                         <label for="vehicle1">Car:</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="checkbox" id="cmt" name="cmt" value="cmt">
+                        <input type="checkbox" id="book_pdc_carm" name="book_pdc_car" value="cmt">
                         <label for="vehicle1">MT</label> |
-                        <input type="checkbox" id="cat" name="cat" value="cat">
+                        <input type="checkbox" id="book_pdc_cara" name="book_pdc_car" value="cat">
                         <label for="vehicle1">AT</label> |
-                        <input type="checkbox" id="ctb" name="ctb" value="ctb">
+                        <input type="checkbox" id="book_pdc_carb" name="book_pdc_car" value="cbt">
                         <label for="vehicle1">Both</label>
                     </div>
                 </div>
@@ -124,11 +124,11 @@
                         <label for="vehicle1">Motor:</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="checkbox" id="mmt" name="mmt" value="mmt">
+                        <input type="checkbox" id="book_pdc_motorm" name="book_pdc_motor" value="mmt">
                         <label for="vehicle1">MT</label> |
-                        <input type="checkbox" id="mat" name="mat" value="mat">
+                        <input type="checkbox" id="book_pdc_motora" name="book_pdc_motor" value="mat">
                         <label for="vehicle1">AT</label> |
-                        <input type="checkbox" id="mbt" name="mbt" value="mbt">
+                        <input type="checkbox" id="book_pdc_motorb" name="book_pdc_motor" value="mbt">
                         <label for="vehicle1">Both</label>
                     </div>
                 </div>
@@ -137,21 +137,21 @@
                         <label for="vehicle1">Hours:</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="checkbox" id="h8" name="h8" value="h8">
+                        <input type="checkbox" id="book_pdc_hours8" name="book_pdc_hours" value="8">
                         <label for="vehicle1">8</label> |
-                        <input type="checkbox" id="h10" name="h10" value="h10">
+                        <input type="checkbox" id="book_pdc_hours10" name="book_pdc_hours" value="10">
                         <label for="vehicle1">10</label> |
-                        <input type="checkbox" id="h16" name="h16" value="h16">
+                        <input type="checkbox" id="book_pdc_hours16" name="book_pdc_hours" value="16">
                         <label for="vehicle1">16</label> |
-                        <input type="checkbox" id="h30" name="h30" value="h30">
+                        <input type="checkbox" id="book_pdc_hours30" name="book_pdc_hours" value="30">
                         <label for="vehicle1">30</label> |
-                        <input type="checkbox" id="h60" name="h60" value="h60">
+                        <input type="checkbox" id="book_pdc_hours60" name="book_pdc_hours" value="60">
                         <label for="vehicle1">60</label>
                     </div>
                 </div>
               </div>
             </div><hr>
-            <input type="button" class="btn btn-success float-right" value="Update Schedule"  onclick="update_schedule()">
+            <input type="button" class="btn btn-success float-right" value="Update Booking"  onclick="update_booking()">
         </div>
     ';
   }

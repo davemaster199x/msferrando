@@ -152,5 +152,44 @@
             }
         });
     }
+    
+    function update_booking() {
+      // alert('alert');
+      book_status = document.getElementById("book_status").value;
+      book_payment = document.getElementById("book_payment").value;
+      book_notes = document.getElementById("book_notes").value;
+
+      book_tdc = document.getElementById("book_tdc").value;
+      book_tdc_schedds = document.getElementById("book_tdc_schedds").value;
+      book_tdc_schedys = document.getElementById("book_tdc_schedys").value;
+
+      book_pdc_carm = document.getElementById("book_pdc_carm").value;
+      book_pdc_cara = document.getElementById("book_pdc_cara").value;
+      book_pdc_carb = document.getElementById("book_pdc_carb").value;
+
+      book_pdc_motorm = document.getElementById("book_pdc_motorm").value;
+      book_pdc_motora = document.getElementById("book_pdc_motora").value;
+      book_pdc_motorb = document.getElementById("book_pdc_motorb").value;
+
+      book_pdc_hours8 = document.getElementById("book_pdc_hours8").value;
+      book_pdc_hours10 = document.getElementById("book_pdc_hours10").value;
+      book_pdc_hours16 = document.getElementById("book_pdc_hours16").value;
+      book_pdc_hours30 = document.getElementById("book_pdc_hours30").value;
+      book_pdc_hours60 = document.getElementById("book_pdc_hours60").value;
+
+
+      // $.ajax({
+      //   url: 'schedule_query.php',
+      //   type: 'POST',
+      //   async: false,
+      //   data:{
+      //       book_id:id,
+      //       show_schedule: 1,
+      //   },
+      //       success: function(response){
+      //         $('#show_schedule').html(response);
+      //       }
+      //   });
+    }
 
       </script>
