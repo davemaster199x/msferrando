@@ -184,18 +184,28 @@
           book_pdc = '1';
           // alert(document.getElementById("book_pdc_hours8").value);
         }
-        $.ajax({
-          url: 'schedule_query.php',
-          type: 'POST',
-          async: false,
-          data:{
-              book_id:id,
-              update_booking: 1,
-          },
-              success: function(response){
-                $('#show_schedule').html(response);
-              }
-          });
+        
+      schedds = (book_tdc_schedds == true) ? document.getElementById("book_tdc_schedds").value : '';
+      schedys = (book_tdc_schedys == true) ? document.getElementById("book_tdc_schedys").value : '';
+      tdc = (book_tdc == true) ? document.getElementById("book_tdc").value : '';
+      book_tdc_sched = schedds + schedys;
+
+      alert(book_tdc_sched);
+      // book_pdc_car = (book_tdc_schedys == true) ? document.getElementById("book_tdc_schedys").value : '';
+
+      // alert(tdc);
+        // $.ajax({
+        //   url: 'schedule_query.php',
+        //   type: 'POST',
+        //   async: false,
+        //   data:{
+        //       book_id:id,
+        //       update_booking: 1,
+        //   },
+        //       success: function(response){
+        //         $('#show_schedule').html(response);
+        //       }
+        //   });
 
       }
     }
