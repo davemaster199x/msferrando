@@ -153,8 +153,8 @@
         });
     }
     
-    function update_booking() {
-      // alert('alert');
+    function update_booking(id) {
+      // alert(id);
       book_status = document.getElementById("book_status").value;
       book_payment = document.getElementById("book_payment").value;
       book_notes = document.getElementById("book_notes").value;
@@ -180,32 +180,70 @@
       book_pdc = '';
 
       if (confirm('Are you sure?')) {
-        if (book_pdc_hours8  == true || book_pdc_hours10  == true || book_pdc_hours16  == true || book_pdc_hours30  == true || book_pdc_hours60  == true) {
-          book_pdc = '1';
-          // alert(document.getElementById("book_pdc_hours8").value);
-        }
         
+      //Get checked value in tdc
       schedds = (book_tdc_schedds == true) ? document.getElementById("book_tdc_schedds").value : '';
       schedys = (book_tdc_schedys == true) ? document.getElementById("book_tdc_schedys").value : '';
       tdc = (book_tdc == true) ? document.getElementById("book_tdc").value : '';
       book_tdc_sched = schedds + schedys;
+      
 
-      alert(book_tdc_sched);
-      // book_pdc_car = (book_tdc_schedys == true) ? document.getElementById("book_tdc_schedys").value : '';
+      //Get checked value in pdc
+      if (book_pdc_hours8  == true || book_pdc_hours10  == true || book_pdc_hours16  == true || book_pdc_hours30  == true || book_pdc_hours60  == true) {
+          book_pdc = '1';
+        }
 
-      // alert(tdc);
-        // $.ajax({
-        //   url: 'schedule_query.php',
-        //   type: 'POST',
-        //   async: false,
-        //   data:{
-        //       book_id:id,
-        //       update_booking: 1,
-        //   },
-        //       success: function(response){
-        //         $('#show_schedule').html(response);
-        //       }
-        //   });
+      carm = (book_pdc_carm == true) ? document.getElementById("book_pdc_carm").value : '';
+      cara = (book_pdc_cara == true) ? document.getElementById("book_pdc_cara").value : '';
+      carb = (book_pdc_carb == true) ? document.getElementById("book_pdc_carb").value : '';
+      book_pdc_car = carm + cara + carb;
+
+      motorm = (book_pdc_motorm == true) ? document.getElementById("book_pdc_motorm").value : '';
+      motora = (book_pdc_motora == true) ? document.getElementById("book_pdc_motora").value : '';
+      motorb = (book_pdc_motorb == true) ? document.getElementById("book_pdc_motorb").value : '';
+      book_pdc_motor = motorm + motora + motorb;
+
+      hours8 = (book_pdc_hours8 == true) ? document.getElementById("book_pdc_hours8").value : '';
+      hours10 = (book_pdc_hours10 == true) ? document.getElementById("book_pdc_hours10").value : '';
+      hours16 = (book_pdc_hours16 == true) ? document.getElementById("book_pdc_hours16").value : '';
+      hours30 = (book_pdc_hours30 == true) ? document.getElementById("book_pdc_hours30").value : '';
+      hours60 = (book_pdc_hours60 == true) ? document.getElementById("book_pdc_hours60").value : '';
+      book_pdc_hours = hours8 + hours10 + hours16 + hours30 + hours60;
+
+        $.ajax({
+          url: 'schedule_query.php',
+          type: 'POST',
+          async: false,
+          data:{
+              book_id:id,
+              book_status:book_status,
+              book_payment:book_payment,
+              book_notes:book_notes,
+              book_tdc:tdc,
+              book_tdc_sched:book_tdc_sched,
+              book_pdc:book_pdc,
+              book_pdc_car:book_pdc_car,
+              book_pdc_motor:book_pdc_motor,
+              book_pdc_hours:book_pdc_hours,
+              update_booking: 1,
+          },
+              success: function(response){
+                if (response == 'success') {
+                Swal.fire({
+                    title: "Success!",
+                    type: "success",
+                    confirmButtonClass: "btn btn-confirm mt-2"
+                })
+                } else {
+                  Swal.fire({
+                      type: "error",
+                      title: "Oops...",
+                      text: "Something went wrong!",
+                      confirmButtonClass: "btn btn-confirm mt-2",
+                  })
+                }
+              }
+          });
 
       }
     }
