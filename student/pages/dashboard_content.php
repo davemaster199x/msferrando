@@ -29,7 +29,9 @@
                         tbl_book.book_payment, 
                         tbl_student.stud_name, 
                         tbl_package.package_name,
-                        tbl_book.book_id
+                        tbl_book.book_id,
+                        tbl_book.book_tdc,
+                        tbl_book.book_pdc
                       FROM
                         tbl_book
                         INNER JOIN
@@ -92,7 +94,7 @@
                               ';
                               } elseif($data['book_status'] == 1 || $data['book_status'] == 2) {
                                 echo '
-                                <input type="button" '.$disabled.' class="btn btn-success" value="Add/Update Schedule" data-toggle="modal" data-target="#view-schedule" id="'.$data['book_id'].'" onclick="show_schedule(this.id)">
+                                <input type="button" '.$disabled.' class="btn btn-success" value="Add/Update Schedule" data-toggle="modal" data-target="#view-schedule" id="'.$data['book_id'].','.$data['book_tdc'].','.$data['book_pdc'].' " onclick="show_schedule(this.id)">
                                 ';
                               }
                             ?>
@@ -146,6 +148,7 @@
     }
 
     function show_schedule(id) {
+      
       $.ajax({
         url: 'dashboard_query.php',
         type: 'POST',
