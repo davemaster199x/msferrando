@@ -94,7 +94,7 @@
                               ';
                               } elseif($data['book_status'] == 1 || $data['book_status'] == 2) {
                                 echo '
-                                <input type="button" '.$disabled.' class="btn btn-success" value="Add/Update Schedule" data-toggle="modal" data-target="#view-schedule" id="'.$data['book_id'].','.$data['book_tdc'].','.$data['book_pdc'].' " onclick="show_schedule(this.id)">
+                                <input type="button" '.$disabled.' class="btn btn-success" value="Add/Update Schedule" data-toggle="modal" data-target="#con-close-modal" id="'.$data['book_id'].'" onclick="show_schedule(this.id)">
                                 ';
                               }
                             ?>
@@ -154,13 +154,66 @@
         type: 'POST',
         async: false,
         data:{
-            tdc_id:id,
+            book_id:id,
             show_schedule: 1,
         },
             success: function(response){
               $('#show_schedule').html(response);
             }
         });
+    }
+
+    function save_tdc(id) {
+      book_id = document.getElementById("book_id").value;
+      tdc_first_day = document.getElementById("tdc_first_day").value;
+      tdc_second_day = document.getElementById("tdc_second_day").value;
+        $.ajax({
+          url: 'dashboard_query.php',
+          type: 'POST',
+          async: false,
+          data:{
+              book_id:book_id,
+              tdc_first_day:tdc_first_day,
+              tdc_second_day:tdc_second_day,
+              save_tdc: 1,
+          },
+              success: function(response){
+                if (response == 1) {
+                  Swal.fire({
+                      type: "error",
+                      title: "Oops...",
+                      text: 'Someone already take the last seat of the "'+tdc_first_day+'"',
+                      confirmButtonClass: "btn btn-confirm mt-2",
+                  })
+                } else if (response == 2){
+                  Swal.fire({
+                      type: "error",
+                      title: "Oops...",
+                      text: 'Someone already take the last seat of the "'+tdc_second_day+'"',
+                      confirmButtonClass: "btn btn-confirm mt-2",
+                  })
+                } else if (response == 'success'){
+                  Swal.fire({
+                    title: "Success!",
+                    // text: "You clicked the button!",
+                    type: "success",
+                    confirmButtonClass: "btn btn-confirm mt-2"
+                  })
+                  location.reload();
+                } else {
+                  Swal.fire({
+                      type: "error",
+                      title: "Oops...",
+                      text: 'The Schedule that you select already Full!',
+                      confirmButtonClass: "btn btn-confirm mt-2",
+                  })
+                }
+              }
+          });
+
+
+
+
     }
 
     function reset_tdc_schedule_update() {
