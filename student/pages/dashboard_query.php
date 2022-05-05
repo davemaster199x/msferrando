@@ -100,9 +100,9 @@
   }
   
   if (isset($_POST['cancel_booking'])) {
-    $tdc_id = $_POST['tdc_id'];
+    $book_id = $_POST['book_id'];
 
-    $query = mysqli_query($conn, "DELETE FROM tbl_tdc WHERE tdc_id = '$tdc_id'");
+    $query = mysqli_query($conn, "DELETE FROM tbl_book WHERE book_id = '$book_id'");
     if ($query) {
         echo 'success';
     }
@@ -135,7 +135,7 @@
                         <div class="row">
                             <div class="col-md-6">
                             <label for="exampleInputEmail1">First Day:</label>
-                                <input type="hidden" class="form-control" id="book_id" value="'.$data['book_id'].'">
+                                <input type="hidden" class="form-control" id="book_id" value="'.$book_id.'">
                                 <input type="date" class="form-control" id="tdc_first_day" value="'.$data['tdc_first_day'].'">
                             </div>
                             <div class="col-md-6">

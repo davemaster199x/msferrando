@@ -72,7 +72,7 @@
                                                     <h5 class="card-title">Package Description:</h5>
                                                     <p class="card-text"><?php echo $data_pdctdc['package_name']; ?></p>
                                                     <p class="card-text text-center">
-                                                        <button class="btn btn-success" id="<?php echo $data_pdctdc['package_id']; ?>" onclick="book_now()">Book Now!</button>
+                                                        <button class="btn btn-success" id="<?php echo $data_pdctdc['package_id']; ?>" onclick="book_now(this.id)">Book Now!</button>
                                                     </p>
                                                 </div>
                                             </div>
@@ -98,7 +98,7 @@
                                                     <h5 class="card-title">Package Description:</h5>
                                                     <p class="card-text"><?php echo $data_refresh['package_name']; ?></p>
                                                     <p class="card-text text-center">
-                                                        <button class="btn btn-success" id="<?php echo $data_refresh['package_id']; ?>" onclick="book_now()">Book Now!</button>
+                                                        <button class="btn btn-success" id="<?php echo $data_refresh['package_id']; ?>" onclick="book_now(this.id)">Book Now!</button>
                                                     </p>
                                                 </div>
                                             </div>
@@ -124,7 +124,7 @@
                                                     <h5 class="card-title">Package Description:</h5>
                                                     <p class="card-text"><?php echo $data_defensive['package_name']; ?></p>
                                                     <p class="card-text text-center">
-                                                        <button class="btn btn-success" id="<?php echo $data_defensive['package_id']; ?>" onclick="book_now()">Book Now!</button>
+                                                        <button class="btn btn-success" id="<?php echo $data_defensive['package_id']; ?>" onclick="book_now(this.id)">Book Now!</button>
                                                     </p>
                                                 </div>
                                             </div>

@@ -54,55 +54,58 @@
                 $mail->Body = "$message";
 
                 $mail->send();
-                // echo "success";
+                $sent = "success";
             } catch (Exception $e){
-                // echo "failed";
+                $sent = "failed";
             }
-        
-        echo '
-        <div class="col-md-12">
-            <div class="card-box">
-                <h4 class="header-title mb-3">Student Information</h4>
-                <label>Student Name: '.$stud_name.'</label><br>
-                <label>Email Address: '.$stud_email_address.'</label><br>
-                <label>Contact Number: '.$stud_contact.'</label><br>
-                <label>Birthdate: '.$stud_birthdate.'</label><br>
-                <label>Address: '.$stud_address.'</label>
+        if ($sent == 'success') {
+            echo '
+            <div class="col-md-12">
+                <div class="card-box">
+                    <h4 class="header-title mb-3">Student Information</h4>
+                    <label>Student Name: '.$stud_name.'</label><br>
+                    <label>Email Address: '.$stud_email_address.'</label><br>
+                    <label>Contact Number: '.$stud_contact.'</label><br>
+                    <label>Birthdate: '.$stud_birthdate.'</label><br>
+                    <label>Address: '.$stud_address.'</label>
+                </div>
             </div>
-        </div>
-        <hr>
-        <div class="col-md-12">
-            <div class="card-box">
-                <label>Please check your email for the verification!</label>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="hidden" class="form-control" id="veri_code" placeholder="Enter Code" value="'.$code.'">
-                            <input type="number" class="form-control" id="input_code" placeholder="Enter Code">
+            <hr>
+            <div class="col-md-12">
+                <div class="card-box">
+                    <label>Please check your email for the verification!</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="veri_code" placeholder="Enter Code" value="'.$code.'">
+                                <input type="number" class="form-control" id="input_code" placeholder="Enter Code">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="button" class="form-control btn btn-primary" id="confirm_button" value="Confirm" onclick="verify_code()">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="button" class="form-control btn btn-primary" id="confirm_button" value="Confirm" onclick="verify_code()">
+                            </div>
                         </div>
-                    </div>
-                </div><br>
-                <div class="row" id="show_stud_password">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="stud_password" disabled placeholder="Enter Password">
-                            <input type="checkbox" onclick="myFunction()"> Show Password
+                    </div><br>
+                    <div class="row" id="show_stud_password">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="stud_password" disabled placeholder="Enter Password">
+                                <input type="checkbox" onclick="myFunction()"> Show Password
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="button" class="form-control btn btn-success" id="student_save" disabled value="Save Application" onclick="save_application()">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="button" class="form-control btn btn-success" id="student_save" disabled value="Save Application" onclick="save_application()">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        ';
+            ';
+        } else {
+            echo 'Something went wrong! Please contact MS Ferrando for this problem.';
+        }
     }
 
     if (isset($_POST['save_application'])) {

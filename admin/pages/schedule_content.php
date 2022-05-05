@@ -83,11 +83,9 @@
                               echo '<input type="button" '.$disabled.' class="btn btn-success" value="Manage Schedule" data-toggle="modal" data-target="#view-schedule" id="'.$data['book_id'].'" onclick="show_schedule(this.id)">';
                             ?>
                             <?php
-                              if ($data['book_status'] == 0) {
                                echo '
                                 <input type="button" class="btn btn-danger" value="X" title="Cancel Schedule" id="'.$data['book_id'].'" onclick="cancel_booking(this.id)">
                               ';
-                              }
                             ?>
                           </td>
                       </tr>
